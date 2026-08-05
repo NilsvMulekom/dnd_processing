@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field
+from dataclasses import dataclass, fields, field
 from typing import Literal, get_args
 
 SpellLevel = Literal["cantrip", 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -44,20 +44,44 @@ class Spell:
     classes:       list[SpellClass] = field(default_factory=list)
 
     def parse_spell_body(self):
+        if self.spell_body is None:
+            print(f"Error: Spell {self.name} has insufficient spell body lines to parse.")
+            return
+
+        if len(self.spell_body) < 2:
+            print(f"Error: Spell {self.name} has insufficient spell body lines to parse.")
+            return
+
+        # Parse values in fixed positions in the spell body
+        level_and_school_line = self.spell_body[1]
         # Determine the spell level
-        # The first line of the spell body contains the level of the spell, which is either in the format "*Level X" or "Cantrip*"
         # TODO: Check if this should be a string
-        if self.spell_body[1].startswith("*Level"):
-            self.level = self.spell_body[1].split()[1]
-        elif self.spell_body[1].endswith("Cantrip*"):
+        if level_and_school_line.startswith("*Level"):
+            self.level = level_and_school_line.split()[1]
+        elif level_and_school_line.endswith("Cantrip*"):
             self.level = "cantrip"
 
         # Determine the spell school
         for school in get_args(SpellSchool):
-            # The first line of the spell body contains the school of magic.
-            if school in self.spell_body[1]:
+            if school in level_and_school_line:
                 self.school = school
 
+        # Parse the rest of the body to find the other attributes
+        for line in self.spell_body:
+            # Determine if a spell requires concentration
+            if line.startswith("- **Duration:**"):
+                if "Concentration" in line:
+                    self.concentration = True
+                else:
+                    self.concentration = False
+
+            # Determine which classes can use the spell
+            if line.startswith("**Classes:**"):
+                for class_name in get_args(SpellClass):
+                    if class_name in line:
+                        self.classes.append(class_name)
+
+        # TODO: Check if all attributes have been filled in
 
     def print_attributes(self):
         print(f"Spell name: {self.name}")

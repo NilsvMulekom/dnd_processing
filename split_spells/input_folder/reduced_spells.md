@@ -49,3 +49,5 @@ ___
 - Restrained
 - Stunned
 - Unconscious
+
+**Classes:** Artificer, Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, Wizard
