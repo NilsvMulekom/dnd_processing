@@ -43,6 +43,22 @@ class Spell:
     school:        SpellSchool      | None = None
     classes:       list[SpellClass] = field(default_factory=list)
 
+    def parse_spell_body(self):
+        # Determine the spell level
+        # The first line of the spell body contains the level of the spell, which is either in the format "*Level X" or "Cantrip*"
+        # TODO: Check if this should be a string
+        if self.spell_body[1].startswith("*Level"):
+            self.level = self.spell_body[1].split()[1]
+        elif self.spell_body[1].endswith("Cantrip*"):
+            self.level = "cantrip"
+
+        # Determine the spell school
+        for school in get_args(SpellSchool):
+            # The first line of the spell body contains the school of magic.
+            if school in self.spell_body[1]:
+                self.school = school
+
+
     def print_attributes(self):
         print(f"Spell name: {self.name}")
         print(f"Spell level: {self.level}")
@@ -58,6 +74,10 @@ class SpellBook:
         if spell.name is not None:
             # Only add the spell if it has a name (i.e., it's not an empty spell)
             self.spells[spell.name] = spell
+
+    def parse_all_spells(self):
+        for spell in self.spells.values():
+            spell.parse_spell_body()
 
     def print_all_spell_attributes(self):
         for spell in self.spells.values():
