@@ -33,6 +33,7 @@ SpellClass = Literal[
 ]
 @dataclass
 class Spell:
+    # TODO: add the rest of the spell attributes
     name:          str              | None = None
     spell_body:    list[str]        | None = None
     level:         SpellLevel       | None = None
@@ -46,6 +47,7 @@ class SpellBook:
     spells: dict[str, Spell]
 
 PATTERN_LIST = [
+    # TODO: add more patterns
     "Blinded",
     "Charmed",
     "Deafened",
