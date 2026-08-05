@@ -31,7 +31,7 @@ SpellClass = Literal[
     "warlock",
     "wizard",
 ]
-@dataclass
+@dataclass(slots=True)
 class Spell:
     # TODO: add the rest of the spell attributes
     # TODO: add convenience features
@@ -43,7 +43,7 @@ class Spell:
     school:        SpellSchool      | None = None
     classes:       list[SpellClass] = field(default_factory=list)
 
-@dataclass
+@dataclass(slots=True)
 class SpellBook:
     spells: dict[str, Spell] = field(default_factory=dict)
 
