@@ -43,6 +43,13 @@ class Spell:
     school:        SpellSchool      | None = None
     classes:       list[SpellClass] = field(default_factory=list)
 
+    def print_attributes(self):
+        print(f"Spell name: {self.name}")
+        print(f"Spell level: {self.level}")
+        print(f"Spell concentration: {self.concentration}")
+        print(f"Spell school: {self.school}")
+        print(f"Spell classes: {self.classes}")
+
 @dataclass(slots=True)
 class SpellBook:
     spells: dict[str, Spell] = field(default_factory=dict)
@@ -51,6 +58,10 @@ class SpellBook:
         if spell.name is not None:
             # Only add the spell if it has a name (i.e., it's not an empty spell)
             self.spells[spell.name] = spell
+
+    def print_all_spell_attributes(self):
+        for spell in self.spells.values():
+            spell.print_attributes()
 
 PATTERN_LIST = [
     # TODO: add more patterns
