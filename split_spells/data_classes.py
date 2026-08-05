@@ -1,9 +1,44 @@
 from dataclasses import dataclass
+from typing import Literal
 
+SpellLevel = Literal["cantrip", 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+from typing import Literal
+
+SpellSchool = Literal[
+	"abjuration",
+	"conjuration",
+	"divination",
+	"enchantment",
+	"evocation",
+	"illusion",
+	"necromancy",
+	"transmutation",
+]
+
+SpellClass = Literal[
+    "artificer",
+    "barbarian",
+    "bard",
+    "cleric",
+    "druid",
+    "fighter",
+    "monk",
+    "paladin",
+    "ranger",
+    "rogue",
+    "sorcerer",
+    "warlock",
+    "wizard",
+]
 @dataclass
 class Spell:
-    name:       str
-    spell_body: list[str]
+    name:          str              | None = None
+    spell_body:    list[str]        | None = None
+    level:         SpellLevel       | None = None
+    concentration: bool             | None = None
+    classes:       list[SpellClass] | None = None
+    school:        SpellSchool      | None = None
 
 # TODO: add convenience features
 @dataclass
