@@ -1,35 +1,35 @@
 from dataclasses import dataclass, field
-from typing import Literal
+from typing import Literal, get_args
 
 SpellLevel = Literal["cantrip", 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 from typing import Literal
 
 SpellSchool = Literal[
-	"abjuration",
-	"conjuration",
-	"divination",
-	"enchantment",
-	"evocation",
-	"illusion",
-	"necromancy",
-	"transmutation",
+	"Abjuration",
+	"Conjuration",
+	"Divination",
+	"Enchantment",
+	"Evocation",
+	"Illusion",
+	"Necromancy",
+	"Transmutation",
 ]
 
 SpellClass = Literal[
-    "artificer",
-    "barbarian",
-    "bard",
-    "cleric",
-    "druid",
-    "fighter",
-    "monk",
-    "paladin",
-    "ranger",
-    "rogue",
-    "sorcerer",
-    "warlock",
-    "wizard",
+    "Artificer",
+    "Barbarian",
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Fighter",
+    "Monk",
+    "Paladin",
+    "Ranger",
+    "Rogue",
+    "Sorcerer",
+    "Warlock",
+    "Wizard",
 ]
 @dataclass(slots=True)
 class Spell:
