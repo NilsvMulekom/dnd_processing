@@ -1,5 +1,6 @@
 from dataclasses import dataclass, fields, field
 from typing import Literal, get_args
+import re
 
 SpellLevel = Literal["cantrip", 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -45,7 +46,7 @@ class Spell:
 
     def parse_spell_body(self):
         if self.spell_body is None:
-            print(f"Error: Spell {self.name} has insufficient spell body lines to parse.")
+            print(f"Error: Spell {self.name} has an empty body and cannot be parsed.")
             return
 
         if len(self.spell_body) < 2:
@@ -83,6 +84,19 @@ class Spell:
 
         # TODO: Check if all attributes have been filled in
 
+    def add_linking(self):
+        if self.spell_body is None:
+            print(f"Error: Spell {self.name} has an empty body and cannot be linked.")
+            return
+
+        new_body: list[str] = []
+        for line in self.spell_body:
+            new_line = line
+            for pattern in PATTERN_LIST:
+                new_line = re.sub(pattern, f"[[{pattern}]]", new_line)
+            new_body.append(new_line)
+        self.spell_body = new_body
+
     def print_attributes(self):
         print(f"Spell name: {self.name}")
         print(f"Spell level: {self.level}")
@@ -102,6 +116,10 @@ class SpellBook:
     def parse_all_spells(self):
         for spell in self.spells.values():
             spell.parse_spell_body()
+
+    def add_linking_to_all_spells(self):
+        for spell in self.spells.values():
+            spell.add_linking()
 
     def print_all_spell_attributes(self):
         for spell in self.spells.values():

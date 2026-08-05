@@ -29,30 +29,17 @@ def split_files(input_file) -> SpellBook:
     spell_book.add(open_spell)
 
     return spell_book
-
-def add_linking(spell_book: SpellBook) -> SpellBook:
-    linked_book: SpellBook = SpellBook()
-
-    for spell_name, spell_obj in spell_book.spells.items():
-        spell_body: list[str] = []
-        for line in spell_obj.spell_body:
-            new_line = line
-            for pattern in PATTERN_LIST:
-                new_line=re.sub(pattern, f"[[{pattern}]]",new_line)
-            spell_body.append(new_line)
-        linked_book.add(Spell(name=spell_name, spell_body=spell_body))
-
-    return linked_book
     
 def main(input_file, output_directory):
     spell_book: SpellBook = SpellBook()
     create_output_dir(output_directory)
     spell_book = split_files(input_file)
-    spell_book = add_linking(spell_book)
-    # print_spell_book(spell_book)
-    write_spell_files(spell_book, output_directory)
 
     spell_book.parse_all_spells()
+    spell_book.add_linking_to_all_spells()
     spell_book.print_all_spell_attributes()
+
+    print_spell_book(spell_book)
+    write_spell_files(spell_book, output_directory)
 
 main("input_folder/reduced_spells.md", "spells_folder")
