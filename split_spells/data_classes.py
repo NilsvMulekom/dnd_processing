@@ -2,8 +2,8 @@ from dataclasses import dataclass
 
 @dataclass
 class Spell:
-    name:    str
-    content: list[str]
+    name:       str
+    spell_body: list[str]
 
 # TODO: add convenience features
 @dataclass

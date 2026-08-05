@@ -6,12 +6,12 @@ from data_classes import SpellBook
 def print_spell_book(spell_book: SpellBook):
     for spell_name, spell_obj in spell_book.items():
         print(f"Spell name: {spell_name}")
-        for index, line in enumerate(spell_obj.content):
+        for index, line in enumerate(spell_obj.spell_body):
             print(f"{index}: {line}")
 
 def write_spell_files(spell_book: SpellBook, output_directory: str):
     for spell_name, spell_obj in spell_book.items():
-        write_file(spell_name, spell_obj.content, output_directory)
+        write_file(spell_name, spell_obj.spell_body, output_directory)
         
 def write_file(file_title: str, file_body: list[str], output_path: str):
     file_name: str = f"{file_title}.md"

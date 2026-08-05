@@ -24,16 +24,16 @@ def split_files(input_file) -> SpellBook:
 
     spell_book: SpellBook = {}
     file_open: bool = False
-    open_spell : Spell = Spell(name="", content=[])
+    open_spell : Spell = Spell(name="", spell_body=[])
     
     for line in file_content.splitlines():
         if line.startswith("#### "):
             add_spell_to_book(spell_book, open_spell, file_open)
             # Cut off the first 5 characters to get the spell name
             spell_name: str = line[5:]
-            open_spell : Spell = Spell(name=spell_name, content=[])
+            open_spell : Spell = Spell(name=spell_name, spell_body=[])
             file_open = True
-        open_spell.content.append(line)
+        open_spell.spell_body.append(line)
 
     # Add the last spell to the spell_book if there is one open
     if file_open:
@@ -46,12 +46,12 @@ def add_linking(spell_book: SpellBook) -> SpellBook:
 
     for spell_name, spell_obj in spell_book.items():
         spell_body: list[str] = []
-        for line in spell_obj.content:
+        for line in spell_obj.spell_body:
             new_line = line
             for pattern in PATTERN_LIST:
                 new_line=re.sub(pattern, f"[[{pattern}]]",new_line)
             spell_body.append(new_line)
-        linked_book[spell_name] = Spell(name=spell_name, content=spell_body)
+        linked_book[spell_name] = Spell(name=spell_name, spell_body=spell_body)
 
     return linked_book
     
