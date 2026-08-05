@@ -40,7 +40,7 @@ def add_linking(spell_book: SpellBook) -> SpellBook:
             for pattern in PATTERN_LIST:
                 new_line=re.sub(pattern, f"[[{pattern}]]",new_line)
             spell_body.append(new_line)
-        linked_book.spells[spell_name] = Spell(name=spell_name, spell_body=spell_body)
+        linked_book.add(Spell(name=spell_name, spell_body=spell_body))
 
     return linked_book
     
