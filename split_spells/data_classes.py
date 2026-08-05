@@ -47,6 +47,11 @@ class Spell:
 class SpellBook:
     spells: dict[str, Spell] = field(default_factory=dict)
 
+    def add(self, spell: Spell) -> None:
+        if spell.name is not None:
+            # Only add the spell if it has a name (i.e., it's not an empty spell)
+            self.spells[spell.name] = spell
+
 PATTERN_LIST = [
     # TODO: add more patterns
     "Blinded",
