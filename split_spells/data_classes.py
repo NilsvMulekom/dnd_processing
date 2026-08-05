@@ -34,8 +34,6 @@ SpellClass = Literal[
 ]
 @dataclass(slots=True)
 class Spell:
-    # TODO: add the rest of the spell attributes
-    # TODO: add convenience features
     name:          str              | None = None
     spell_body:    list[str] = field(default_factory=list)
 
@@ -43,6 +41,8 @@ class Spell:
     concentration: bool             | None = None
     school:        SpellSchool      | None = None
     classes:       list[SpellClass] = field(default_factory=list)
+
+    # TODO: Add Duration, casting time, ritual casting option, components, range, material cost, damage type
 
     def parse_spell_body(self):
         if self.spell_body is None:
@@ -106,6 +106,7 @@ class Spell:
 
 @dataclass(slots=True)
 class SpellBook:
+    # TODO: Add name so spellbooks sorted in certain ways can be created. Perhaps add metadata of how it is sorted
     spells: dict[str, Spell] = field(default_factory=dict)
 
     def add(self, spell: Spell) -> None:
