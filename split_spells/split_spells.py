@@ -11,7 +11,7 @@ from convenience_functions import print_spell_book, write_spell_files, create_ou
 def add_spell_to_book(spell_book:SpellBook, spell:Spell) -> SpellBook:
     # Save the current spell to the spell_book if it has a name (i.e., it's not an empty spell)
     if spell.name != None:
-        spell_book[spell.name] = spell
+        spell_book.spells[spell.name] = spell
     return spell_book
 
 def split_files(input_file) -> SpellBook:
@@ -20,7 +20,7 @@ def split_files(input_file) -> SpellBook:
     with open(input_path, "r", encoding="utf-8") as file:
         file_content = file.read()
 
-    spell_book: SpellBook = {}
+    spell_book: SpellBook = SpellBook()
     open_spell: Spell = Spell()
     
     for line in file_content.splitlines():
@@ -37,21 +37,21 @@ def split_files(input_file) -> SpellBook:
     return spell_book
 
 def add_linking(spell_book: SpellBook) -> SpellBook:
-    linked_book: SpellBook = {}
+    linked_book: SpellBook = SpellBook()
 
-    for spell_name, spell_obj in spell_book.items():
+    for spell_name, spell_obj in spell_book.spells.items():
         spell_body: list[str] = []
         for line in spell_obj.spell_body:
             new_line = line
             for pattern in PATTERN_LIST:
                 new_line=re.sub(pattern, f"[[{pattern}]]",new_line)
             spell_body.append(new_line)
-        linked_book[spell_name] = Spell(name=spell_name, spell_body=spell_body)
+        linked_book.spells[spell_name] = Spell(name=spell_name, spell_body=spell_body)
 
     return linked_book
     
 def main(input_file, output_directory):
-    spell_book: SpellBook = {}
+    spell_book: SpellBook = SpellBook()
     create_output_dir(output_directory)
     spell_book = split_files(input_file)
     spell_book = add_linking(spell_book)
