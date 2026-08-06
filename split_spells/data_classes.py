@@ -125,6 +125,12 @@ class SpellBook:
         for spell in self.spells.values():
             spell.print_attributes()
 
+    def print_spell_book(self):
+        for spell_name, spell_obj in self.spells.items():
+            print(f"Spell name: {spell_name}")
+            for index, line in enumerate(spell_obj.spell_body):
+                print(f"{index}: {line}")
+
 PATTERN_LIST = [
     # TODO: add more patterns
     "Blinded",

@@ -2,18 +2,12 @@ from pathlib import Path
 import shutil
 
 from data_classes import SpellBook
-
-# TODO: move to SpellBook class
-def print_spell_book(spell_book: SpellBook):
-    for spell_name, spell_obj in spell_book.spells.items():
-        print(f"Spell name: {spell_name}")
-        for index, line in enumerate(spell_obj.spell_body):
-            print(f"{index}: {line}")
+from constants import OUTPUT_DIR, TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR
 
 def write_spell_files(spell_book: SpellBook, output_directory: str):
     for spell_name, spell_obj in spell_book.spells.items():
         write_file(spell_name, spell_obj.spell_body, output_directory)
-        
+
 def write_file(file_title: str, file_body: list[str], output_path: str):
     file_name: str = f"{file_title}.md"
     output_file = Path(output_path) / file_name
@@ -22,10 +16,13 @@ def write_file(file_title: str, file_body: list[str], output_path: str):
         for line in file_body:
             file.write(f"{line}\n")
             
-def create_output_dir(output_directory: str):
-    output_path = Path(output_directory)
+def create_output_dirs():
+    output_dir = Path(OUTPUT_DIR)
     # Create output dir, if it already exists delete the old version first
-    if output_path.exists():
-        shutil.rmtree(output_path)
+    if output_dir.exists():
+        shutil.rmtree(output_dir)
 
-    output_path.mkdir(exist_ok=True)
+    output_dir.mkdir(exist_ok=True)
+    (output_dir / TABLE_OUTPUT_DIR).mkdir(exist_ok=True)
+    (output_dir / SPELL_FILES_OUTPUT_DIR).mkdir(exist_ok=True)
+    
