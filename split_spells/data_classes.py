@@ -1,6 +1,8 @@
-from dataclasses import dataclass, fields, field
+from dataclasses import dataclass, field
 from typing import Literal, get_args
 import re
+from constants import TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR
+from convenience_functions import write_file
 
 SpellLevel = Literal["cantrip", 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -130,6 +132,41 @@ class SpellBook:
             print(f"Spell name: {spell_name}")
             for index, line in enumerate(spell_obj.spell_body):
                 print(f"{index}: {line}")
+
+    def write_spell_files(self):
+        for spell_name, spell_obj in self.spells.items():
+            write_file(spell_name, spell_obj.spell_body, SPELL_FILES_OUTPUT_DIR)
+
+    def print_table_alphabetical(self):
+        # Print the table header
+        file_body : list[str] = []
+        file_body.append("| Spell Name | Level | School | Concentration | Classes |")
+        file_body.append("|------------|-------|--------|---------------|---------|")
+
+        for spell in self.spells.values():
+            # Change the class formatting from a list to a comma-separated string
+            spell_class_line : str = ", ".join(spell.classes)
+            # Print the spell attributes in a table row
+            file_body.append(f"| [[{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell_class_line} |")
+
+        write_file("Spells", file_body, TABLE_OUTPUT_DIR)
+
+    def print_class_table(self, class_name: str):
+        # Print the table header
+        file_body : list[str] = []
+        file_body.append("| Level | Spell Name | School | Concentration |")
+        file_body.append("| ----- | ------------ |--------|---------------|")
+
+        for spell in self.spells.values():
+            if class_name in spell.classes:
+                # Print the spell attributes in a table row
+                file_body.append(f"| {spell.level} | [[{spell.name}]] | {spell.school} | {spell.concentration} |")
+
+        write_file(f"{class_name} Spells", file_body, TABLE_OUTPUT_DIR)
+
+    def print_class_tables(self):
+        for class_name in get_args(SpellClass):
+            self.print_class_table(class_name)
 
 PATTERN_LIST = [
     # TODO: add more patterns

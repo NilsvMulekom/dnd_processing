@@ -1,12 +1,7 @@
 from pathlib import Path
 import shutil
 
-from data_classes import SpellBook
 from constants import OUTPUT_DIR, TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR
-
-def write_spell_files(spell_book: SpellBook, output_directory: str):
-    for spell_name, spell_obj in spell_book.spells.items():
-        write_file(spell_name, spell_obj.spell_body, output_directory)
 
 def write_file(file_title: str, file_body: list[str], output_path: str):
     file_name: str = f"{file_title}.md"
@@ -23,6 +18,6 @@ def create_output_dirs():
         shutil.rmtree(output_dir)
 
     output_dir.mkdir(exist_ok=True)
-    (output_dir / TABLE_OUTPUT_DIR).mkdir(exist_ok=True)
-    (output_dir / SPELL_FILES_OUTPUT_DIR).mkdir(exist_ok=True)
+    TABLE_OUTPUT_DIR.mkdir(exist_ok=True)
+    SPELL_FILES_OUTPUT_DIR.mkdir(exist_ok=True)
     
