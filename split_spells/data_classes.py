@@ -110,6 +110,9 @@ class SpellBook:
             # Only add the spell if it has a name (i.e., it's not an empty spell)
             self.spells[spell.name] = spell
 
+    def sort_by_level(self) -> None:
+        self.spells = dict(sorted(self.spells.items(), key=lambda item: (item[1].level != "cantrip", item[1].level)))
+
     def parse_all_spells(self):
         for spell in self.spells.values():
             spell.parse_spell_body()

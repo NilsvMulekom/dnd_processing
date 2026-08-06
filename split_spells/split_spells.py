@@ -69,11 +69,15 @@ def main(input_file, output_directory):
 
     spell_book.parse_all_spells()
     spell_book.add_linking_to_all_spells()
-    spell_book.print_all_spell_attributes()
+    # spell_book.print_all_spell_attributes()
 
     # print_spell_book(spell_book)
-    write_spell_files(spell_book, output_directory)
-    print_table_alphabetical(spell_book)
-    print_class_table(spell_book, "Paladin")
+    # write_spell_files(spell_book, output_directory)
+    # print_table_alphabetical(spell_book)
+    # print_class_table(spell_book, "Paladin")
+
+    sorted_book: SpellBook = spell_book
+    sorted_book.sort_by_level()
+    print_spell_book(sorted_book)
 
 main("input_folder/reduced_spells.md", "spells_folder")
