@@ -44,6 +44,23 @@ def print_table_alphabetical(spell_book: SpellBook):
 
     write_file("spell_table", file_body, "table_folder")
 
+def print_class_table(spell_book: SpellBook, class_name: str):
+    for spell in spell_book.spells.values():
+        if class_name not in spell.classes:
+            print(f"Error: Spell {spell.name} does not have class {class_name} in its classes list.")
+
+    # Print the table header
+    file_body : list[str] = []
+    file_body.append("| Level | Spell Name | School | Concentration |")
+    file_body.append("| ----- | ------------ |--------|---------------|")
+
+    for spell in spell_book.spells.values():
+        if class_name in spell.classes:
+            # Print the spell attributes in a table row
+            file_body.append(f"| {spell.level} | [[{spell.name}]] | {spell.school} | {spell.concentration} |")
+
+    write_file(f"{class_name} Spells", file_body, "table_folder")
+
 def main(input_file, output_directory):
     spell_book: SpellBook = SpellBook()
     create_output_dir(output_directory)
@@ -57,5 +74,6 @@ def main(input_file, output_directory):
     # print_spell_book(spell_book)
     write_spell_files(spell_book, output_directory)
     print_table_alphabetical(spell_book)
+    print_class_table(spell_book, "Paladin")
 
 main("input_folder/reduced_spells.md", "spells_folder")
