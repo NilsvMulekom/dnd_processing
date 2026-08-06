@@ -3,6 +3,7 @@ import shutil
 
 from data_classes import SpellBook
 
+# TODO: move to SpellBook class
 def print_spell_book(spell_book: SpellBook):
     for spell_name, spell_obj in spell_book.spells.items():
         print(f"Spell name: {spell_name}")
