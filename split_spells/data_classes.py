@@ -17,8 +17,6 @@ SpellLevel = Literal[
     "Level 9"
 ]
 
-from typing import Literal
-
 SpellSchool = Literal[
 	"Abjuration",
 	"Conjuration",
@@ -41,6 +39,13 @@ SpellClass = Literal[
     "Warlock",
     "Wizard",
 ]
+
+# TODO: Replace when all content that references these duplicate names has been automated
+DUPLICATE_NAME_EXCEPTIONS = {
+    "Light",
+    "Slow",
+    "Test",
+}
 @dataclass(slots=True)
 class Spell:
     name:          str              | None = None
@@ -105,6 +110,27 @@ class Spell:
             new_body.append(new_line)
         self.spell_body = new_body
 
+    def add_properties(self):
+        if self.spell_body is None:
+            print(f"Error: Spell {self.name} has an empty body and cannot have properties added.")
+            return
+
+        properties_body: list[str] = []
+        properties_body.append(f"---")
+        properties_body.append(f"aliases: {self.name}")
+        properties_body.append(f"level: {self.level}")
+        properties_body.append(f"school: {self.school}")
+        properties_body.append(f"concentration: {self.concentration}")
+        properties_body.append(f"classes:")
+        for class_name in self.classes:
+            properties_body.append(f"  - {class_name}")
+        properties_body.append(f"---")
+
+        new_body: list[str] = []
+        new_body.extend(properties_body)
+        new_body.extend(self.spell_body)
+        self.spell_body = new_body
+
     def print_attributes(self):
         print(f"Spell name: {self.name}")
         print(f"Spell level: {self.level}")
@@ -133,6 +159,10 @@ class SpellBook:
         for spell in self.spells.values():
             spell.add_linking()
 
+    def add_properties_to_all_spells(self):
+        for spell in self.spells.values():
+            spell.add_properties()
+
     def print_all_spell_attributes(self):
         for spell in self.spells.values():
             spell.print_attributes()
@@ -145,7 +175,11 @@ class SpellBook:
 
     def write_spell_files(self):
         for spell_name, spell_obj in self.spells.items():
-            write_file(spell_name, spell_obj.spell_body, SPELL_FILES_OUTPUT_DIR)
+            if spell_name in DUPLICATE_NAME_EXCEPTIONS:
+                new_name = f"{spell_name} (Spell)"
+                write_file(new_name, spell_obj.spell_body, SPELL_FILES_OUTPUT_DIR)
+            else:
+                write_file(spell_name, spell_obj.spell_body, SPELL_FILES_OUTPUT_DIR)
 
     def print_table_alphabetical(self):
         # Print the table header
@@ -157,7 +191,10 @@ class SpellBook:
             # Change the class formatting from a list to a comma-separated string
             spell_class_line : str = ", ".join(spell.classes)
             # Print the spell attributes in a table row
-            file_body.append(f"| [[{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell_class_line} |")
+            if spell.name in DUPLICATE_NAME_EXCEPTIONS:
+                file_body.append(f"| [[{spell.name} (Spell)\|{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell_class_line} |")
+            else:
+                file_body.append(f"| [[{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell_class_line} |")
 
         write_file("Spells", file_body, TABLE_OUTPUT_DIR)
 
@@ -170,7 +207,10 @@ class SpellBook:
         for spell in self.spells.values():
             if class_name in spell.classes:
                 # Print the spell attributes in a table row
-                file_body.append(f"| {spell.level} | [[{spell.name}]] | {spell.school} | {spell.concentration} |")
+                if spell.name in DUPLICATE_NAME_EXCEPTIONS:
+                    file_body.append(f"| {spell.level} | [[{spell.name} (Spell)\|{spell.name}]] | {spell.school} | {spell.concentration} |")
+                else:
+                    file_body.append(f"| {spell.level} | [[{spell.name}]] | {spell.school} | {spell.concentration} |")
 
         write_file(f"{class_name} Spells", file_body, TABLE_OUTPUT_DIR)
 

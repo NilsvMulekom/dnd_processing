@@ -38,6 +38,7 @@ def main(input_file):
 
     spell_book.parse_all_spells()
     spell_book.add_linking_to_all_spells()
+    spell_book.add_properties_to_all_spells()
     # spell_book.print_spell_book()
     # spell_book.print_all_spell_attributes()
 
@@ -48,4 +49,4 @@ def main(input_file):
     sorted_book.sort_by_level()
     sorted_book.print_class_tables()
 
-main("input_folder/reduced_spells.md")
+main("input_folder/all_spells.md")
