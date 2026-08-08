@@ -4,7 +4,18 @@ import re
 from constants import TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR
 from convenience_functions import write_file
 
-SpellLevel = Literal["cantrip", 1, 2, 3, 4, 5, 6, 7, 8, 9]
+SpellLevel = Literal[
+    "Cantrip",
+    "Level 1",
+    "Level 2",
+    "Level 3",
+    "Level 4",
+    "Level 5",
+    "Level 6",
+    "Level 7",
+    "Level 8",
+    "Level 9"
+]
 
 from typing import Literal
 
@@ -54,11 +65,10 @@ class Spell:
         # Parse values in fixed positions in the spell body
         level_and_school_line = self.spell_body[1]
         # Determine the spell level
-        # TODO: Check if this should be a string
         if level_and_school_line.startswith("*Level"):
-            self.level = level_and_school_line.split()[1]
+            self.level = f"Level {level_and_school_line.split()[1]}"
         elif level_and_school_line.endswith("Cantrip*"):
-            self.level = "cantrip"
+            self.level = "Cantrip"
 
         # Determine the spell school
         for school in get_args(SpellSchool):
