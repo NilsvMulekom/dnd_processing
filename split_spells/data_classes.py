@@ -100,6 +100,10 @@ class Spell:
                         self.classes.append(class_name)
             # Determine the spell's damage types
             for damage_type in get_args(DamageType):
+                if f"{damage_type},".casefold() in line.casefold():
+                    self.damage_type.append(damage_type)
+                if f"{damage_type}.".casefold() in line.casefold():
+                    self.damage_type.append(damage_type)
                 if f"{damage_type} damage".casefold() in line.casefold():
                     self.damage_type.append(damage_type)
         # TODO: Check if all attributes have been filled in
@@ -118,6 +122,18 @@ class Spell:
         properties_body.append(f"level: {self.level}")
         properties_body.append(f"school: {self.school}")
         properties_body.append(f"concentration: {self.concentration}")
+        properties_body.append(f"ritual: {self.ritual}")
+        properties_body.append(f"casting_time: {self.casting_time}")
+        properties_body.append(f"duration: {self.duration}")
+        properties_body.append(f"range: {self.spell_range}")
+        properties_body.append(f"material_cost: {self.material_cost}")
+
+        properties_body.append(f"components:")
+        for component in self.components:
+            properties_body.append(f"  - {component}")
+        properties_body.append(f"damage_types:")
+        for damage_type in self.damage_type:
+            properties_body.append(f"  - {damage_type}")
         properties_body.append(f"classes:")
         for class_name in self.classes:
             properties_body.append(f"  - {class_name}")
