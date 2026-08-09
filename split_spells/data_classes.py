@@ -1,51 +1,10 @@
 from dataclasses import dataclass, field
-from typing import Literal, get_args
-import re
-from constants import TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR
-from convenience_functions import write_file
+from typing import get_args
 
-SpellLevel = Literal[
-    "Cantrip",
-    "Level 1",
-    "Level 2",
-    "Level 3",
-    "Level 4",
-    "Level 5",
-    "Level 6",
-    "Level 7",
-    "Level 8",
-    "Level 9"
-]
+from constants import TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR, DUPLICATE_NAME_EXCEPTIONS
+from convenience_functions import add_linking_to_body, write_file
+from custom_types import SpellLevel, SpellSchool, SpellClass
 
-SpellSchool = Literal[
-	"Abjuration",
-	"Conjuration",
-	"Divination",
-	"Enchantment",
-	"Evocation",
-	"Illusion",
-	"Necromancy",
-	"Transmutation",
-]
-
-SpellClass = Literal[
-    "Artificer",
-    "Bard",
-    "Cleric",
-    "Druid",
-    "Paladin",
-    "Ranger",
-    "Sorcerer",
-    "Warlock",
-    "Wizard",
-]
-
-# TODO: Replace when all content that references these duplicate names has been automated
-DUPLICATE_NAME_EXCEPTIONS = {
-    "Light",
-    "Slow",
-    "Test",
-}
 @dataclass(slots=True)
 class Spell:
     name:          str              | None = None
@@ -98,17 +57,7 @@ class Spell:
         # TODO: Check if all attributes have been filled in
 
     def add_linking(self):
-        if self.spell_body is None:
-            print(f"Error: Spell {self.name} has an empty body and cannot be linked.")
-            return
-
-        new_body: list[str] = []
-        for line in self.spell_body:
-            new_line = line
-            for pattern in PATTERN_LIST:
-                new_line = re.sub(pattern, f"[[{pattern}]]", new_line)
-            new_body.append(new_line)
-        self.spell_body = new_body
+        self.spell_body = add_linking_to_body(self.spell_body)
 
     def add_properties(self):
         if self.spell_body is None:
@@ -217,22 +166,3 @@ class SpellBook:
     def print_class_tables(self):
         for class_name in get_args(SpellClass):
             self.print_class_table(class_name)
-
-PATTERN_LIST = [
-    # TODO: add more patterns
-    "Blinded",
-    "Charmed",
-    "Deafened",
-    "Exhaustion",
-    "Frightened",
-    "Grappled",
-    "Incapacitated",
-    "Invisible",
-    "Paralyzed",
-    "Petrified",
-    "Poisoned",
-    "Prone",
-    "Restrained",
-    "Stunned",
-    "Unconscious",
-]
