@@ -3,21 +3,26 @@ from typing import get_args
 
 from constants import TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR, DUPLICATE_NAME_EXCEPTIONS
 from convenience_functions import add_linking_to_body, write_file
-from custom_types import TextBody, SpellLevel, SpellSchool, SpellClass
+from custom_types import SpellComponent, TextBody, SpellLevel, SpellSchool, SpellClass
 
 @dataclass(slots=True)
 class Spell:
-    # TODO: Make separate body for properties?
     name       : str | None = None
     properties : TextBody = field(default_factory=list)
     spell_body : TextBody = field(default_factory=list)
 
     level:         SpellLevel       | None = None
     concentration: bool             | None = None
+    ritual:        bool             | None = None
     school:        SpellSchool      | None = None
     classes:       list[SpellClass] = field(default_factory=list)
 
-    # TODO: Add Duration, casting time, ritual casting option, components, range, material cost, damage type
+    casting_time  : str | None = None
+    duration      : str | None = None
+    spell_range   : str | None = None
+    damage_type   : str | None = None
+    material_cost : str | None = None
+    components    : list[SpellComponent] = field(default_factory=list)
 
     def parse_spell_body(self):
         if self.spell_body is None:
@@ -28,7 +33,9 @@ class Spell:
             print(f"Error: Spell {self.name} has insufficient spell body lines to parse.")
             return
 
-        # Parse values in fixed positions in the spell body
+        ###########################################################
+        # Parse values in fixed positions in the spell body       #
+        ###########################################################
         level_and_school_line = self.spell_body[1]
         # Determine the spell level
         if level_and_school_line.startswith("*Level"):
@@ -41,15 +48,53 @@ class Spell:
             if school in level_and_school_line:
                 self.school = school
 
-        # Parse the rest of the body to find the other attributes
+        ###########################################################
+        # Parse the rest of the body to find the other attributes #
+        ###########################################################
         for line in self.spell_body:
-            # Determine if a spell requires concentration
+            
+            if line.startswith("- **Casting Time:**"):
+                # Determine if the spell can be ritual cast
+                if "Ritual" in line:
+                    self.ritual = True
+                else:
+                    self.ritual = False
+                # Determine the spell's casting time
+                if "Action" in line:
+                    self.casting_time = "Action"
+                elif "Bonus Action" in line:
+                    self.casting_time = "Bonus Action"
+                elif "Reaction" in line:
+                    self.casting_time = "Reaction"
+                else:
+                    self.casting_time = f"{line.split()[3]} {line.split()[4]}"
+            if line.startswith("- **Range:**"):
+                # Determine the spell's range
+                if len(line.split()) == 3:
+                    self.spell_range = line.split()[2]
+                else:
+                    self.spell_range = f"{line.split()[2]} {line.split()[3]}"
+            if line.startswith("- **Components:**"):
+                # Determine the spell's components
+                if "V" in line:
+                    self.components.append("V")
+                if "S" in line:
+                    self.components.append("S")
+                if "M" in line:
+                    self.components.append("M")
+                if "+ GP" in line:
+                    self.material_cost = f"{line.split()[-2]} GP"
             if line.startswith("- **Duration:**"):
+                # Determine if a spell requires concentration
                 if "Concentration" in line:
                     self.concentration = True
                 else:
                     self.concentration = False
-
+                # Determine the spell's duration
+                if len(line.split()) == 3:
+                    self.duration = line.split()[2]
+                else:
+                    self.duration = f"{line.split()[2]} {line.split()[3]}"
             # Determine which classes can use the spell
             if line.startswith("**Classes:**"):
                 for class_name in get_args(SpellClass):
@@ -83,8 +128,16 @@ class Spell:
         print(f"Spell name: {self.name}")
         print(f"Spell level: {self.level}")
         print(f"Spell concentration: {self.concentration}")
+        print(f"Spell ritual: {self.ritual}")
         print(f"Spell school: {self.school}")
         print(f"Spell classes: {self.classes}")
+
+        print(f"Spell casting time: {self.casting_time}")
+        print(f"Spell duration: {self.duration}")
+        print(f"Spell range: {self.spell_range}")
+        print(f"Spell damage type: {self.damage_type}")
+        print(f"Spell material cost: {self.material_cost}")
+        print(f"Spell components: {self.components}")
 
 @dataclass(slots=True)
 class SpellBook:

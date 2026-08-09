@@ -38,3 +38,9 @@ SpellClass = Literal[
     "Warlock",
     "Wizard",
 ]
+
+SpellComponent = Literal[
+    "V",
+    "S",
+    "M",
+]
