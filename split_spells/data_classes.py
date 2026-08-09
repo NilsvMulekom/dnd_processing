@@ -143,7 +143,7 @@ class SpellBook:
             spell_class_line : str = ", ".join(spell.classes)
             # Print the spell attributes in a table row
             if spell.name in DUPLICATE_NAME_EXCEPTIONS:
-                file_body.append(f"| [[{spell.name} (Spell)\|{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell_class_line} |")
+                file_body.append(f"| [[{spell.name} (Spell)\\|{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell_class_line} |")
             else:
                 file_body.append(f"| [[{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell_class_line} |")
 
@@ -159,7 +159,7 @@ class SpellBook:
             if class_name in spell.classes:
                 # Print the spell attributes in a table row
                 if spell.name in DUPLICATE_NAME_EXCEPTIONS:
-                    file_body.append(f"| {spell.level} | [[{spell.name} (Spell)\|{spell.name}]] | {spell.school} | {spell.concentration} |")
+                    file_body.append(f"| {spell.level} | [[{spell.name} (Spell)\\|{spell.name}]] | {spell.school} | {spell.concentration} |")
                 else:
                     file_body.append(f"| {spell.level} | [[{spell.name}]] | {spell.school} | {spell.concentration} |")
 
