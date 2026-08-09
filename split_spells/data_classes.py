@@ -205,33 +205,37 @@ class SpellBook:
     def print_table_alphabetical(self):
         # Print the table header
         file_body : TextBody = []
-        file_body.append("| Spell Name | Level | School | Concentration | Classes |")
-        file_body.append("|------------|-------|--------|---------------|---------|")
+        file_body.append("| Spell Name | Level | School | Concentration | Ritual | Components | Material Cost | Classes | Damage Type | Casting time | Duration | Range |")
+        file_body.append("|------------|-------|--------|---------------|--------|------------|---------------|---------|-------------|--------------|----------|-------|")
 
         for spell in self.spells.values():
             # Change the class formatting from a list to a comma-separated string
             spell_class_line : str = ", ".join(spell.classes)
+            spell_component_line : str = ", ".join(spell.components)
+            damage_type_line : str = ", ".join(spell.damage_type)
             # Print the spell attributes in a table row
             if spell.name in DUPLICATE_NAME_EXCEPTIONS:
-                file_body.append(f"| [[{spell.name} (Spell)\\|{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell_class_line} |")
+                file_body.append(f"| [[{spell.name} (Spell)\\|{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell.ritual} | {spell_component_line} | {spell.material_cost} | {spell_class_line} | {damage_type_line} | {spell.casting_time} | {spell.duration} | {spell.spell_range} |")
             else:
-                file_body.append(f"| [[{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell_class_line} |")
+                file_body.append(f"| [[{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell.ritual} | {spell_component_line} | {spell.material_cost} | {spell_class_line} | {damage_type_line} | {spell.casting_time} | {spell.duration} | {spell.spell_range} |")
 
         write_file("Spells Alphabetical", file_body, TABLE_OUTPUT_DIR)
 
     def print_class_table(self, class_name: str):
         # Print the table header
         file_body : TextBody = []
-        file_body.append("| Level | Spell Name | School | Concentration |")
-        file_body.append("| ----- | ------------ |--------|---------------|")
+        file_body.append("| Level | Spell Name | School | Concentration | Ritual | Components | Material Cost | Damage Type | Casting time | Duration | Range |")
+        file_body.append("| ----- | ---------- |--------|---------------|--------|------------|---------------|-------------|--------------|----------|-------|")
 
         for spell in self.spells.values():
+            spell_component_line : str = ", ".join(spell.components)
+            damage_type_line : str = ", ".join(spell.damage_type)
             if class_name in spell.classes:
                 # Print the spell attributes in a table row
                 if spell.name in DUPLICATE_NAME_EXCEPTIONS:
-                    file_body.append(f"| {spell.level} | [[{spell.name} (Spell)\\|{spell.name}]] | {spell.school} | {spell.concentration} |")
+                    file_body.append(f"| {spell.level} | [[{spell.name} (Spell)\\|{spell.name}]] | {spell.school} | {spell.concentration} | {spell.ritual} | {spell_component_line} | {spell.material_cost} | {damage_type_line} | {spell.casting_time} | {spell.duration} | {spell.spell_range} |")
                 else:
-                    file_body.append(f"| {spell.level} | [[{spell.name}]] | {spell.school} | {spell.concentration} |")
+                    file_body.append(f"| {spell.level} | [[{spell.name}]] | {spell.school} | {spell.concentration} | {spell.ritual} | {spell_component_line} | {spell.material_cost} | {damage_type_line} | {spell.casting_time} | {spell.duration} | {spell.spell_range} |")
 
         write_file(f"{class_name} Spells", file_body, TABLE_OUTPUT_DIR)
 
