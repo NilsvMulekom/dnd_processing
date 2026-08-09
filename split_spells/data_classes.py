@@ -196,7 +196,7 @@ class SpellBook:
             else:
                 file_body.append(f"| [[{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell_class_line} |")
 
-        write_file("Spells", file_body, TABLE_OUTPUT_DIR)
+        write_file("Spells Alphabetical", file_body, TABLE_OUTPUT_DIR)
 
     def print_class_table(self, class_name: str):
         # Print the table header

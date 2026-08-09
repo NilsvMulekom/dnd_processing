@@ -1,14 +1,15 @@
 from pathlib import Path
 import re
 from data_classes import Spell, SpellBook
-from constants import SPELL_FILES_OUTPUT_DIR
-from convenience_functions import create_output_dirs
+from constants import TABLE_OUTPUT_DIR
+from convenience_functions import create_output_dirs, write_file
 
 # TODO: Automatic table forming
 # TODO: add metadata as obsidian metadata
 # TODO: Add scripts for dnd classes and potentially other things
 
 def split_files(input_file) -> SpellBook:
+    # TODO: add type hinting
     input_path  = Path(input_file)
     
     with open(input_path, "r", encoding="utf-8") as file:
@@ -30,8 +31,24 @@ def split_files(input_file) -> SpellBook:
 
     return spell_book
 
+def add_index_file():
+    # TODO: replace function with a generic "take input file, add linking and output" function
+    # TODO: add clean way to set paths
+    # TODO: add type hinting
+    # TODO: add linking dynamically
+    index_file_path = Path("input_folder") / "Spells.md"
+    with open(index_file_path, "r", encoding="utf-8") as file:
+        index_content = file.read()
+
+    file_body: list[str] = []
+    for line in index_content.splitlines():
+        file_body.append(line)
+
+    write_file("Spells", file_body, TABLE_OUTPUT_DIR)
+
 def main(input_file):
     create_output_dirs()
+    add_index_file()
 
     spell_book: SpellBook = SpellBook()
     spell_book = split_files(input_file)
