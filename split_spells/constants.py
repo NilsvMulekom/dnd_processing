@@ -1,9 +1,9 @@
 from pathlib import Path
 
-OUTPUT_DIR = "spells"
+OUTPUT_DIR = "Spells"
 # TODO: rename
 TABLE_OUTPUT_DIR = Path(OUTPUT_DIR) / "."
-SPELL_FILES_OUTPUT_DIR = Path(OUTPUT_DIR) / "spells"
+SPELL_FILES_OUTPUT_DIR = Path(OUTPUT_DIR) / "Spells"
 
 # TODO: Replace when all content that references these duplicate names has been automated
 DUPLICATE_NAME_EXCEPTIONS = {

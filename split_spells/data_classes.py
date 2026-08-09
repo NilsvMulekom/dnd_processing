@@ -3,13 +3,14 @@ from typing import get_args
 
 from constants import TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR, DUPLICATE_NAME_EXCEPTIONS
 from convenience_functions import add_linking_to_body, write_file
-from custom_types import SpellLevel, SpellSchool, SpellClass
+from custom_types import TextBody, SpellLevel, SpellSchool, SpellClass
 
 @dataclass(slots=True)
 class Spell:
     # TODO: Make separate body for properties?
-    name:          str              | None = None
-    spell_body:    list[str] = field(default_factory=list)
+    name       : str | None = None
+    properties : TextBody = field(default_factory=list)
+    spell_body : TextBody = field(default_factory=list)
 
     level:         SpellLevel       | None = None
     concentration: bool             | None = None
@@ -65,7 +66,7 @@ class Spell:
             print(f"Error: Spell {self.name} has an empty body and cannot have properties added.")
             return
 
-        properties_body: list[str] = []
+        properties_body: TextBody = []
         properties_body.append(f"---")
         properties_body.append(f"aliases: {self.name}")
         properties_body.append(f"level: {self.level}")
@@ -76,10 +77,7 @@ class Spell:
             properties_body.append(f"  - {class_name}")
         properties_body.append(f"---")
 
-        new_body: list[str] = []
-        new_body.extend(properties_body)
-        new_body.extend(self.spell_body)
-        self.spell_body = new_body
+        self.properties = properties_body
 
     def print_attributes(self):
         print(f"Spell name: {self.name}")
@@ -125,15 +123,18 @@ class SpellBook:
 
     def write_spell_files(self):
         for spell_name, spell_obj in self.spells.items():
+            file_body : TextBody = []
+            file_body.extend(spell_obj.properties)
+            file_body.extend(spell_obj.spell_body)
             if spell_name in DUPLICATE_NAME_EXCEPTIONS:
                 new_name = f"{spell_name} (Spell)"
-                write_file(new_name, spell_obj.spell_body, SPELL_FILES_OUTPUT_DIR)
+                write_file(new_name, file_body, SPELL_FILES_OUTPUT_DIR)
             else:
-                write_file(spell_name, spell_obj.spell_body, SPELL_FILES_OUTPUT_DIR)
+                write_file(spell_name, file_body, SPELL_FILES_OUTPUT_DIR)
 
     def print_table_alphabetical(self):
         # Print the table header
-        file_body : list[str] = []
+        file_body : TextBody = []
         file_body.append("| Spell Name | Level | School | Concentration | Classes |")
         file_body.append("|------------|-------|--------|---------------|---------|")
 
@@ -150,7 +151,7 @@ class SpellBook:
 
     def print_class_table(self, class_name: str):
         # Print the table header
-        file_body : list[str] = []
+        file_body : TextBody = []
         file_body.append("| Level | Spell Name | School | Concentration |")
         file_body.append("| ----- | ------------ |--------|---------------|")
 
