@@ -7,6 +7,7 @@ from custom_types import SpellLevel, SpellSchool, SpellClass
 
 @dataclass(slots=True)
 class Spell:
+    # TODO: Make separate body for properties?
     name:          str              | None = None
     spell_body:    list[str] = field(default_factory=list)
 

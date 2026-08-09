@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 from data_classes import Spell, SpellBook
 from constants import TABLE_OUTPUT_DIR
-from convenience_functions import create_output_dirs, write_file
+from convenience_functions import add_linking_to_body, create_output_dirs, write_file
 
 # TODO: Automatic table forming
 # TODO: add metadata as obsidian metadata
@@ -43,6 +43,8 @@ def add_index_file():
     file_body: list[str] = []
     for line in index_content.splitlines():
         file_body.append(line)
+
+    file_body = add_linking_to_body(file_body)
 
     write_file("Spells", file_body, TABLE_OUTPUT_DIR)
 

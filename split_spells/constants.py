@@ -29,5 +29,15 @@ PATTERN_LIST = [
     "Restrained",
     "Stunned",
     "Unconscious",
+    "Spells Alphabetical",
+    "Artificer Spells",
+    "Bard Spells",
+    "Cleric Spells",
+    "Druid Spells",
+    "Paladin Spells",
+    "Ranger Spells",
+    "Sorcerer Spells",
+    "Warlock Spells",
+    "Wizard Spells",
 ]
 

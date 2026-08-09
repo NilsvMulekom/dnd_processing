@@ -24,6 +24,7 @@ def create_output_dirs():
     SPELL_FILES_OUTPUT_DIR.mkdir(exist_ok=True)
 
 def add_linking_to_body(text_body: TextBody) -> TextBody:
+    # TODO: Find a way to fix double linking
     if not text_body:
         print("Error: Spell body is empty and cannot be linked.")
 
