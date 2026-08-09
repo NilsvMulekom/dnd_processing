@@ -3,7 +3,7 @@ from typing import get_args
 
 from constants import TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR, DUPLICATE_NAME_EXCEPTIONS
 from convenience_functions import add_linking_to_body, write_file
-from custom_types import SpellComponent, TextBody, SpellLevel, SpellSchool, SpellClass
+from custom_types import TextBody, SpellLevel, SpellSchool, SpellClass, SpellComponent, DamageType
 
 @dataclass(slots=True)
 class Spell:
@@ -20,7 +20,7 @@ class Spell:
     casting_time  : str | None = None
     duration      : str | None = None
     spell_range   : str | None = None
-    damage_type   : str | None = None
+    damage_type   : list[DamageType] = field(default_factory=list)
     material_cost : str | None = None
     components    : list[SpellComponent] = field(default_factory=list)
 
@@ -76,12 +76,10 @@ class Spell:
                     self.spell_range = f"{line.split()[2]} {line.split()[3]}"
             if line.startswith("- **Components:**"):
                 # Determine the spell's components
-                if "V" in line:
-                    self.components.append("V")
-                if "S" in line:
-                    self.components.append("S")
-                if "M" in line:
-                    self.components.append("M")
+                for component in get_args(SpellComponent):
+                    if component in line:
+                        self.components.append(component)
+                # Determine the spell's material cost if it has one
                 if "+ GP" in line:
                     self.material_cost = f"{line.split()[-2]} GP"
             if line.startswith("- **Duration:**"):
@@ -100,7 +98,10 @@ class Spell:
                 for class_name in get_args(SpellClass):
                     if class_name in line:
                         self.classes.append(class_name)
-
+            # Determine the spell's damage types
+            for damage_type in get_args(DamageType):
+                if f"{damage_type} damage".casefold() in line.casefold():
+                    self.damage_type.append(damage_type)
         # TODO: Check if all attributes have been filled in
 
     def add_linking(self):
