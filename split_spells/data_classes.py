@@ -25,6 +25,7 @@ class Spell:
     components    : list[SpellComponent] = field(default_factory=list)
 
     def parse_spell_body(self):
+        # TODO: Fix incorrectly parsed spell attributes 
         if self.spell_body is None:
             print(f"Error: Spell {self.name} has an empty body and cannot be parsed.")
             return
@@ -106,7 +107,7 @@ class Spell:
                     self.damage_type.append(damage_type)
                 if f"{damage_type} damage".casefold() in line.casefold():
                     self.damage_type.append(damage_type)
-        # TODO: Check if all attributes have been filled in
+        # TODO: Check if all attributes that should have values have been filled in
 
     def add_linking(self):
         self.spell_body = add_linking_to_body(self.spell_body)

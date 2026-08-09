@@ -22,6 +22,8 @@ ___
 ---
 Acid Splash
 
+Acid damage
+
 **Classes:** Artificer, Sorcerer, Wizard
 
 ---
@@ -29,9 +31,9 @@ Acid Splash
 #### Test
 *Level 2 Abjuration*
 ___
-- **Casting Time:** Action
+- **Casting Time:** 1 hour or Ritual
 - **Range:** 30 feet
-- **Components:** V, S, M (a strip of white cloth)
+- **Components:** V, S, M (a moonstone worth 50+ GP)
 - **Duration:** 8 hours
 ---
 - Blinded, Charmed

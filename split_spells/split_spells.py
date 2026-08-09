@@ -4,8 +4,6 @@ from data_classes import Spell, SpellBook
 from constants import TABLE_OUTPUT_DIR
 from convenience_functions import add_linking_to_body, create_output_dirs, write_file
 
-# TODO: Automatic table forming
-# TODO: add metadata as obsidian metadata
 # TODO: Add scripts for dnd classes and potentially other things
 
 def split_files(input_file) -> SpellBook:
