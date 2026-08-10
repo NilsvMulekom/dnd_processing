@@ -1,8 +1,12 @@
 from pathlib import Path
 
 OUTPUT_DIR = "Spells"
-SPELLS_OUTPUT_ROOT = Path(OUTPUT_DIR) / "."
+INPUT_DIR  = "input_folder"
+SPELLS_OUTPUT_ROOT     = Path(OUTPUT_DIR) / "."
 SPELL_FILES_OUTPUT_DIR = Path(OUTPUT_DIR) / "Spells"
+
+SPELLS_INDEX_FILE      = Path(INPUT_DIR) / "Spells.md"
+SPELLS_INPUT_FILE      = Path(INPUT_DIR) / "all_spells.md"
 
 # TODO: Replace when all content that references these duplicate names has been automated
 DUPLICATE_NAME_EXCEPTIONS = {

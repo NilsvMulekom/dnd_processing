@@ -1,12 +1,10 @@
 from pathlib import Path
 from data_classes import Spell, SpellBook
-from constants import SPELLS_OUTPUT_ROOT
-from convenience_functions import add_linking_to_body, create_output_dirs, write_file
+from constants import SPELLS_INDEX_FILE, SPELLS_INPUT_FILE, SPELLS_OUTPUT_ROOT
+from convenience_functions import add_linking_to_body, create_output_dirs, link_and_write_file, write_file
 
-def split_files(input_file) -> SpellBook:
-    input_path: Path = Path(input_file)
-    
-    with open(input_path, "r", encoding="utf-8") as file:
+def split_files() -> SpellBook:
+    with open(SPELLS_INPUT_FILE, "r", encoding="utf-8") as file:
         file_content = file.read()
 
     spell_book: SpellBook = SpellBook()
@@ -25,29 +23,12 @@ def split_files(input_file) -> SpellBook:
 
     return spell_book
 
-def add_index_file():
-    # TODO: replace function with a generic "take input file, add linking and output" function
-    # TODO: add clean way to set paths
-    # TODO: add type hinting
-    # TODO: add linking dynamically
-    index_file_path = Path("input_folder") / "Spells.md"
-    with open(index_file_path, "r", encoding="utf-8") as file:
-        index_content = file.read()
-
-    file_body: list[str] = []
-    for line in index_content.splitlines():
-        file_body.append(line)
-
-    file_body = add_linking_to_body(file_body)
-
-    write_file("Spells", file_body, SPELLS_OUTPUT_ROOT)
-
-def main(input_file):
+def main():
     create_output_dirs()
-    add_index_file()
+    link_and_write_file(SPELLS_INDEX_FILE, SPELLS_OUTPUT_ROOT)
 
     spell_book: SpellBook = SpellBook()
-    spell_book = split_files(input_file)
+    spell_book = split_files()
 
     spell_book.parse_all_spells()
     spell_book.add_linking_to_all_spells()
@@ -62,4 +43,4 @@ def main(input_file):
     sorted_book.sort_by_level()
     sorted_book.print_class_tables()
 
-main("input_folder/all_spells.md")
+main()
