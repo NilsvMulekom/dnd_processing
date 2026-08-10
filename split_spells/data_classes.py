@@ -81,8 +81,18 @@ class Spell:
                     if component in line:
                         self.components.append(component)
                 # Determine the spell's material cost if it has one
-                if "+ GP" in line:
-                    self.material_cost = f"{line.split()[-2]} GP"
+                if "GP".casefold() in line.casefold():
+                    words = line.split()
+                    for i, word in enumerate(words):
+                        if "GP".casefold() in word.casefold():
+                            if self.material_cost is not None:
+                                # If the spell already has a material cost, set it to "Special" since it has multiple costs
+                                self.material_cost = "Special"
+                            elif "(" in words[i-1]:
+                                # Strip away the leading "(" from the material cost if it is present
+                                self.material_cost = f"{words[i-1].lstrip('(')} GP"
+                            else:
+                                self.material_cost = f"{words[i-1]} GP"
             if line.startswith("- **Duration:**"):
                 # Determine if the spell requires concentration and the duration of the spell
                 if "Concentration" in line:
