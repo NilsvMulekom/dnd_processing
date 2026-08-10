@@ -42,5 +42,14 @@ PATTERN_LIST = [
     "Sorcerer Spells",
     "Warlock Spells",
     "Wizard Spells",
+    "Artificer",
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Paladin",
+    "Ranger",
+    "Sorcerer",
+    "Warlock",
+    "Wizard",
 ]
 

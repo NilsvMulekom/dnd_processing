@@ -37,16 +37,15 @@ def link_and_write_file(input_file: Path, output_path: Path):
     write_file("Spells", file_body, output_path)
 
 def add_linking_to_body(text_body: TextBody) -> TextBody:
-    # TODO: Find a way to fix double linking
     if not text_body:
         print("Error: Spell body is empty and cannot be linked.")
 
     new_body: TextBody = []
-    for line in text_body:
-        new_line = line
-        for pattern in PATTERN_LIST:
-            new_line = re.sub(pattern, f"[[{pattern}]]", new_line)
-        new_body.append(new_line)
-    return new_body
 
+    pattern = re.compile("|".join(re.escape(s) for s in PATTERN_LIST))
+    for line in text_body:
+        new_line = pattern.sub(lambda m: f"[[{m.group(0)}]]", line)
+        new_body.append(new_line)
+
+    return new_body
     
