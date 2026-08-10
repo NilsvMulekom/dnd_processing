@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from typing import get_args
 
-from constants import TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR, DUPLICATE_NAME_EXCEPTIONS
+from constants import SPELLS_OUTPUT_ROOT, SPELL_FILES_OUTPUT_DIR, DUPLICATE_NAME_EXCEPTIONS
 from convenience_functions import add_linking_to_body, write_file
 from custom_types import TextBody, SpellLevel, SpellSchool, SpellClass, SpellComponent, DamageType
 
@@ -25,7 +25,6 @@ class Spell:
     components    : list[SpellComponent] = field(default_factory=list)
 
     def parse_spell_body(self):
-        # TODO: Fix incorrectly parsed spell attributes 
         if self.spell_body is None:
             print(f"Error: Spell {self.name} has an empty body and cannot be parsed.")
             return
@@ -195,7 +194,6 @@ class Spell:
 
 @dataclass(slots=True)
 class SpellBook:
-    # TODO: Add name so spellbooks sorted in certain ways can be created. Perhaps add metadata of how it is sorted
     spells: dict[str, Spell] = field(default_factory=dict)
 
     def add(self, spell: Spell) -> None:
@@ -256,7 +254,7 @@ class SpellBook:
             else:
                 file_body.append(f"| [[{spell.name}]] | {spell.level} | {spell.school} | {spell.concentration} | {spell.ritual} | {spell_component_line} | {spell.material_cost} | {spell_class_line} | {damage_type_line} | {spell.casting_time} | {spell.duration} | {spell.spell_range} |")
 
-        write_file("Spells Alphabetical", file_body, TABLE_OUTPUT_DIR)
+        write_file("Spells Alphabetical", file_body, SPELLS_OUTPUT_ROOT)
 
     def print_class_table(self, class_name: str):
         # Print the table header
@@ -274,7 +272,7 @@ class SpellBook:
                 else:
                     file_body.append(f"| {spell.level} | [[{spell.name}]] | {spell.school} | {spell.concentration} | {spell.ritual} | {spell_component_line} | {spell.material_cost} | {damage_type_line} | {spell.casting_time} | {spell.duration} | {spell.spell_range} |")
 
-        write_file(f"{class_name} Spells", file_body, TABLE_OUTPUT_DIR)
+        write_file(f"{class_name} Spells", file_body, SPELLS_OUTPUT_ROOT)
 
     def print_class_tables(self):
         for class_name in get_args(SpellClass):

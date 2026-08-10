@@ -1,10 +1,7 @@
 from pathlib import Path
-import re
 from data_classes import Spell, SpellBook
-from constants import TABLE_OUTPUT_DIR
+from constants import SPELLS_OUTPUT_ROOT
 from convenience_functions import add_linking_to_body, create_output_dirs, write_file
-
-# TODO: Add scripts for dnd classes and potentially other things
 
 def split_files(input_file) -> SpellBook:
     # TODO: add type hinting
@@ -44,7 +41,7 @@ def add_index_file():
 
     file_body = add_linking_to_body(file_body)
 
-    write_file("Spells", file_body, TABLE_OUTPUT_DIR)
+    write_file("Spells", file_body, SPELLS_OUTPUT_ROOT)
 
 def main(input_file):
     create_output_dirs()

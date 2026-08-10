@@ -2,7 +2,7 @@ from pathlib import Path
 import re
 import shutil
 
-from constants import OUTPUT_DIR, TABLE_OUTPUT_DIR, SPELL_FILES_OUTPUT_DIR, PATTERN_LIST
+from constants import OUTPUT_DIR, SPELLS_OUTPUT_ROOT, SPELL_FILES_OUTPUT_DIR, PATTERN_LIST
 from custom_types import TextBody
 
 def write_file(file_title: str, file_body: list[str], output_path: str):
@@ -20,7 +20,7 @@ def create_output_dirs():
         shutil.rmtree(output_dir)
 
     output_dir.mkdir(exist_ok=True)
-    TABLE_OUTPUT_DIR.mkdir(exist_ok=True)
+    SPELLS_OUTPUT_ROOT.mkdir(exist_ok=True)
     SPELL_FILES_OUTPUT_DIR.mkdir(exist_ok=True)
 
 def add_linking_to_body(text_body: TextBody) -> TextBody:
