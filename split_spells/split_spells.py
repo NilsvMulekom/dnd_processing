@@ -4,8 +4,7 @@ from constants import SPELLS_OUTPUT_ROOT
 from convenience_functions import add_linking_to_body, create_output_dirs, write_file
 
 def split_files(input_file) -> SpellBook:
-    # TODO: add type hinting
-    input_path  = Path(input_file)
+    input_path: Path = Path(input_file)
     
     with open(input_path, "r", encoding="utf-8") as file:
         file_content = file.read()
