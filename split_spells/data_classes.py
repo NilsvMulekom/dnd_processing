@@ -107,12 +107,15 @@ class Spell:
                         self.classes.append(class_name)
             # Determine the spell's damage types
             for damage_type in get_args(DamageType):
+                new_damage_type : str = ""
                 if f"{damage_type},".casefold() in line.casefold():
-                    self.damage_type.append(damage_type)
+                    new_damage_type = damage_type
                 if f"{damage_type}.".casefold() in line.casefold():
-                    self.damage_type.append(damage_type)
+                    new_damage_type = damage_type
                 if f"{damage_type} damage".casefold() in line.casefold():
-                    self.damage_type.append(damage_type)
+                    new_damage_type = damage_type
+                if new_damage_type != "" and new_damage_type not in self.damage_type:
+                    self.damage_type.append(new_damage_type)
         # TODO: Check if all attributes that should have values have been filled in
 
     def add_linking(self):
