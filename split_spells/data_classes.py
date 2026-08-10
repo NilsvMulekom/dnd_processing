@@ -116,7 +116,24 @@ class Spell:
                     new_damage_type = damage_type
                 if new_damage_type != "" and new_damage_type not in self.damage_type:
                     self.damage_type.append(new_damage_type)
-        # TODO: Check if all attributes that should have values have been filled in
+
+        # Check if all attributes that should have values have been filled in
+        if self.level is None:
+            print(f"Warning: Spell {self.name} has no level parsed.")
+        if self.school is None:
+            print(f"Warning: Spell {self.name} has no school parsed.")
+        if self.casting_time is None:
+            print(f"Warning: Spell {self.name} has no casting time parsed.")
+        if self.spell_range is None:
+            print(f"Warning: Spell {self.name} has no range parsed.")
+        if self.duration is None:
+            print(f"Warning: Spell {self.name} has no duration parsed.")
+        if self.concentration is None:
+            print(f"Warning: Spell {self.name} has no concentration parsed.")
+        if self.ritual is None:
+            print(f"Warning: Spell {self.name} has no ritual parsed.")
+        if len(self.components) == 0:
+            print(f"Warning: Spell {self.name} has no components parsed.")
 
     def add_linking(self):
         self.spell_body = add_linking_to_body(self.spell_body)
