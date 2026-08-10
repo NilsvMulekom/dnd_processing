@@ -204,6 +204,12 @@ class SpellBook:
     def sort_by_level(self) -> None:
         self.spells = dict(sorted(self.spells.items(), key=lambda item: (item[1].level != "cantrip", item[1].level)))
 
+    def parse_link_and_add_properties(self):
+        for spell in self.spells.values():
+            spell.parse_spell_body()
+            spell.add_linking()
+            spell.add_properties()
+
     def parse_all_spells(self):
         for spell in self.spells.values():
             spell.parse_spell_body()

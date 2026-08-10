@@ -1,7 +1,6 @@
-from pathlib import Path
 from data_classes import Spell, SpellBook
 from constants import SPELLS_INDEX_FILE, SPELLS_INPUT_FILE, SPELLS_OUTPUT_ROOT
-from convenience_functions import add_linking_to_body, create_output_dirs, link_and_write_file, write_file
+from convenience_functions import create_output_dirs, link_and_write_file
 
 def split_files() -> SpellBook:
     with open(SPELLS_INPUT_FILE, "r", encoding="utf-8") as file:
@@ -30,11 +29,7 @@ def main():
     spell_book: SpellBook = SpellBook()
     spell_book = split_files()
 
-    spell_book.parse_all_spells()
-    spell_book.add_linking_to_all_spells()
-    spell_book.add_properties_to_all_spells()
-    # spell_book.print_spell_book()
-    # spell_book.print_all_spell_attributes()
+    spell_book.parse_link_and_add_properties()
 
     spell_book.write_spell_files()
     spell_book.print_table_alphabetical()
