@@ -84,16 +84,22 @@ class Spell:
                 if "+ GP" in line:
                     self.material_cost = f"{line.split()[-2]} GP"
             if line.startswith("- **Duration:**"):
-                # Determine if a spell requires concentration
+                # Determine if the spell requires concentration and the duration of the spell
                 if "Concentration" in line:
                     self.concentration = True
+                    # Line is structured in such a way that the lines selected are: up to <duration> <time unit>
+                    self.duration = f"{line.split()[3]} {line.split()[4]} {line.split()[5]} {line.split()[6]}"
                 else:
                     self.concentration = False
-                # Determine the spell's duration
-                if len(line.split()) == 3:
-                    self.duration = line.split()[2]
-                else:
-                    self.duration = f"{line.split()[2]} {line.split()[3]}"
+                    if "Instantaneous" in line:
+                        self.duration = "Instantaneous"
+                    elif "Special" in line:
+                        self.duration = "Special"
+                    elif "Until dispelled" in line:
+                        self.duration = "Until dispelled"
+                    else:
+                        # Line is structured in such a way that the lines selected are: <duration> <time unit>
+                        self.duration = f"{line.split()[2]} {line.split()[3]}"
             # Determine which classes can use the spell
             if line.startswith("**Classes:**"):
                 for class_name in get_args(SpellClass):
