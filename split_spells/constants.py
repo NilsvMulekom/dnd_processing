@@ -8,7 +8,6 @@ SPELL_FILES_OUTPUT_DIR = Path(OUTPUT_DIR) / "Spells"
 SPELLS_INDEX_FILE      = Path(INPUT_DIR) / "Spells.md"
 SPELLS_INPUT_FILE      = Path(INPUT_DIR) / "all_spells.md"
 
-# TODO: Replace when all content that references these duplicate names has been automated
 DUPLICATE_NAME_EXCEPTIONS = {
     "Light",
     "Slow",
@@ -16,7 +15,6 @@ DUPLICATE_NAME_EXCEPTIONS = {
 }
 
 PATTERN_LIST = [
-    # TODO: add more patterns
     "Blinded",
     "Charmed",
     "Deafened",

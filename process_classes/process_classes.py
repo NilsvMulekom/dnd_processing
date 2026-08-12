@@ -5,6 +5,9 @@ from convenience_functions import open_file, write_file, create_output_dirs
 from custom_types import raw_file
 from constants import PATTERN_LIST
 
+# TODO: Add core traits
+# TODO: add class table
+
 LEVEL_1_HEADER = "# "
 LEVEL_2_HEADER = "## "
 LEVEL_3_HEADER = "### "
