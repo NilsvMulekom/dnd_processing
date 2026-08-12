@@ -51,7 +51,7 @@ You gain a Ranger subclass of your choice. A subclass is a specialization that g
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Ranger levels 8, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Ranger levels 8, 12, and 16.
 
 #### Level 5: Extra Attack
 
@@ -67,7 +67,7 @@ You gain a feature from your Ranger Subclass.
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 9: Expertise
 
@@ -87,7 +87,7 @@ You gain a feature from your Ranger Subclass.
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 13: Relentless Hunter
 
@@ -105,7 +105,7 @@ You gain a feature from your Ranger Subclass.
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 17: Precise Hunter
 
@@ -117,7 +117,7 @@ Your connection to the forces of nature grants you Blindsight with a range of 30
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Dimensional Travel is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Dimensional Travel is recommended.
 
 #### Level 20: Foe Slayer
 

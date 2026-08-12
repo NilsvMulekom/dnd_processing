@@ -58,7 +58,7 @@ You gain a Monk subclass of your choice. A subclass is a specialization that gra
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Monk levels 8, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Monk levels 8, 12, and 16.
 
 #### Level 4: Slow Fall
 
@@ -88,7 +88,7 @@ You don't benefit from this feature if you have the Incapacitated condition.
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 9: Acrobatic Movement
 
@@ -116,7 +116,7 @@ You gain a feature from your Monk subclass.
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 13: Deflect Energy
 
@@ -134,7 +134,7 @@ When you roll Initiative and don't use Uncanny Metabolism, you regain expended F
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 17: Subclass Feature
 
@@ -146,7 +146,7 @@ At the start of your turn, you can expend 3 Focus Points to bolster yourself aga
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Irresistible Offense is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Irresistible Offense is recommended.
 
 #### Level 20: Body and Mind
 

@@ -191,7 +191,7 @@ You gain a Warlock subclass of your choice. A subclass is a specialization that 
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Warlock levels 8, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Warlock levels 8, 12, and 16.
 
 #### Level 6: Subclass Feature
 
@@ -199,7 +199,7 @@ You gain a feature from your Warlock subclass.
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 9: Contact Patron
 
@@ -223,7 +223,7 @@ Whenever you gain a Warlock level, you can replace one of your arcanum spells wi
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 13: Mystic Arcanum
 
@@ -239,7 +239,7 @@ You gain a level 8 Warlock Spell of your choice.
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 17: Mystic Arcanum
 
@@ -247,7 +247,7 @@ You gain a level 9 Warlock Spell of your choice.
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Fate is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Fate is recommended.
 
 #### Level 20: Eldritch Master
 

@@ -37,7 +37,7 @@ You gain a Fighter subclass of your choice. A subclass is a specialization that 
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Fighter levels 6, 8, 12, 14, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Fighter levels 6, 8, 12, 14, and 16.
 
 #### Level 5: Extra Attack
 
@@ -49,7 +49,7 @@ Whenever you activate your Second Wind with a Bonus Action, you can move up to h
 
 #### Level 6: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 7: Subclass Feature
 
@@ -57,7 +57,7 @@ You gain a feature from your Fighter Subclass.
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 9: Indomitable
 
@@ -79,7 +79,7 @@ You can attack three times instead of once whenever you take the Attack action o
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 13: Indomitable
 
@@ -93,7 +93,7 @@ You study your opponents and learn from each attack you make. If you make an att
 
 #### Level 14: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 15: Subclass Feature
 
@@ -101,7 +101,7 @@ You gain a feature from your Fighter Subclass.
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 17: Action Surge
 
@@ -121,7 +121,7 @@ You gain a feature from your Fighter Subclass.
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Combat Prowess is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Combat Prowess is recommended.
 
 #### Level 20: Three Extra Attacks
 

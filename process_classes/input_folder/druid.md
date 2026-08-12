@@ -79,7 +79,7 @@ You gain a Druid subclass of your choice. A subclass is a specialization that gr
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Druid levels 8, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Druid levels 8, 12, and 16.
 
 #### Level 5: Wild Resurgence
 
@@ -101,7 +101,7 @@ The might of the elements flows through you. You gain one of the following optio
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 10: Subclass Feature
 
@@ -109,7 +109,7 @@ You gain a feature from your Druid Subclass.
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 14: Subclass Feature
 
@@ -125,7 +125,7 @@ The option you chose for Elemental Fury grows more powerful, as detailed below.
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 18: Beast Spells
 
@@ -133,7 +133,7 @@ While using Wild Shape, you can cast spells in Beast form, except for any spell 
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Dimensional Travel is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Dimensional Travel is recommended.
 
 #### Level 20: Archdruid
 

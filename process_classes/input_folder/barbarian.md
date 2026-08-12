@@ -55,7 +55,7 @@ In addition, while your Rage is active, you can channel primal power when you at
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Barbarian levels 8, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Barbarian levels 8, 12, and 16.
 
 #### Level 5: Extra Attack
 
@@ -79,7 +79,7 @@ As part of the Bonus Action you take to enter your Rage, you can move up to half
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 9: Brutal Strike
 
@@ -101,7 +101,7 @@ Each time you use this feature after the first, the DC increases by 5. When you 
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 13: Improved Brutal Strike
 
@@ -123,7 +123,7 @@ In addition, your Rage is so fierce that it now lasts for 10 minutes without you
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 17: Improved Brutal Strike
 
@@ -135,7 +135,7 @@ If your total for a Strength check or Strength saving throw is less than your St
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Irresistible Offense is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Irresistible Offense is recommended.
 
 #### Level 20: Primal Champion
 

@@ -62,7 +62,7 @@ You gain a Bard subclass of your choice. A subclass is a specialization that gra
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Bard levels 8, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Bard levels 8, 12, and 16.
 
 #### Level 5: Font of Inspiration
 
@@ -80,7 +80,7 @@ You can use musical notes or words of power to disrupt mind-influencing effects.
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 9: Expertise
 
@@ -92,7 +92,7 @@ You've learned secrets from various magical traditions. Whenever you reach a Bar
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 14: Subclass Feature
 
@@ -100,7 +100,7 @@ You gain a feature from your Bard Subclass.
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 18: Superior Inspiration
 
@@ -108,7 +108,7 @@ When you roll Initiative, you regain expended uses of Bardic Inspiration until y
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Spell Recall is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Spell Recall is recommended.
 
 #### Level 20: Words of Creation
 

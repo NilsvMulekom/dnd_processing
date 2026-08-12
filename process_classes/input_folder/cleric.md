@@ -53,7 +53,7 @@ You gain a Cleric subclass of your choice. A subclass is a specialization that g
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Cleric levels 8, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Cleric levels 8, 12, and 16.
 
 #### Level 5: Sear Undead
 
@@ -73,7 +73,7 @@ Divine power infuses you in battle. You gain one of the following options of you
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 10: Divine Intervention
 
@@ -81,7 +81,7 @@ You can call on your deity or pantheon to intervene on your behalf. As a Magic a
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 14: Improved Blessed Strikes
 
@@ -93,7 +93,7 @@ The option you chose for Blessed Strikes grows more powerful.
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 17: Subclass Feature
 
@@ -101,7 +101,7 @@ You gain a feature from your Cleric Subclass.
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Fate is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Fate is recommended.
 
 #### Level 20: Greater Divine Intervention
 

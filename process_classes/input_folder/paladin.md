@@ -68,7 +68,7 @@ You gain a Paladin subclass of your choice. A subclass is a specialization that 
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Paladin levels 8, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Paladin levels 8, 12, and 16.
 
 #### Level 5: Extra Attack
 
@@ -94,7 +94,7 @@ You gain a feature from your Paladin Subclass.
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 9: Abjure Foes
 
@@ -110,7 +110,7 @@ Your strikes now carry supernatural power. When you hit a target with an attack 
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 14: Restoring Touch
 
@@ -122,7 +122,7 @@ You gain a feature from your Paladin Subclass.
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 18: Aura Expansion
 
@@ -130,7 +130,7 @@ Your Aura of Protection is now a 30-foot Emanation.
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Truesight is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Truesight is recommended.
 
 #### Level 20: Subclass Feature
 

@@ -119,7 +119,7 @@ You gain a Sorcerer subclass of your choice. A subclass is a specialization that
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Sorcerer levels 8, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Sorcerer levels 8, 12, and 16.
 
 #### Level 5: Sorcerous Restoration
 
@@ -137,7 +137,7 @@ In addition, while your Innate Sorcery feature is active, you can use up to two 
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 10: Metamagic
 
@@ -149,7 +149,7 @@ Whenever you gain a Sorcerer level, you can replace one of your Metamagic option
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 14: Subclass Feature
 
@@ -157,7 +157,7 @@ You gain a feature from your Sorcerer subclass.
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 17: Metamagic
 
@@ -173,7 +173,7 @@ You gain a feature from your Sorcerer subclass.
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Dimensional Travel is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Dimensional Travel is recommended.
 
 #### Level 20: Arcane Apotheosis
 

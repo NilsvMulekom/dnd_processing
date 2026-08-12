@@ -39,7 +39,7 @@ As a Bonus Action, you give yourself Advantage on your next attack roll on the c
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Rogue levels 8, 10, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Rogue levels 8, 10, 12, and 16.
 
 #### Level 5: Cunning Strike
 
@@ -73,7 +73,7 @@ Whenever you make an ability check that uses one of your skill or tool proficien
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 9: Subclass Feature
 
@@ -81,7 +81,7 @@ You gain a feature from your Rogue Subclass.
 
 #### Level 10: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 11: Improved Cunning Strike
 
@@ -89,7 +89,7 @@ You can use up to two Cunning Strike effects when you deal Sneak Attack damage, 
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 13: Subclass Feature
 
@@ -111,7 +111,7 @@ Your cunning mind is exceptionally difficult to control. You gain proficiency in
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify.
 
 #### Level 17: Subclass Feature
 
@@ -123,7 +123,7 @@ You're so evasive that attackers rarely gain the upper hand against you. No atta
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of the Night Spirit is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of the Night Spirit is recommended.
 
 #### Level 20: Stroke of Luck
 
@@ -386,36 +386,7 @@ The first time you use this power after each Long Rest, you don't expend the Psi
 
 ***Level 3: Psychic Blades.*** You can manifest shimmering blades of psychic energy. Whenever you take the Attack action or make an Opportunity Attack, you can manifest a *Psychic Blade* in your free hand and make the attack with that blade. The magic blade has the following traits:
 
-<div
-				class="ve-rd__b-special ve-rd__wrp-embedded-data  ve-rd__wrp-embedded-data--stats ve-rd__wrp-embedded-data--fixed-height-initial ve-rd__wrp-embedded-data--slot-size--small"
-				data-rd-rendered-data="true"
-			>
-				<div
-					class="ve-rd__data-embed-header ve-bold ve-py-1p ve-px-4p ve-no-select ve-bb-1p-trans"
-					data-rd-data-embed-header="true"
-					title="Expand to Natural Height (SHIFT to Expand All)"
-				>
-					<div class="ve-w-100 ve-split-v-center">
-						<div class="ve-flex-v-center ve-self-flex-stretch ve-w-100 ve-min-w-0">
-							<span class="ve-rd__data-embed-name ve-hidden" data-rd-data-embed-name="true">Psychic Blade</span>
-							<span class="ve-rd__data-embed-name-expanded ve-text-right ve-pr-2 ve-w-100 ve-h-100 " data-rd-data-embed-name-expand="true"></span>
-						</div>
-
-						<span class="ve-rd__data-embed-toggle" data-rd-data-embed-name-toggle="true">[+]</span>
-					</div>
-				</div>
-
-				<div class="ve-rd__wrp-embedded-data-table  ve-overflow-y-auto ve-flex-vh-center" data-rd-rendered-data-embed-content="true">
-					<table>
-						<tbody data-rd-rendered-data-embed-render-target="true"><tr>
-			<td colspan="6" data-rd-tag="item" data-rd-uid="Psychic Blade|XPHB" data-rd-page="items.html" data-rd-source="XPHB" data-rd-hash="psychic%20blade_xphb" data-rd-name="Psychic Blade" data-rd-display-name="Psychic Blade" data-rd-style="" data-rd-entry-data="{}" data-rd-slot-size="small" data-rd-is-fixed-height-initial="true">
-				<i>Loading &quot;<a href="items.html#psychic%20blade_xphb"  onmouseover="Renderer.hover.pHandleLinkMouseOver(event, this)" onmouseleave="Renderer.hover.handleLinkMouseLeave(event, this)" onmousemove="Renderer.hover.handleLinkMouseMove(event, this)" onclick="Renderer.hover.handleLinkClick(event, this)" onwheel="Renderer.hover.handleLinkWheel(event, this)" ondragstart="Renderer.hover.handleLinkDragStart(event, this)" data-vet-page="items.html" data-vet-source="XPHB" data-vet-hash="psychic%20blade_xphb" ontouchstart="Renderer.hover.handleTouchStart(event, this)" >Psychic Blade</a>&quot;...</i>
-				<style onload="Renderer.events.handleLoad_inlineStatblock(this)"></style>
-			</td>
-		</tr></tbody>
-					</table>
-				</div>
-			</div>The blade vanishes immediately after it hits or misses its target, and it leaves no mark if it deals damage.
+# TODO: Fix this bit
 
 After you attack with the blade on your turn, you can make a melee or ranged attack with a second psychic blade as a Bonus Action on the same turn if your other hand is free to create it. The damage die of this bonus attack is 1d4 instead of 1d6.
 

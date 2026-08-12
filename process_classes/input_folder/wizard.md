@@ -59,7 +59,7 @@ You gain a Wizard subclass of your choice. A subclass is a specialization that g
 
 #### Level 4: Ability Score Improvement
 
-You gain the Ability Score Improvement feat or another [feats.html](feat) of your choice for which you qualify. You gain this feature again at Wizard levels 8, 12, and 16.
+You gain the Ability Score Improvement feat or another feat of your choice for which you qualify. You gain this feature again at Wizard levels 8, 12, and 16.
 
 #### Level 5: Memorize Spell
 
@@ -71,7 +71,7 @@ You gain a feature from your Wizard Subclass.
 
 #### Level 8: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 10: Subclass Feature
 
@@ -79,7 +79,7 @@ You gain a feature from your Wizard Subclass.
 
 #### Level 12: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 14: Subclass Feature
 
@@ -87,7 +87,7 @@ You gain a feature from your Wizard Subclass.
 
 #### Level 16: Ability Score Improvement
 
-You gain the Ability Score Improvement Feat or another [feats.html](feat) of your choice for which you qualify.
+You gain the Ability Score Improvement Feat or another feat of your choice for which you qualify.
 
 #### Level 18: Spell Mastery
 
@@ -97,7 +97,7 @@ Whenever you finish a Long Rest, you can study your spellbook and replace one of
 
 #### Level 19: Epic Boon
 
-You gain an Epic Boon feat or another [feats.html](feat) of your choice for which you qualify. Boon of Spell Recall is recommended.
+You gain an Epic Boon feat or another feat of your choice for which you qualify. Boon of Spell Recall is recommended.
 
 #### Level 20: Signature Spells
 
