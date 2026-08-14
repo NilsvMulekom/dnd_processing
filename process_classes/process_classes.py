@@ -1,6 +1,6 @@
 import re
-
-from constants import CLASSES_FILES_OUTPUT_DIR
+import logging
+from constants import CLASSES_FILES_OUTPUT_DIR, CLASS_ABILITIES_OUTPUT_DIR
 from convenience_functions import open_file, open_all_files, write_file, create_output_dirs
 from custom_types import raw_file
 from constants import PATTERN_LIST
@@ -63,19 +63,45 @@ def add_linking(file : raw_file) -> raw_file:
 
     return raw_file(name=file.name, body=new_body)
 
+def split_class_abilities(file : raw_file) -> list[raw_file]:
+    # Split the file body into separate files for each class ability
+    new_files: list[raw_file] = []
+
+    current_file_name: str = ""
+    current_file_body: list[str] = []
+
+    for line in file.body:
+        if line.startswith(f"{LEVEL_2_HEADER}Level"):
+            if current_file_name:
+                new_files.append(raw_file(name=current_file_name, body=current_file_body))
+            current_file_name = re.sub(r"^## Level \d+:\s*", "", line)
+            current_file_body = []
+        else:
+            current_file_body.append(line)
+
+    if current_file_name:
+        new_files.append(raw_file(name=current_file_name, body=current_file_body))
+    else:
+        logging.error("No class abilities found in the file.")
+
+    return new_files
+
 def main():
     create_output_dirs()
 
-    files : list[raw_file] = open_all_files()
-    for file in files:
-        file = reformat_title_stile(file)
-        file = remove_bold(file)
-        file = add_linking(file)
-        write_file(file.name, file.body, CLASSES_FILES_OUTPUT_DIR)
+    # files : list[raw_file] = open_all_files()
+    # for file in files:
+    #     file = reformat_title_stile(file)
+    #     file = remove_bold(file)
+    #     file = add_linking(file)
+    #     write_file(file.name, file.body, CLASSES_FILES_OUTPUT_DIR)
 
-    # file : raw_file = open_file()
-    # file = reformat_title_stile(file)
-    # file = remove_bold(file)
-    # file = add_linking(file)
-    # write_file(file.name, file.body, CLASSES_FILES_OUTPUT_DIR)
+    file : raw_file = open_file()
+    file = reformat_title_stile(file)
+    file = remove_bold(file)
+    file = add_linking(file)
+    files : list[raw_file] = split_class_abilities(file)
+    write_file(file.name, file.body, CLASSES_FILES_OUTPUT_DIR)
+    for file in files:
+        write_file(file.name, file.body, CLASS_ABILITIES_OUTPUT_DIR)
 main()
