@@ -8,6 +8,13 @@ CLASS_ABILITIES_OUTPUT_DIR = Path(CLASSES_FILES_OUTPUT_DIR) / "Class abilities"
 
 INPUT_FILE = Path(INPUT_DIR) / "Paladin.md"
 
+LEVEL_1_HEADER = "# "
+LEVEL_2_HEADER = "## "
+LEVEL_3_HEADER = "### "
+LEVEL_4_HEADER = "#### "
+LEVEL_5_HEADER = "##### "
+BOLD_HEADER    = "***"
+
 PATTERN_LIST = [
     # TODO: add more patterns
     # TODO: make centralized list
