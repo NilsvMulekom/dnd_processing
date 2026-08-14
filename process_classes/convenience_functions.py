@@ -4,12 +4,27 @@ from custom_types import raw_file
 from constants import INPUT_FILE
 from constants import OUTPUT_DIR, CLASSES_OUTPUT_ROOT, CLASSES_FILES_OUTPUT_DIR, CLASS_ABILITIES_OUTPUT_DIR
 
+def open_all_files() -> list[raw_file]:
+    # Open all files in the input directory and return a list of raw_file objects
+    raw_files: list[raw_file] = []
+
+    for file_path in Path(INPUT_FILE).parent.glob("*.md"):
+        with open(file_path, "r", encoding="utf-8") as file:
+            content = file.read()
+
+        file_body: list[str] = content.splitlines()
+        file_name: str = file_path.stem
+
+        raw_files.append(raw_file(name=file_name, body=file_body))
+
+    return raw_files
+
 def open_file() -> raw_file:
     with open(INPUT_FILE, "r", encoding="utf-8") as file:
         content = file.read()
 
     file_body: list[str] = content.splitlines()
-    file_name: str = INPUT_FILE.stem
+    file_name: str = Path(INPUT_FILE).stem
 
     return raw_file(name=file_name, body=file_body)
 
