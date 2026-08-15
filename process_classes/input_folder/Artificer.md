@@ -89,12 +89,12 @@ If an item that you created with this feature is a container, such as a *Bag of 
 
 ***Spellcasting Focus.*** You can use any Wand or Weapon created by this feature as a Spellcasting Focus in lieu of using a set of *Artisan's Tools*.
 
-> ##### Crafting More Magic Items
->
->The Replicate Magic Item feature isn't the only way for an Artificer to make magic items. The *Dungeon Master's Guide* provides rules for characters—not just Artificers—who want to make magic items of all sorts. Though many different characters can make magic items, Artificers can do it faster than others; each Artificer subclass improves a character's speed at making items of a certain category.
->
->When an Artificer crafts a magic item using the normal rules in the *Dungeon Master's Guide*, the character gains no special connection to that item. Class features that refer to items created by your Replicate Magic Item feature don't apply to items you craft by other means.
->
+#### Crafting More Magic Items
+
+The Replicate Magic Item feature isn't the only way for an Artificer to make magic items. The *Dungeon Master's Guide* provides rules for characters—not just Artificers—who want to make magic items of all sorts. Though many different characters can make magic items, Artificers can do it faster than others; each Artificer subclass improves a character's speed at making items of a certain category.
+
+When an Artificer crafts a magic item using the normal rules in the *Dungeon Master's Guide*, the character gains no special connection to that item. Class features that refer to items created by your Replicate Magic Item feature don't apply to items you craft by other means.
+
 
 ##### Magic Item Plans (Artificer Level 2+)
 | Magic Item Plan                                             | Attunement |
