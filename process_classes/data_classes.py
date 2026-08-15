@@ -17,42 +17,6 @@ class ClassFileSet:
     # TODO: make private?
     unique_ability_names: list[str] = field(default_factory=list)
 
-    # TODO: reformat ">" bits
-    def reformat_title_stile(self):
-        # Reformat the title style of the file body
-        new_body: list[str] = []
-
-        # Reformat the title style of the file body
-        for line in self.class_file.body:
-            if line.startswith(LEVEL_2_HEADER):
-                new_line = line.replace(LEVEL_2_HEADER, LEVEL_1_HEADER)
-                new_body.append(new_line)
-            elif line.startswith(LEVEL_4_HEADER):
-                new_line = line.replace(LEVEL_4_HEADER, LEVEL_2_HEADER)
-                new_body.append(new_line)
-            elif line.startswith(BOLD_HEADER):
-                # TODO: Clean up?
-                # TODO: Make a separate regex for titles containing level N
-                new_line = re.sub(r"\*\*\*(.*?)\.\*\*\*", r"#### \1\n", line)
-                new_body.append(new_line)
-            elif line.startswith(LEVEL_5_HEADER):
-                new_line = line.replace(LEVEL_5_HEADER, LEVEL_4_HEADER)
-                new_body.append(new_line)
-            else:
-                new_body.append(line)
-
-        self.class_file.body = new_body
-
-    def remove_bold(self):
-        # Remove bold formatting from the file body
-        new_body: list[str] = []
-
-        for line in self.class_file.body:
-            new_line = re.sub(r"\*", r"", line)
-            new_body.append(new_line)
-
-        self.class_file.body = new_body
-
     # TODO: Do on project level
     def add_linking(self):
         # Replace all instances of patterns in the file body with links to the corresponding files
@@ -111,6 +75,7 @@ class ClassFileSet:
 
     # TODO: Strip the two empty lines from abilities that remain
     # TODO: Find a nice way to handle Blessed warrior from Paladin
+    # TODO: Find a nice way to handle extra attack
     # TODO: Find a nice way to handle subclasses
     # TODO: Find a nice way to add the basic class info
     def replace_class_abilities_with_links(self):
@@ -128,11 +93,8 @@ class ClassFileSet:
                     ability_name = re.sub(r"^## Level \d+:\s*", "", line)
                     ability_content_being_removed = False
                     if ability_name in self.unique_ability_names:
-                        print(f"unique: {ability_name}")
                         new_body.append(f"![[{ability_name}]]")
                         ability_content_being_removed = True
-                    else:
-                        print(f"dupe: {ability_name}")
             elif not ability_content_being_removed:
                 new_body.append(line)
 
@@ -155,3 +117,80 @@ class ClassFileSet:
         logging.info(f"class name: {self.class_name}")
         for file in self.class_abilities:
             logging.info(f"class ability:{file.name}")
+
+@dataclass(slots=True)
+class BaseClassFileSet:
+    class_name: str
+    input_file  : raw_file
+    class_files : list[ClassFileSet]
+
+    def add_sub_class(self, class_file: raw_file):
+        if class_file.name is not None:
+            self.class_files.append(class_file)
+
+    # TODO: reformat ">" bits
+    def reformat_title_stile(self):
+        # Reformat the title style of the file body
+        new_body: list[str] = []
+
+        # Reformat the title style of the file body
+        for line in self.input_file.body:
+            if line.startswith(LEVEL_2_HEADER):
+                new_line = line.replace(LEVEL_2_HEADER, LEVEL_1_HEADER)
+                new_body.append(new_line)
+            elif line.startswith(LEVEL_4_HEADER):
+                new_line = line.replace(LEVEL_4_HEADER, LEVEL_2_HEADER)
+                new_body.append(new_line)
+            elif line.startswith(BOLD_HEADER):
+                # TODO: Clean up?
+                # TODO: Make a separate regex for titles containing level N
+                new_line = re.sub(r"\*\*\*(.*?)\.\*\*\*", r"#### \1\n", line)
+                new_body.append(new_line)
+            elif line.startswith(LEVEL_5_HEADER):
+                new_line = line.replace(LEVEL_5_HEADER, LEVEL_4_HEADER)
+                new_body.append(new_line)
+            else:
+                new_body.append(line)
+
+        self.input_file.body = new_body
+
+    def remove_bold(self):
+        # Remove bold formatting from the file body
+        new_body: list[str] = []
+
+        for line in self.input_file.body:
+            new_line = re.sub(r"\*", r"", line)
+            new_body.append(new_line)
+
+        self.input_file.body = new_body
+
+    def split_into_sub_classes(self):
+        new_file : raw_file = raw_file(name = "", body = [])
+
+        for line in self.input_file.body:
+            if line.startswith(f"{LEVEL_1_HEADER}"):
+                self.add_sub_class(new_file)
+                class_name = line[2:]
+                new_file : raw_file = raw_file(name = class_name, body = [])
+            if new_file.name != "":
+                new_file.body.append(line)
+
+        self.class_files.append(new_file)
+
+    def print_input_file(self):
+        """Diagnostic method to print the processed input_file"""
+        write_file(f"{self.input_file.name}_input_print", self.input_file.body, CLASSES_FILES_OUTPUT_DIR)
+
+    def print_class_files(self):
+        for file in self.class_files:
+            write_file(file.name, file.body, CLASSES_FILES_OUTPUT_DIR)
+
+    def strip_file_into_subclasses():
+        print("henk")
+
+    def do_all(self):
+        self.reformat_title_stile()
+        self.remove_bold()
+        self.print_input_file()
+        self.split_into_sub_classes()
+        self.print_class_files()
