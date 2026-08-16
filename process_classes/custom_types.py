@@ -3,8 +3,34 @@ from dataclasses import dataclass
 
 from constants import LEVEL_1_HEADER, LEVEL_2_HEADER, LEVEL_4_HEADER, LEVEL_5_HEADER, BOLD_HEADER
 from file_handling import TextFile
+
+BOLD_LEVEL_HEADER_PATTERN = re.compile(r"^\*\*\*Level (\d+): (.*?)\.\*\*\*\s*(.*)$")
+BOLD_TITLE_PATTERN = re.compile(r"^\*\*\*(.*?)\.\*\*\*\s*(.*)$")
+LEVEL_REFERENCE_PATTERN = re.compile(r"(?i)(?=.*\blevel\b).*?\b([3-9]|1\d|20)(?:st|nd|rd|th)?\b")
+
 @dataclass(slots=True)
 class ClassTextFile(TextFile):
+    def reformat_bold_header(self, line: str, previous_heading: str) -> list[str]:
+        if previous_heading == LEVEL_2_HEADER:
+            level_header_match = BOLD_LEVEL_HEADER_PATTERN.match(line)
+            if level_header_match:
+                level = int(level_header_match.group(1))
+                title = level_header_match.group(2)
+                remainder = level_header_match.group(3)
+
+                return [f"## Level {level}: {title}", remainder]
+
+            title_match = BOLD_TITLE_PATTERN.match(line)
+            level_match = LEVEL_REFERENCE_PATTERN.search(line)
+            if title_match and level_match:
+                title = title_match.group(1)
+                remainder = title_match.group(2)
+                level = int(level_match.group(1))
+
+                return [f"## Level {level}: {title}", remainder]
+
+        return [re.sub(r"\*\*\*(.*?)\.\*\*\*", r"#### \1\n", line)]
+
     def reformat_title_style(self):
         """
         Reformats the title style of a file.
@@ -21,50 +47,21 @@ class ClassTextFile(TextFile):
         new_body: list[str] = []
         previous_heading : str = ""
         for line in self.body:
+            new_lines: list[str]
             match True:
                 case _ if line.startswith(LEVEL_2_HEADER):
-                    new_line = line.replace(LEVEL_2_HEADER, LEVEL_1_HEADER)
+                    new_lines = [line.replace(LEVEL_2_HEADER, LEVEL_1_HEADER)]
                     previous_heading = LEVEL_2_HEADER
                 case _ if line.startswith(LEVEL_4_HEADER):
-                    new_line = line.replace(LEVEL_4_HEADER, LEVEL_2_HEADER)
+                    new_lines = [line.replace(LEVEL_4_HEADER, LEVEL_2_HEADER)]
                     previous_heading = LEVEL_4_HEADER
                 case _ if line.startswith(LEVEL_5_HEADER):
-                    new_line = line.replace(LEVEL_5_HEADER, LEVEL_4_HEADER)
+                    new_lines = [line.replace(LEVEL_5_HEADER, LEVEL_4_HEADER)]
                 case _ if line.startswith(BOLD_HEADER):
-                    if previous_heading == LEVEL_2_HEADER:
-                        match = re.match(
-                            r"^\*\*\*Level (\d+): (.*?)\.\*\*\*\s*(.*)$",
-                            line,
-                        )
-                        if match:
-                            level = int(match.group(1))
-                            title = match.group(2)
-                            remainder = match.group(3)
-
-                            new_line = f"## Level {level}: {title}"
-                            new_body.append(new_line)
-                            new_line = remainder
-                        else:
-                            title_match = re.match(r"^\*\*\*(.*?)\.\*\*\*\s*(.*)$", line)
-                            level_match = re.search(
-                                r"(?i)(?=.*\blevel\b).*?\b([3-9]|1\d|20)(?:st|nd|rd|th)?\b",
-                                line
-                            )
-                            if title_match and level_match:
-                                title = title_match.group(1)
-                                remainder = title_match.group(2)
-                                level = int(level_match.group(1))
-
-                                new_line = f"## Level {level}: {title}"
-                                new_body.append(new_line)
-                                new_line = remainder
-                            else:
-                                new_line = re.sub(r"\*\*\*(.*?)\.\*\*\*", r"#### \1\n", line)
-                    elif previous_heading == LEVEL_4_HEADER:
-                        new_line = re.sub(r"\*\*\*(.*?)\.\*\*\*", r"#### \1\n", line)
+                    new_lines = self.reformat_bold_header(line, previous_heading)
                 case _:
-                    new_line = line
-            new_body.append(new_line)
+                    new_lines = [line]
+            new_body.extend(new_lines)
 
         self.body = new_body
 
