@@ -6,7 +6,13 @@ from file_handling import TextFile
 
 BOLD_LEVEL_HEADER_PATTERN = re.compile(r"^\*\*\*Level (\d+): (.*?)\.\*\*\*\s*(.*)$")
 BOLD_TITLE_PATTERN = re.compile(r"^\*\*\*(.*?)\.\*\*\*\s*(.*)$")
-LEVEL_REFERENCE_PATTERN = re.compile(r"(?i)(?=.*\blevel\b).*?\b([3-9]|1\d|20)(?:st|nd|rd|th)?\b")
+IMPLICIT_LEVEL_HEADER_PATTERN = re.compile(
+    r"(?i)^\s*(?:"
+    r"\*?([3-9]|1\d|20)(?:st|nd|rd|th)-level\b"
+    r"|(?:at|starting at|beginning at)\s+([3-9]|1\d|20)(?:st|nd|rd|th)?\s+level\b"
+    r"|(?:starting\s+)?when you (?:choose|reach).*?\bat\s+([3-9]|1\d|20)(?:st|nd|rd|th)?\s+level\b"
+    r")"
+)
 
 @dataclass(slots=True)
 class ClassTextFile(TextFile):
@@ -24,11 +30,11 @@ class ClassTextFile(TextFile):
                 return [f"## Level {level}: {title}", remainder]
 
             title_match = BOLD_TITLE_PATTERN.match(line)
-            level_match = LEVEL_REFERENCE_PATTERN.search(line)
+            remainder = title_match.group(2) if title_match else ""
+            level_match = IMPLICIT_LEVEL_HEADER_PATTERN.search(remainder)
             if title_match and level_match:
                 title = title_match.group(1)
-                remainder = title_match.group(2)
-                level = int(level_match.group(1))
+                level = int(next(group for group in level_match.groups() if group))
 
                 return [f"## Level {level}: {title}", remainder]
 
