@@ -17,31 +17,28 @@ class SubClass:
     sub_class_file : TextFile
     abilities      : list[TextFile] = field(default_factory=list)
 
-    __unique_ability_names: list[str] = field(default_factory=list)
+    # A dict that contains all abilities in a string. The bool indicates if the ability is unique
+    __ability_names: dict[str, bool] = field(default_factory=dict)
 
-    # TODO: Let copilot check for improvements
-    def construct_class_abilities_list(self) -> list[str]:
-        """
-            Run over all headings in the file that contain level and return only the unique ability names.
-        """
-        
-        duplicated_ability_names: list[str] = []
+    def __post_init__(self):
+        self.__construct_class_abilities_list()
 
+    def __construct_class_abilities_list(self):
+        """
+            Run over all headings in the file that contain level and construct a list of only the unique ability names.
+        """
+        ABILITY_HEADER_PATTERN = re.compile(r"^## Level \d+:\s*")
         for line in self.sub_class_file.body:
             if line.startswith(f"{LEVEL_2_HEADER}Level"):
-                ability_name : str = re.sub(r"^## Level \d+:\s*", "", line)
-                if (ability_name in self.__unique_ability_names):
-                    if (ability_name not in duplicated_ability_names):
-                        duplicated_ability_names.append(ability_name)
+                ability_name: str = ABILITY_HEADER_PATTERN.sub("", line)
+                if ability_name in self.__ability_names:
+                    self.__ability_names[ability_name] = False
                 else:
-                    self.__unique_ability_names.append(ability_name)
-        for name in self.__unique_ability_names:
-            if name in duplicated_ability_names:
-                self.__unique_ability_names.remove(name)
+                    self.__ability_names[ability_name] = True
 
     def log_unique_ability_names(self):
-        for ability in self.__unique_ability_names:
-            logging.info(ability)
+        for ability, is_unique in self.__ability_names.items():
+            logging.info(f"Ability: {ability}. unique: {is_unique}")
 
 @dataclass(slots=True)
 class BaseClass:

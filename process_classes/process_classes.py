@@ -19,7 +19,6 @@ def main():
     for sub_class in class_file_set.sub_classes:
         sub_class.sub_class_file.add_linking(PATTERN_LIST)
         sub_class.sub_class_file.diagnostic_print_to_file()
-        sub_class.construct_class_abilities_list()
         sub_class.log_unique_ability_names()
 
 main()
