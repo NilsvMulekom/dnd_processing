@@ -46,6 +46,10 @@ class BaseClass:
     class_file  : ClassTextFile
     sub_classes : list[SubClass] = field(default_factory=list)
 
+    def __post_init__(self):
+        self.class_file.reformat_file()
+        self.split_into_sub_classes()
+
     def add_sub_class(self, sub_class_file: TextFile):
         """
         Add Textfile containing subclass body to sub_classes list
@@ -57,6 +61,9 @@ class BaseClass:
             ))
 
     def split_into_sub_classes(self):
+        """
+        Cut the file into a file for the base class and each subclass. They are denoted with a level 1 heading in the source file.
+        """
         sub_class_file : TextFile = TextFile(name = "", body = [])
 
         for line in self.class_file.body:

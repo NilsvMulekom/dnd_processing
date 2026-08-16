@@ -12,9 +12,7 @@ def main():
         body = file.body,
     )
     class_file_set : BaseClass = BaseClass(name=classfile.name, class_file=classfile)
-    class_file_set.class_file.reformat_file()
     class_file_set.class_file.diagnostic_print_to_file()
-    class_file_set.split_into_sub_classes()
 
     for sub_class in class_file_set.sub_classes:
         sub_class.sub_class_file.add_linking(PATTERN_LIST)
