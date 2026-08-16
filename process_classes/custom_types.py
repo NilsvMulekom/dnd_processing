@@ -2,8 +2,7 @@ import re
 from dataclasses import dataclass
 
 from constants import LEVEL_1_HEADER, LEVEL_2_HEADER, LEVEL_4_HEADER, LEVEL_5_HEADER, BOLD_HEADER
-from constants import DIAGNOSTIC_OUTPUT_DIR
-from file_handling import TextFile, write_text_file
+from file_handling import TextFile
 
 @dataclass(slots=True)
 class ClassTextFile(TextFile):
@@ -34,7 +33,7 @@ class ClassTextFile(TextFile):
 
     def remove_bold(self):
         """
-        Reformat file to remove any bold (*words*) text
+        Reformat file to remove any bold (*words*) text.
         """
         new_body: list[str] = []
         for line in self.body:
@@ -44,5 +43,8 @@ class ClassTextFile(TextFile):
         self.body = new_body
 
     def reformat_file(self):
+        """
+        Call all reformatting functions in the correct order.
+        """
         self.reformat_title_style()
         self.remove_bold()

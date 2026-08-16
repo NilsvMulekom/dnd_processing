@@ -4,7 +4,6 @@ from dataclasses import dataclass, field
 #TODO: define
 from constants import *
 from custom_types import TextFile, ClassTextFile
-from file_handling import write_text_file
 
 # TODO: Find clean way to differentiate between class and subclass.
 #       - Only print in BassClass
