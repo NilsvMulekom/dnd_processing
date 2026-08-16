@@ -18,5 +18,7 @@ def main():
         sub_class.sub_class_file.add_linking(PATTERN_LIST)
         sub_class.sub_class_file.diagnostic_print_to_file()
         sub_class.log_unique_ability_names()
+        for ability in sub_class.abilities:
+            ability.diagnostic_print_to_file()
 
 main()

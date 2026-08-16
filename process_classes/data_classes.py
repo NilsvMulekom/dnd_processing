@@ -22,6 +22,15 @@ class SubClass:
 
     def __post_init__(self):
         self.__construct_class_abilities_list()
+        self.__split_class_abilities()
+
+    def add_ability(self, ability_file : TextFile):
+        if ability_file.name != "":
+            self.abilities.append(ability_file)
+
+    def log_unique_ability_names(self):
+        for ability, is_unique in self.__ability_names.items():
+            logging.info(f"Ability: {ability}. unique: {is_unique}")
 
     def __construct_class_abilities_list(self):
         """
@@ -36,9 +45,19 @@ class SubClass:
                 else:
                     self.__ability_names[ability_name] = True
 
-    def log_unique_ability_names(self):
-        for ability, is_unique in self.__ability_names.items():
-            logging.info(f"Ability: {ability}. unique: {is_unique}")
+    def __split_class_abilities(self):
+        ability_file : TextFile = TextFile(name = "", body = [])
+
+        for line in self.sub_class_file.body:
+            if line.startswith(f"{LEVEL_2_HEADER}Level"):
+                self.add_ability(ability_file)
+                ability_file : TextFile = TextFile(
+                    name = re.sub(r"^## Level \d+:\s*", "", line),
+                    body = []
+                )
+            if ability_file.name != "":
+                ability_file.body.append(line)
+        self.add_ability(ability_file)
 
 @dataclass(slots=True)
 class BaseClass:
