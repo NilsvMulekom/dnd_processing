@@ -1,10 +1,11 @@
 from file_handling import TextFile, remove_dir, open_file
 from custom_types import ClassTextFile
 from data_classes import BaseClass
-from constants import OUTPUT_DIR, TEST_INPUT_FILE, PATTERN_LIST
+from constants import OUTPUT_DIR, DIAGNOSTIC_OUTPUT_DIR, TEST_INPUT_FILE, PATTERN_LIST
 
 def main():
     remove_dir(OUTPUT_DIR)
+    remove_dir(DIAGNOSTIC_OUTPUT_DIR)
 
     file : TextFile = open_file(TEST_INPUT_FILE)
     classfile = ClassTextFile(

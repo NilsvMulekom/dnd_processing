@@ -23,6 +23,7 @@ class SubClass:
     def __post_init__(self):
         self.__construct_class_abilities_list()
         self.__split_class_abilities()
+        self.__replace_unique_abilities_with_links()
 
     def add_unique_ability(self, ability_file : TextFile):
         if ability_file.name != "":
@@ -40,7 +41,7 @@ class SubClass:
 
     def __construct_class_abilities_list(self):
         """
-            Run over all headings in the file that contain level and construct a list of only the unique ability names.
+        Run over all headings in the file that contain level and construct a list of only the unique ability names.
         """
         ABILITY_HEADER_PATTERN = re.compile(r"^## Level \d+:\s*")
         for line in self.sub_class_file.body:
@@ -61,9 +62,32 @@ class SubClass:
             if line.startswith(f"{LEVEL_2_HEADER}Level"):
                 self.add_unique_ability(ability_file)
                 ability_file : TextFile = TextFile(name = re.sub(r"^## Level \d+:\s*", "", line), body = [])
-            if ability_file.name != "":
+            elif ability_file.name != "":
                 ability_file.body.append(line)
         self.add_unique_ability(ability_file)
+
+    # TODO: write again
+    def __replace_unique_abilities_with_links(self):
+        """
+        Runs through the sub_class_file, removes any text that is also present in abilities and replaces it with a link to that ability
+        """
+        new_body: list[str] = []
+        ability_content_being_removed = False
+
+        for line in self.sub_class_file.body:
+            if line.startswith(LEVEL_1_HEADER):
+                new_body.append(line)
+            elif line.startswith(LEVEL_2_HEADER):
+                new_body.append(line)
+                ability_name = re.sub(r"^## Level \d+:\s*", "", line)
+                ability_content_being_removed = False
+                if self.__ability_names[ability_name]:
+                    new_body.append(f"![[{ability_name}]]")
+                    ability_content_being_removed = True
+            elif not ability_content_being_removed:
+                new_body.append(line)
+
+        self.sub_class_file.body = new_body
 
 @dataclass(slots=True)
 class BaseClass:
