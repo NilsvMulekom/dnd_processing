@@ -11,6 +11,9 @@ LEVEL_REFERENCE_PATTERN = re.compile(r"(?i)(?=.*\blevel\b).*?\b([3-9]|1\d|20)(?:
 @dataclass(slots=True)
 class ClassTextFile(TextFile):
     def reformat_bold_header(self, line: str, previous_heading: str) -> list[str]:
+        """
+        AI generated regex magic helper function for reformat_title_style
+        """
         if previous_heading == LEVEL_2_HEADER:
             level_header_match = BOLD_LEVEL_HEADER_PATTERN.match(line)
             if level_header_match:
