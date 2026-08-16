@@ -1,5 +1,7 @@
+import re
+import logging
+logging.basicConfig(level=logging.INFO)
 from dataclasses import dataclass, field
-
 
 #TODO: define
 from constants import *
@@ -14,6 +16,32 @@ class SubClass:
     name           : str
     sub_class_file : TextFile
     abilities      : list[TextFile] = field(default_factory=list)
+
+    __unique_ability_names: list[str] = field(default_factory=list)
+
+    # TODO: Let copilot check for improvements
+    def construct_class_abilities_list(self) -> list[str]:
+        """
+            Run over all headings in the file that contain level and return only the unique ability names.
+        """
+        
+        duplicated_ability_names: list[str] = []
+
+        for line in self.sub_class_file.body:
+            if line.startswith(f"{LEVEL_2_HEADER}Level"):
+                ability_name : str = re.sub(r"^## Level \d+:\s*", "", line)
+                if (ability_name in self.__unique_ability_names):
+                    if (ability_name not in duplicated_ability_names):
+                        duplicated_ability_names.append(ability_name)
+                else:
+                    self.__unique_ability_names.append(ability_name)
+        for name in self.__unique_ability_names:
+            if name in duplicated_ability_names:
+                self.__unique_ability_names.remove(name)
+
+    def log_unique_ability_names(self):
+        for ability in self.__unique_ability_names:
+            logging.info(ability)
 
 @dataclass(slots=True)
 class BaseClass:
