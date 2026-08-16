@@ -27,7 +27,10 @@ class BaseClass:
         Add Textfile containing subclass body to sub_classes list
         """
         if sub_class_file.name != "":
-            self.sub_classes.append(sub_class_file)
+            self.sub_classes.append(SubClass(
+                name           = sub_class_file.name, 
+                sub_class_file = sub_class_file
+            ))
 
     def split_into_sub_classes(self):
         sub_class_file : TextFile = TextFile(name = "", body = [])

@@ -16,7 +16,7 @@ def main():
     class_file_set.class_file.diagnostic_print_to_file()
     class_file_set.split_into_sub_classes()
 
-    for sub_class_file in class_file_set.sub_classes:
-        sub_class_file.diagnostic_print_to_file()
+    for sub_class in class_file_set.sub_classes:
+        sub_class.sub_class_file.diagnostic_print_to_file()
 
 main()
