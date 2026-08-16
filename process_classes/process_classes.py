@@ -7,6 +7,7 @@ def main():
 
     file : TextFile = open_file()
     class_file_set : BaseClass = BaseClass(name=file.name, class_file=file)
+    class_file_set.reformat_class_file()
     class_file_set.print_class_file()
 
 main()
