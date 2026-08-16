@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
 @dataclass
-class raw_file:
+class TextFile:
     name: str
     body: list[str]

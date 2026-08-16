@@ -1,48 +1,29 @@
 import shutil
 from pathlib import Path
-from custom_types import raw_file
+from custom_types import TextFile
 from constants import INPUT_FILE
-from constants import OUTPUT_DIR, CLASSES_OUTPUT_ROOT, CLASSES_FILES_OUTPUT_DIR, CLASS_ABILITIES_OUTPUT_DIR
+from constants import OUTPUT_DIR
 
-def open_all_files() -> list[raw_file]:
-    # Open all files in the input directory and return a list of raw_file objects
-    raw_files: list[raw_file] = []
-
-    for file_path in Path(INPUT_FILE).parent.glob("*.md"):
-        with open(file_path, "r", encoding="utf-8") as file:
-            content = file.read()
-
-        file_body: list[str] = content.splitlines()
-        file_name: str = file_path.stem
-
-        raw_files.append(raw_file(name=file_name, body=file_body))
-
-    return raw_files
-
-def open_file() -> raw_file:
+# TODO: Add file path input or change to diagnostic
+def open_file() -> TextFile:
     with open(INPUT_FILE, "r", encoding="utf-8") as file:
         content = file.read()
 
     file_body: list[str] = content.splitlines()
     file_name: str = Path(INPUT_FILE).stem
 
-    return raw_file(name=file_name, body=file_body)
+    return TextFile(name=file_name, body=file_body)
 
-def write_file(file_title: str, file_body: list[str], output_path: Path):
-    file_name: str = f"{file_title}.md"
-    output_file = Path(output_path) / file_name
+def write_text_file(file : TextFile, output_folder : Path):
+    file_name: str = f"{file.name}.md"
+    output_folder.mkdir(parents=True, exist_ok=True)
 
-    with open(output_file, "w", encoding="utf-8") as file:
-        for line in file_body:
-            file.write(f"{line}\n")
+    output_file = output_folder / file_name
+    with open(output_file, "w", encoding="utf-8") as output_file:
+            for line in file.body:
+                output_file.write(f"{line}\n")
 
-def create_output_dirs():
-    output_dir = Path(OUTPUT_DIR)
-    # Create output dir, if it already exists delete the old version first
-    if output_dir.exists():
-        shutil.rmtree(output_dir)
-
-    output_dir.mkdir(exist_ok=True)
-    CLASSES_OUTPUT_ROOT.mkdir(exist_ok=True)
-    CLASSES_FILES_OUTPUT_DIR.mkdir(exist_ok=True)
-    CLASS_ABILITIES_OUTPUT_DIR.mkdir(exist_ok=True)
+def remove_output_dir():
+    folder = Path(OUTPUT_DIR)
+    if folder.exists():
+        shutil.rmtree(folder)
