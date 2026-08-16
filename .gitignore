@@ -2,3 +2,4 @@ split_spells/Spells/
 process_classes/Classes/
 __pycache__/
 *_old/
+diag/

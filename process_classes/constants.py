@@ -1,12 +1,14 @@
 from pathlib import Path
 
-OUTPUT_DIR = "Classes"
-INPUT_DIR  = "input_folder"
+# TODO: Cleanup
+OUTPUT_DIR = Path("Classes")
+INPUT_DIR  = Path("input_folder")
 CLASSES_OUTPUT_ROOT        = Path(OUTPUT_DIR) / "."
 CLASSES_FILES_OUTPUT_DIR   = Path(OUTPUT_DIR) / "Classes"
 CLASS_ABILITIES_OUTPUT_DIR = Path(CLASSES_FILES_OUTPUT_DIR) / "Class abilities"
+DIAGNOSTIC_OUTPUT_DIR = Path("diag/.")
 
-INPUT_FILE = Path(INPUT_DIR) / "Barbarian.md"
+TEST_INPUT_FILE = Path(INPUT_DIR) / "Barbarian.md"
 
 LEVEL_1_HEADER = "# "
 LEVEL_2_HEADER = "## "
