@@ -24,9 +24,15 @@ class SubClass:
         self.__construct_class_abilities_list()
         self.__split_class_abilities()
 
-    def add_ability(self, ability_file : TextFile):
+    def add_unique_ability(self, ability_file : TextFile):
         if ability_file.name != "":
-            self.abilities.append(ability_file)
+
+            if ability_file.name in self.__ability_names.keys():
+                if self.__ability_names[ability_file.name]:
+                    print(ability_file.name)
+                    self.abilities.append(ability_file)
+            else:
+                logging.error(f"split_class_abilities: ability name {ability_file.name} not in ability_names")
 
     def log_unique_ability_names(self):
         for ability, is_unique in self.__ability_names.items():
@@ -46,18 +52,18 @@ class SubClass:
                     self.__ability_names[ability_name] = True
 
     def __split_class_abilities(self):
+        """
+        Make an ability file for each unique ability, thy are denoted with a level 2 heading in the sub_class_file
+        """
         ability_file : TextFile = TextFile(name = "", body = [])
 
         for line in self.sub_class_file.body:
             if line.startswith(f"{LEVEL_2_HEADER}Level"):
-                self.add_ability(ability_file)
-                ability_file : TextFile = TextFile(
-                    name = re.sub(r"^## Level \d+:\s*", "", line),
-                    body = []
-                )
+                self.add_unique_ability(ability_file)
+                ability_file : TextFile = TextFile(name = re.sub(r"^## Level \d+:\s*", "", line), body = [])
             if ability_file.name != "":
                 ability_file.body.append(line)
-        self.add_ability(ability_file)
+        self.add_unique_ability(ability_file)
 
 @dataclass(slots=True)
 class BaseClass:
