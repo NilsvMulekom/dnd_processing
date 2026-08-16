@@ -16,12 +16,30 @@ class SubClass:
     sub_class_file : TextFile
     abilities      : list[TextFile] = field(default_factory=list)
 
-    # TODO: Change to diagnostic?
-    def print_sub_class_file(self):
-        write_text_file(self.sub_class_file, CLASSES_FILES_OUTPUT_DIR)
-
 @dataclass(slots=True)
 class BaseClass:
     name        : str
     class_file  : ClassTextFile
     sub_classes : list[SubClass] = field(default_factory=list)
+
+    def add_sub_class(self, sub_class_file: TextFile):
+        """
+        Add Textfile containing subclass body to sub_classes list
+        """
+        if sub_class_file.name != "":
+            self.sub_classes.append(sub_class_file)
+
+    def split_into_sub_classes(self):
+        sub_class_file : TextFile = TextFile(name = "", body = [])
+
+        for line in self.class_file.body:
+            if line.startswith(f"{LEVEL_1_HEADER}"):
+                self.add_sub_class(sub_class_file)
+                class_name = line[2:]
+                sub_class_file : TextFile = TextFile(name = class_name, body = [])
+            if sub_class_file.name != "":
+                sub_class_file.body.append(line)
+
+        self.add_sub_class(sub_class_file)
+
+    

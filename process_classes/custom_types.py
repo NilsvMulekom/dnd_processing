@@ -46,6 +46,3 @@ class ClassTextFile(TextFile):
     def reformat_file(self):
         self.reformat_title_style()
         self.remove_bold()
-
-    def diagnostic_print_to_file(self):
-        write_text_file(self, DIAGNOSTIC_OUTPUT_DIR)

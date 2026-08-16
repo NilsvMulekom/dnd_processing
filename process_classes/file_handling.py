@@ -1,11 +1,17 @@
 import shutil
 from pathlib import Path
 from dataclasses import dataclass
+from constants import DIAGNOSTIC_OUTPUT_DIR
 
 @dataclass(slots=True)
 class TextFile:
     name: str
     body: list[str]
+
+    diagnostic_print_output_dir = DIAGNOSTIC_OUTPUT_DIR
+
+    def diagnostic_print_to_file(self):
+        write_text_file(self, self.diagnostic_print_output_dir)
 
 def remove_dir(folder : Path):
     if folder.exists():
