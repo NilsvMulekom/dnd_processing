@@ -10,7 +10,6 @@ from custom_types import TextFile, ClassTextFile
 # TODO: Find clean way to differentiate between class and subclass.
 #       - Only print in BassClass
 #       - Output dir as parameter
-#       - Separate diag folder
 @dataclass(slots=True)
 class SubClass:
     name           : str
@@ -71,6 +70,7 @@ class SubClass:
     # TODO: (Martials) : Fix Extra attack
     # TODO: (Barbarian): Fix Improved Brutal Strike
     # TODO: (Paladin)  : Fix blessed warrior
+
     def __replace_unique_abilities_with_links(self):
         """
         Runs through the sub_class_file, removes any text that is also present in abilities and replaces it with a link to that ability

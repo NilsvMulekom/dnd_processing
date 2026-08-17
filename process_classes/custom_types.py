@@ -16,6 +16,7 @@ IMPLICIT_LEVEL_HEADER_PATTERN = re.compile(
 
 @dataclass(slots=True)
 class ClassTextFile(TextFile):
+    # TODO: add post init
     def reformat_bold_header(self, line: str, previous_heading: str) -> list[str]:
         """
         AI generated regex magic helper function for reformat_title_style
@@ -74,6 +75,43 @@ class ClassTextFile(TextFile):
 
         self.body = new_body
 
+    def remove_empty_first_and_last_line_in_segment(self, segment : list[str]):
+        # If first line after the title or last line is empty, remove it
+        if segment[1] == "":
+            del segment[1]
+        if segment[-1] == "":
+            del segment[-1]
+        return segment
+
+    def remove_empty_lines_in_level2_headers(self):
+        """
+        Remove the empty line at the start and end of a level 2 heading segment
+        """
+        new_body: list[str] = []
+        segment : list[str] = []
+
+        for line in self.body:
+            # Check if a segment is being processed
+            if len(segment) > 0:
+                if line.startswith(LEVEL_1_HEADER) or  line.startswith(LEVEL_2_HEADER):
+                    # Add the new segment to the body and clear the segment
+                    new_body.extend(self.remove_empty_first_and_last_line_in_segment(segment))
+                    segment.clear()
+                segment.append(line)
+            # If no segment is being processed look for a level 2 header
+            elif line.startswith(LEVEL_2_HEADER):
+                print(line)
+                segment : list[str] = []
+                segment.append(line)
+            # If no segment is being processed and it's not a level 2 header, keep the line as it is.
+            else:
+                new_body.append(line)
+
+        if len(segment) > 0:
+            new_body.extend(self.remove_empty_first_and_last_line_in_segment(segment))
+
+        self.body = new_body
+
     def remove_bold(self):
         """
         Reformat file to remove any bold (*words*) text.
@@ -90,4 +128,5 @@ class ClassTextFile(TextFile):
         Call all reformatting functions in the correct order.
         """
         self.reformat_title_style()
+        self.remove_empty_lines_in_level2_headers()
         self.remove_bold()
