@@ -38,7 +38,7 @@ class ClassTextFile(TextFile):
 
                 return [f"## Level {level}: {title}", remainder]
 
-        return [re.sub(r"\*\*\*(.*?)\.\*\*\*", r"#### \1\n", line)]
+        return [re.sub(r"\*\*\*(.*?)\.\*\*\* ", r"#### \1\n", line)]
 
     def reformat_title_style(self):
         """
