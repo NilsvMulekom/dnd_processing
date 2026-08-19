@@ -29,7 +29,7 @@ If another Wizard feature gives you spells that you always have prepared, those 
 
 ***Spellcasting Focus.*** You can use an *Arcane Focus* or your spellbook as a Spellcasting Focus for your Wizard spells.
 
-#### Expanding and Replacing a Spellbook
+##### Expanding and Replacing a Spellbook
 
 The spells you add to your spellbook as you gain levels reflect your ongoing magical research, but you might find other spells during your adventures that you can add to the book. You could discover a Wizard spell on a *Spell Scroll*, for example, and then copy it into your spellbook.
 
@@ -189,7 +189,7 @@ While your bladesong is active, you gain the following benefits:
 
 You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.
 
-#### Bladesinger Styles
+##### Bladesinger Styles
 
 From its inception as a martial and magical art, Bladesinging has been tied to the sword, more specifically the longsword. Yet many generations of study gave rise to various styles of Bladesinging based on the melee weapon employed. The techniques of these styles are passed from master to students in small schools, some of which have a building dedicated to instruction. Even the newest styles are hundreds of years old, but are still taught by their original creators due to the long lives of elves. Most schools of Bladesinging are in Evermeet or Evereska. One was started in Myth Drannor, but the city's destruction has scattered those students who survived.
 

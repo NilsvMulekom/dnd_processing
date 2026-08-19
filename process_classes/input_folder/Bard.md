@@ -49,7 +49,7 @@ You can add half your Proficiency Bonus (round down) to any ability check you ma
 
 For example, if you make a Strength (Athletics) check and lack Athletics proficiency, you can add half your Proficiency Bonus to the check.
 
-#### A Bard's Repertoire
+##### A Bard's Repertoire
 
 Does your Bard beat a *drum* while chanting the deeds of ancient heroes? Strum a *lute* while crooning romantic tunes? Perform arias of stirring power? Recite dramatic monologues from classic tragedies? Use the rhythm of a folk dance to coordinate the movement of allies in battle? Compose naughty limericks?
 
