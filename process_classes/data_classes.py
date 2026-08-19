@@ -7,6 +7,13 @@ from dataclasses import dataclass, field
 from constants import *
 from custom_types import TextFile, ClassTextFile
 
+# Ability names that are also in other classes
+# TODO: Find a way to no longer need this
+ABILITY_NAMES_BLACKLIST = [
+    "Extra Attack",
+    "Spellcasting",
+]
+
 # TODO: Find clean way to differentiate between class and subclass.
 #       - Only print in BassClass
 #       - Output dir as parameter
@@ -85,7 +92,7 @@ class SubClass:
                 new_body.append(line)
                 ability_name = re.sub(r"^## Level \d+:\s*", "", line)
                 ability_content_being_removed = False
-                if self.__ability_names[ability_name]:
+                if self.__ability_names[ability_name] and ability_name not in ABILITY_NAMES_BLACKLIST:
                     new_body.append(f"![[{ability_name}]]")
                     ability_content_being_removed = True
             elif not ability_content_being_removed:
