@@ -75,40 +75,27 @@ class ClassTextFile(TextFile):
 
         self.body = new_body
 
-    def remove_empty_first_and_last_line_in_segment(self, segment : list[str]):
-        # If first line after the title or last line is empty, remove it
-        if segment[1] == "":
-            del segment[1]
-        if segment[-1] == "":
-            del segment[-1]
-        return segment
-
-    def remove_empty_lines_in_level2_headers(self):
+    def remove_empty_lines_around_headers(self):
         """
-        Remove the empty line at the start and end of a level 2 heading segment
+        Remove the empty lines around headers.
+        It does this as follows:
+            - Check the previous line was a heading:
+                - If it was and the current line is empty, don't add it to new_body
+                - If it was and the line two lines ago was empty, remove it from the new_body
         """
         new_body: list[str] = []
-        segment : list[str] = []
 
         for line in self.body:
-            # Check if a segment is being processed
-            if len(segment) > 0:
-                if line.startswith(LEVEL_1_HEADER) or  line.startswith(LEVEL_2_HEADER):
-                    # Add the new segment to the body and clear the segment
-                    new_body.extend(self.remove_empty_first_and_last_line_in_segment(segment))
-                    segment.clear()
-                segment.append(line)
-            # If no segment is being processed look for a level 2 header
-            elif line.startswith(LEVEL_2_HEADER):
-                print(line)
-                segment : list[str] = []
-                segment.append(line)
-            # If no segment is being processed and it's not a level 2 header, keep the line as it is.
+            if len(new_body) > 2:
+                if new_body[-1].startswith(LEVEL_1_HEADER) or new_body[-1].startswith(LEVEL_2_HEADER) or new_body[-1].startswith(LEVEL_4_HEADER):
+                    if new_body[-2] == "":
+                        del new_body[-2]
+                    if line != "":
+                        new_body.append(line)
+                else:
+                    new_body.append(line)
             else:
                 new_body.append(line)
-
-        if len(segment) > 0:
-            new_body.extend(self.remove_empty_first_and_last_line_in_segment(segment))
 
         self.body = new_body
 
@@ -128,5 +115,5 @@ class ClassTextFile(TextFile):
         Call all reformatting functions in the correct order.
         """
         self.reformat_title_style()
-        self.remove_empty_lines_in_level2_headers()
+        self.remove_empty_lines_around_headers()
         self.remove_bold()
