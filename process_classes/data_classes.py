@@ -100,7 +100,6 @@ class BaseClass:
     sub_classes : list[SubClass] = field(default_factory=list)
 
     def __post_init__(self):
-        self.class_file.reformat_file()
         self.split_into_sub_classes()
 
     def add_sub_class(self, sub_class_file: TextFile):

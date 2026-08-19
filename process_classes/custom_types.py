@@ -16,10 +16,15 @@ IMPLICIT_LEVEL_HEADER_PATTERN = re.compile(
 
 @dataclass(slots=True)
 class ClassTextFile(TextFile):
-    # TODO: add post init
-    def reformat_bold_header(self, line: str, previous_heading: str) -> list[str]:
+
+    def __post_init__(self):
+        self.__reformat_title_style()
+        self.__remove_empty_lines_around_headers()
+        self.__remove_bold()
+
+    def __reformat_bold_header(self, line: str, previous_heading: str) -> list[str]:
         """
-        AI generated regex magic helper function for reformat_title_style
+        AI generated regex magic helper function for __reformat_title_style
         """
         if previous_heading == LEVEL_2_HEADER:
             level_header_match = BOLD_LEVEL_HEADER_PATTERN.match(line)
@@ -41,7 +46,7 @@ class ClassTextFile(TextFile):
 
         return [re.sub(r"\*\*\*(.*?)\.\*\*\* ", r"#### \1\n", line)]
 
-    def reformat_title_style(self):
+    def __reformat_title_style(self):
         """
         Reformats the title style of a file.
           - Level 2 headings are changes to level 1 headings.
@@ -68,14 +73,14 @@ class ClassTextFile(TextFile):
                 case _ if line.startswith(LEVEL_5_HEADER):
                     new_lines = [line.replace(LEVEL_5_HEADER, LEVEL_4_HEADER)]
                 case _ if line.startswith(BOLD_HEADER):
-                    new_lines = self.reformat_bold_header(line, previous_heading)
+                    new_lines = self.__reformat_bold_header(line, previous_heading)
                 case _:
                     new_lines = [line]
             new_body.extend(new_lines)
 
         self.body = new_body
 
-    def remove_empty_lines_around_headers(self):
+    def __remove_empty_lines_around_headers(self):
         """
         Remove the empty lines around headers.
         It does this as follows:
@@ -99,7 +104,7 @@ class ClassTextFile(TextFile):
 
         self.body = new_body
 
-    def remove_bold(self):
+    def __remove_bold(self):
         """
         Reformat file to remove any bold (*words*) text.
         """
@@ -109,11 +114,3 @@ class ClassTextFile(TextFile):
             new_body.append(new_line)
 
         self.body = new_body
-
-    def reformat_file(self):
-        """
-        Call all reformatting functions in the correct order.
-        """
-        self.reformat_title_style()
-        self.remove_empty_lines_around_headers()
-        self.remove_bold()
