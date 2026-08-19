@@ -66,7 +66,6 @@ class SubClass:
         self.add_unique_ability(ability_file)
 
     # TODO: write again
-    # TODO: Fix empty lines on non removed sections
     # TODO: (Martials) : Fix Extra attack
     # TODO: (Barbarian): Fix Improved Brutal Strike
     # TODO: (Paladin)  : Fix blessed warrior
@@ -80,7 +79,8 @@ class SubClass:
 
         for line in self.sub_class_file.body:
             if line.startswith(LEVEL_1_HEADER):
-                new_body.append(line)
+                # Remove the class/subclass name from the file
+                pass
             elif line.startswith(LEVEL_2_HEADER):
                 new_body.append(line)
                 ability_name = re.sub(r"^## Level \d+:\s*", "", line)
