@@ -31,7 +31,7 @@ class SubClass:
         self.__split_class_abilities()
         self.__replace_unique_abilities_with_links()
 
-    def add_unique_ability(self, ability_file : TextFile):
+    def __add_unique_ability(self, ability_file : TextFile):
         if ability_file.name != "":
 
             if ability_file.name in self.__ability_names.keys():
@@ -66,11 +66,11 @@ class SubClass:
 
         for line in self.sub_class_file.body:
             if line.startswith(f"{LEVEL_2_HEADER}Level"):
-                self.add_unique_ability(ability_file)
+                self.__add_unique_ability(ability_file)
                 ability_file : TextFile = TextFile(name = re.sub(r"^## Level \d+:\s*", "", line), body = [])
             elif ability_file.name != "":
                 ability_file.body.append(line)
-        self.add_unique_ability(ability_file)
+        self.__add_unique_ability(ability_file)
 
     # TODO: write again
     # TODO: (Martials) : Fix Extra attack
