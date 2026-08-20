@@ -140,10 +140,22 @@ class BaseClass:
 
         self.__add_sub_class(sub_class_file)
 
+    def __create_index(self) -> list[str]:
+        body : list[str] = []
+        body.append("")
+        body.append("# Sub Classes:")
+        for sub_class in self.sub_classes:
+            # Only add the true subclasses
+            if sub_class.name != self.name:
+                body.append(f"[[{sub_class.name}]]")
+
+        return body
+
     def print_to_file(self):
         for sub_class in self.sub_classes:
             # Find the base class and give it a different destination
             if sub_class.name == self.name:
+                sub_class.sub_class_file.body += self.__create_index()
                 output_dir : Path = OUTPUT_DIR / Path(self.name)
             else:
                 output_dir : Path = OUTPUT_DIR / Path(self.name) / SUBCLASSES_DIR
