@@ -1,9 +1,25 @@
-from file_handling import TextFile, remove_dir, open_file
+from file_handling import TextFile, remove_dir, open_file, write_text_file
 from custom_types import ClassTextFile
 from data_classes import BaseClass
 from constants import OUTPUT_DIR, DIAGNOSTIC_OUTPUT_DIR, TEST_INPUT_FILE, PATTERN_LIST
 
 from pathlib import Path
+
+# TODO: Add class that contains the whole list of classes?
+
+def create_index(class_names : list[str]):
+    # TODO: Why is this not alphabetical?
+    body : list[str] = []
+
+    for class_name in class_names:
+        body.append(f"[[{class_name}]]")
+
+    file = TextFile(
+        name = "Classes",
+        body = body
+    )
+
+    write_text_file(file, OUTPUT_DIR)
 
 def process_all():
     class_files : list[ClassTextFile] = []
@@ -30,6 +46,12 @@ def process_all():
             for ability in sub_class.abilities:
                 ability.add_linking(PATTERN_LIST)
         base_class.print_to_file()
+
+    class_names : list[str] = []
+    for base_class in base_class_set:
+        class_names.append(base_class.name)
+
+    create_index(class_names)
         
 
 def process_one():
