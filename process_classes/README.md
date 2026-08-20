@@ -10,6 +10,7 @@
 
 # Improvements
 
+# TODO: Improve documentation
 # TODO: Add nicer class table
 # TODO: Clean up __replace_unique_abilities_with_links
 # TODO: (Martials) : Fix Extra attack
