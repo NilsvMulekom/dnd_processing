@@ -5,10 +5,7 @@ from constants import OUTPUT_DIR, DIAGNOSTIC_OUTPUT_DIR, TEST_INPUT_FILE, PATTER
 
 from pathlib import Path
 
-# TODO: Add class that contains the whole list of classes?
-
 def create_index(class_names : list[str]):
-    # TODO: Why is this not alphabetical?
     body : list[str] = []
 
     for class_name in class_names:

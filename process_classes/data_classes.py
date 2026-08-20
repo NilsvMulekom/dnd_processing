@@ -4,13 +4,11 @@ import logging
 logging.basicConfig(level=logging.INFO)
 from dataclasses import dataclass, field
 
-#TODO: define
 from constants import OUTPUT_DIR, SUBCLASSES_DIR, CLASS_ABILITIES_DIR, LEVEL_1_HEADER, LEVEL_2_HEADER
 from custom_types import TextFile, ClassTextFile
 from file_handling import write_text_file
 
 # Ability names that are also in other classes
-# TODO: Find a way to no longer need this
 ABILITY_NAMES_BLACKLIST = [
     "Extra Attack",
     "Spellcasting",
@@ -76,11 +74,6 @@ class SubClass:
             elif ability_file.name != "":
                 ability_file.body.append(line)
         self.__add_unique_ability(ability_file)
-
-    # TODO: write again
-    # TODO: (Martials) : Fix Extra attack
-    # TODO: (Barbarian): Fix Improved Brutal Strike
-    # TODO: (Paladin)  : Fix blessed warrior
 
     def __replace_unique_abilities_with_links(self):
         """

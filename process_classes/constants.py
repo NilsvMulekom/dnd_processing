@@ -16,8 +16,6 @@ LEVEL_5_HEADER = "##### "
 BOLD_HEADER    = "***"
 
 PATTERN_LIST = [
-    # TODO: add more patterns
-    # TODO: make centralized list
     "Blinded",
     "Charmed",
     "Deafened",
