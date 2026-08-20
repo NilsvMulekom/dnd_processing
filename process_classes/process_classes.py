@@ -29,7 +29,7 @@ def process_all():
             sub_class.sub_class_file.add_linking(PATTERN_LIST)
             for ability in sub_class.abilities:
                 ability.add_linking(PATTERN_LIST)
-            sub_class.write_to_files()
+        base_class.print_to_file()
         
 
 def process_one():
@@ -42,10 +42,10 @@ def process_one():
 
     for sub_class in class_file_set.sub_classes:
         sub_class.sub_class_file.add_linking(PATTERN_LIST)
-        sub_class.log_unique_ability_names()
         for ability in sub_class.abilities:
             ability.add_linking(PATTERN_LIST)
-        sub_class.write_to_files()
+
+    class_file_set.print_to_file()
 
 def main():
     remove_dir(OUTPUT_DIR)
@@ -53,9 +53,6 @@ def main():
 
     # process_one()
     process_all()
-
-
-
 
 
 main()

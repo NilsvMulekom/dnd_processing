@@ -1,11 +1,9 @@
 from pathlib import Path
 
-# TODO: Cleanup
 OUTPUT_DIR = Path("Classes")
 INPUT_DIR  = Path("input_folder")
-CLASSES_OUTPUT_ROOT        = Path(OUTPUT_DIR) / "."
-CLASSES_FILES_OUTPUT_DIR   = Path(OUTPUT_DIR) / "Classes"
-CLASS_ABILITIES_OUTPUT_DIR = Path(CLASSES_FILES_OUTPUT_DIR) / "Class abilities"
+SUBCLASSES_DIR = Path("SubClasses")
+CLASS_ABILITIES_DIR = Path("ClassAbilities")
 DIAGNOSTIC_OUTPUT_DIR = Path("diag/.")
 
 TEST_INPUT_FILE = Path(INPUT_DIR) / "Barbarian.md"

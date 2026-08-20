@@ -1,10 +1,11 @@
+from pathlib import Path
 import re
 import logging
 logging.basicConfig(level=logging.INFO)
 from dataclasses import dataclass, field
 
 #TODO: define
-from constants import *
+from constants import OUTPUT_DIR, SUBCLASSES_DIR, CLASS_ABILITIES_DIR, LEVEL_1_HEADER, LEVEL_2_HEADER
 from custom_types import TextFile, ClassTextFile
 from file_handling import write_text_file
 
@@ -14,10 +15,6 @@ ABILITY_NAMES_BLACKLIST = [
     "Extra Attack",
     "Spellcasting",
 ]
-
-# TODO: Find clean way to differentiate between class and subclass.
-#       - Only print in BassClass
-#       - Output dir as parameter
 @dataclass(slots=True)
 class SubClass:
     name           : str
@@ -27,12 +24,13 @@ class SubClass:
     # A dict that contains all abilities in a string. The bool indicates if the ability is unique
     __ability_names: dict[str, bool] = field(default_factory=dict)
 
-    #TODO: Better way to handle paths
-    #TODO: Find a way to distinguish between baseclass and subclass
-    def write_to_files(self):
-        write_text_file(self.sub_class_file, Path("Classes/Subclasses"))
-        for ability in self.abilities:
-            write_text_file(ability, Path("Classes/ClassAbilities"))
+    def write_to_files(self, output_dir : Path = ""):
+        if output_dir != "":
+            write_text_file(self.sub_class_file, output_dir)
+            for ability in self.abilities:
+                write_text_file(ability, output_dir / CLASS_ABILITIES_DIR)
+        else:
+            logging.error("SubClass.write_to_files: output_dir not set")
 
     def __post_init__(self):
         self.__construct_class_abilities_list()
@@ -44,7 +42,6 @@ class SubClass:
 
             if ability_file.name in self.__ability_names.keys():
                 if self.__ability_names[ability_file.name]:
-                    print(ability_file.name)
                     self.abilities.append(ability_file)
             else:
                 logging.error(f"split_class_abilities: ability name {ability_file.name} not in ability_names")
@@ -115,9 +112,9 @@ class BaseClass:
     sub_classes : list[SubClass] = field(default_factory=list)
 
     def __post_init__(self):
-        self.split_into_sub_classes()
+        self.__split_into_sub_classes()
 
-    def add_sub_class(self, sub_class_file: TextFile):
+    def __add_sub_class(self, sub_class_file: TextFile):
         """
         Add Textfile containing subclass body to sub_classes list
         """
@@ -127,7 +124,7 @@ class BaseClass:
                 sub_class_file = sub_class_file
             ))
 
-    def split_into_sub_classes(self):
+    def __split_into_sub_classes(self):
         """
         Cut the file into a file for the base class and each subclass. They are denoted with a level 1 heading in the source file.
         """
@@ -135,12 +132,19 @@ class BaseClass:
 
         for line in self.class_file.body:
             if line.startswith(f"{LEVEL_1_HEADER}"):
-                self.add_sub_class(sub_class_file)
+                self.__add_sub_class(sub_class_file)
                 class_name = line[2:]
                 sub_class_file : TextFile = TextFile(name = class_name, body = [])
             if sub_class_file.name != "":
                 sub_class_file.body.append(line)
 
-        self.add_sub_class(sub_class_file)
+        self.__add_sub_class(sub_class_file)
 
-    
+    def print_to_file(self):
+        for sub_class in self.sub_classes:
+            # Find the base class and give it a different destination
+            if sub_class.name == self.name:
+                output_dir : Path = OUTPUT_DIR / Path(self.name)
+            else:
+                output_dir : Path = OUTPUT_DIR / Path(self.name) / SUBCLASSES_DIR
+            sub_class.write_to_files(output_dir)
