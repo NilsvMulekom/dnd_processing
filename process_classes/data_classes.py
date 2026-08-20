@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 #TODO: define
 from constants import *
 from custom_types import TextFile, ClassTextFile
+from file_handling import write_text_file
 
 # Ability names that are also in other classes
 # TODO: Find a way to no longer need this
@@ -25,6 +26,13 @@ class SubClass:
 
     # A dict that contains all abilities in a string. The bool indicates if the ability is unique
     __ability_names: dict[str, bool] = field(default_factory=dict)
+
+    #TODO: Better way to handle paths
+    #TODO: Find a way to distinguish between baseclass and subclass
+    def write_to_files(self):
+        write_text_file(self.sub_class_file, Path("Classes/Subclasses"))
+        for ability in self.abilities:
+            write_text_file(ability, Path("Classes/ClassAbilities"))
 
     def __post_init__(self):
         self.__construct_class_abilities_list()

@@ -27,10 +27,10 @@ def process_all():
     for base_class in base_class_set:
         for sub_class in base_class.sub_classes:
             sub_class.sub_class_file.add_linking(PATTERN_LIST)
-            sub_class.sub_class_file.diagnostic_print_to_file()
-            sub_class.log_unique_ability_names()
             for ability in sub_class.abilities:
-                ability.diagnostic_print_to_file()
+                ability.add_linking(PATTERN_LIST)
+            sub_class.write_to_files()
+        
 
 def process_one():
     file : TextFile = open_file(TEST_INPUT_FILE)
@@ -39,16 +39,13 @@ def process_one():
         body = file.body,
     )
     class_file_set : BaseClass = BaseClass(name=classfile.name, class_file=classfile)
-    class_file_set.class_file.diagnostic_print_to_file()
 
     for sub_class in class_file_set.sub_classes:
         sub_class.sub_class_file.add_linking(PATTERN_LIST)
-        sub_class.sub_class_file.diagnostic_print_to_file()
         sub_class.log_unique_ability_names()
         for ability in sub_class.abilities:
-            ability.diagnostic_print_to_file()
-    
-
+            ability.add_linking(PATTERN_LIST)
+        sub_class.write_to_files()
 
 def main():
     remove_dir(OUTPUT_DIR)
