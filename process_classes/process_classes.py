@@ -1,55 +1,28 @@
 from file_handling import TextFile, remove_dir, open_file, write_text_file
 from custom_types import ClassTextFile
-from data_classes import BaseClass
+from data_classes import BaseClass, ClassSet
 from constants import OUTPUT_DIR, DIAGNOSTIC_OUTPUT_DIR, TEST_INPUT_FILE, PATTERN_LIST
 
 from pathlib import Path
 
-def create_index(class_names : list[str]):
-    body : list[str] = []
-
-    for class_name in class_names:
-        body.append(f"[[{class_name}]]")
-
-    file = TextFile(
-        name = "Classes",
-        body = body
-    )
-
-    write_text_file(file, OUTPUT_DIR)
-
-def process_all():
+def process_class_list():
     class_files : list[ClassTextFile] = []
+    class_set : ClassSet
 
+    # TODO: open_files?
+    # TODO: TextFile to ClassTextFile function
     for file_path in Path(TEST_INPUT_FILE).parent.glob("*.md"):
         file : TextFile = open_file(file_path)
         class_file : ClassTextFile = ClassTextFile(
             name = file.name,
             body = file.body,
         )
-        class_files.append(class_file) 
+        class_files.append(class_file)
 
-    base_class_set : list[BaseClass] = []
-    for file in class_files:
-        base_class : BaseClass = BaseClass(
-            name       = file.name,
-            class_file = file
-        )
-        base_class_set.append(base_class)
-
-    for base_class in base_class_set:
-        for sub_class in base_class.sub_classes:
-            sub_class.sub_class_file.add_linking(PATTERN_LIST)
-            for ability in sub_class.abilities:
-                ability.add_linking(PATTERN_LIST)
-        base_class.print_to_file()
-
-    class_names : list[str] = []
-    for base_class in base_class_set:
-        class_names.append(base_class.name)
-
-    create_index(class_names)
-        
+    class_set = ClassSet(class_files = class_files)
+    class_set.add_linking(PATTERN_LIST)
+    class_set.print_to_file()
+    class_set.create_index()
 
 def process_one():
     file : TextFile = open_file(TEST_INPUT_FILE)
@@ -71,7 +44,8 @@ def main():
     remove_dir(DIAGNOSTIC_OUTPUT_DIR)
 
     # process_one()
-    process_all()
+    # process_all()
+    process_class_list()
 
 
 main()

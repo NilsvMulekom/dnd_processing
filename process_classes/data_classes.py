@@ -153,3 +153,42 @@ class BaseClass:
             else:
                 output_dir : Path = OUTPUT_DIR / Path(self.name) / SUBCLASSES_DIR
             sub_class.write_to_files(output_dir)
+
+@dataclass(slots=True)
+class ClassSet:
+    class_files : list[ClassTextFile]
+    classes     : list[BaseClass] = field(default_factory=list)
+
+    def __post_init__(self):
+        base_class_set : list[BaseClass] = []
+        for file in self.class_files:
+            base_class : BaseClass = BaseClass(
+                name       = file.name,
+                class_file = file
+            )
+            base_class_set.append(base_class)
+        self.classes : list[BaseClass] = base_class_set
+
+    # TODO: move part of this to BaseClass?
+    def add_linking(self, pattern_list : list[str]):
+        for base_class in self.classes:
+            for sub_class in base_class.sub_classes:
+                sub_class.sub_class_file.add_linking(pattern_list)
+                for ability in sub_class.abilities:
+                    ability.add_linking(pattern_list)
+
+    def print_to_file(self):
+        for base_class in self.classes:
+            base_class.print_to_file()
+
+    def create_index(self):
+        body : list[str] = []
+        for base_class in self.classes:
+            body.append(f"[[{base_class.name}]]")
+
+        file = TextFile(
+            name = "Classes",
+            body = body
+        )
+
+        write_text_file(file, OUTPUT_DIR)
