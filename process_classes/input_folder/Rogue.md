@@ -163,6 +163,29 @@ Once you use this feature, you can't use it again until you finish a Short or Lo
 
 Some Rogues enhance their fine-honed skills of stealth and agility with spells, learning magical tricks to aid them in their trade. Some Arcane Tricksters use their talents as pickpockets and burglars, while others are pranksters.
 
+| Level | Proficiency Bonus | Features | Sneak Attack | Prepared Spells | 1st | 2nd | 3rd | 4th |
+|---|---|---|---|---|---|---|---|---|
+| 1st | +2 | Expertise, Sneak Attack, Thieves' Cant, Weapon Mastery | 1d6 | — | — | — | — | — |
+| 2nd | +2 | Cunning Action | 1d6 | — | — | — | — | — |
+| 3rd | +2 | Rogue Subclass, Steady Aim | 2d6 | 3 | 2 | — | — | — |
+| 4th | +2 | Ability Score Improvement | 2d6 | 4 | 3 | — | — | — |
+| 5th | +3 | Cunning Strike, Uncanny Dodge | 3d6 | 4 | 3 | — | — | — |
+| 6th | +3 | Expertise | 3d6 | 4 | 3 | — | — | — |
+| 7th | +3 | Evasion, Reliable Talent | 4d6 | 5 | 4 | 2 | — | — |
+| 8th | +3 | Ability Score Improvement | 4d6 | 6 | 4 | 2 | — | — |
+| 9th | +4 | Subclass Feature | 5d6 | 6 | 4 | 2 | — | — |
+| 10th | +4 | Ability Score Improvement | 5d6 | 7 | 4 | 3 | — | — |
+| 11th | +4 | Improved Cunning Strike | 6d6 | 8 | 4 | 3 | — | — |
+| 12th | +4 | Ability Score Improvement | 6d6 | 8 | 4 | 3 | — | — |
+| 13th | +5 | Subclass Feature | 7d6 | 9 | 4 | 3 | 2 | — |
+| 14th | +5 | Devious Strikes | 7d6 | 10 | 4 | 3 | 2 | — |
+| 15th | +5 | Slippery Mind | 8d6 | 10 | 4 | 3 | 2 | — |
+| 16th | +5 | Ability Score Improvement | 8d6 | 11 | 4 | 3 | 3 | — |
+| 17th | +6 | Subclass Feature | 9d6 | 11 | 4 | 3 | 3 | — |
+| 18th | +6 | Elusive | 9d6 | 11 | 4 | 3 | 3 | — |
+| 19th | +6 | Epic Boon | 10d6 | 12 | 4 | 3 | 3 | 1 |
+| 20th | +6 | Stroke of Luck | 10d6 | 13 | 4 | 3 | 3 | 1 |
+
 ***Level 3: Spellcasting.*** You have learned to cast spells. See *chapter 7* for the rules on spellcasting. The information below details how you use those rules as an Arcane Trickster.
 
 ***Cantrips.*** You know three cantrips: *Mage Hand* and two other cantrips of your choice from the Wizard spell list (see that class's section for its list). *Mind Sliver* and *Minor Illusion* are recommended.
@@ -384,6 +407,29 @@ You have advantage on initiative rolls. In addition, the first creature you hit 
 *Strike Foes with Psionic Blades*
 
 A Soulknife strikes with the mind, cutting through barriers both physical and psychic. These Rogues discover psionic power within themselves and channel it to do their roguish work. As a Soulknife, your psionic abilities might have haunted you since childhood, revealing their full potential only as you experienced the stress of adventure. Or you might have sought out an order of psychic adepts and spent years learning how to manifest your power.
+
+| Level | Proficiency Bonus | Features | Sneak Attack | Die Size | Number |
+|---|---|---|---|---|---|
+| 1st | +2 | Expertise, Sneak Attack, Thieves' Cant, Weapon Mastery | 1d6 | — | — |
+| 2nd | +2 | Cunning Action | 1d6 | — | — |
+| 3rd | +2 | Rogue Subclass, Steady Aim | 2d6 | D6 | 4 |
+| 4th | +2 | Ability Score Improvement | 2d6 | D6 | 4 |
+| 5th | +3 | Cunning Strike, Uncanny Dodge | 3d6 | D8 | 6 |
+| 6th | +3 | Expertise | 3d6 | D8 | 6 |
+| 7th | +3 | Evasion, Reliable Talent | 4d6 | D8 | 6 |
+| 8th | +3 | Ability Score Improvement | 4d6 | D8 | 6 |
+| 9th | +4 | Subclass Feature | 5d6 | D8 | 8 |
+| 10th | +4 | Ability Score Improvement | 5d6 | D8 | 8 |
+| 11th | +4 | Improved Cunning Strike | 6d6 | D10 | 8 |
+| 12th | +4 | Ability Score Improvement | 6d6 | D10 | 8 |
+| 13th | +5 | Subclass Feature | 7d6 | D10 | 10 |
+| 14th | +5 | Devious Strikes | 7d6 | D10 | 10 |
+| 15th | +5 | Slippery Mind | 8d6 | D10 | 10 |
+| 16th | +5 | Ability Score Improvement | 8d6 | D10 | 10 |
+| 17th | +6 | Subclass Feature | 9d6 | D12 | 12 |
+| 18th | +6 | Elusive | 9d6 | D12 | 12 |
+| 19th | +6 | Epic Boon | 10d6 | D12 | 12 |
+| 20th | +6 | Stroke of Luck | 10d6 | D12 | 12 |
 
 ***Level 3: Psionic Power.*** You harbor a wellspring of psionic energy within yourself. It is represented by your Psionic Energy Dice, which fuel certain powers you have from this subclass. The Soulknife Energy Dice table shows the number of these dice you have when you reach certain Rogue levels, and the table shows the die size.
 

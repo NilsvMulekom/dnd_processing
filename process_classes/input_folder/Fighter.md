@@ -445,6 +445,29 @@ In addition, when you roll initiative and have no uses of your Unleash Incarnati
 
 Eldritch Knights combine the martial mastery common to all Fighters with a careful study of magic. Their spells both complement and extend their combat skills, providing additional protection to shore up their armor and also allowing them to engage many foes at once with explosive magic.
 
+| Level | Proficiency Bonus | Features | Second Wind | Weapon Mastery | Spells Prepared | 1st | 2nd | 3rd | 4th |
+|---|---|---|---|---|---|---|---|---|---|
+| 1st | +2 | Fighting Style, Second Wind, Weapon Mastery | 2 | 3 | — | — | — | — | — |
+| 2nd | +2 | Action Surge, Tactical Mind | 2 | 3 | — | — | — | — | — |
+| 3rd | +2 | Fighter Subclass | 2 | 3 | 3 | 2 | — | — | — |
+| 4th | +2 | Ability Score Improvement | 3 | 4 | 4 | 3 | — | — | — |
+| 5th | +3 | Extra Attack, Tactical Shift | 3 | 4 | 4 | 3 | — | — | — |
+| 6th | +3 | Ability Score Improvement | 3 | 4 | 4 | 3 | — | — | — |
+| 7th | +3 | Subclass Feature | 3 | 4 | 5 | 4 | 2 | — | — |
+| 8th | +3 | Ability Score Improvement | 3 | 4 | 6 | 4 | 2 | — | — |
+| 9th | +4 | Indomitable, Tactical Master | 3 | 4 | 6 | 4 | 2 | — | — |
+| 10th | +4 | Subclass Feature | 4 | 5 | 7 | 4 | 3 | — | — |
+| 11th | +4 | Two Extra Attacks | 4 | 5 | 8 | 4 | 3 | — | — |
+| 12th | +4 | Ability Score Improvement | 4 | 5 | 8 | 4 | 3 | — | — |
+| 13th | +5 | Indomitable, Studied Attacks | 4 | 5 | 9 | 4 | 3 | 2 | — |
+| 14th | +5 | Ability Score Improvement | 4 | 5 | 10 | 4 | 3 | 2 | — |
+| 15th | +5 | Subclass Feature | 4 | 5 | 10 | 4 | 3 | 2 | — |
+| 16th | +5 | Ability Score Improvement | 4 | 6 | 11 | 4 | 3 | 3 | — |
+| 17th | +6 | Action Surge, Indomitable | 4 | 6 | 11 | 4 | 3 | 3 | — |
+| 18th | +6 | Subclass Feature | 4 | 6 | 11 | 4 | 3 | 3 | — |
+| 19th | +6 | Epic Boon | 4 | 6 | 12 | 4 | 3 | 3 | 1 |
+| 20th | +6 | Three Extra Attacks | 4 | 6 | 13 | 4 | 3 | 3 | 1 |
+
 ***Level 3: Spellcasting.*** You have learned to cast spells. See *chapter 7* for the rules on spellcasting. The information below details how you use those rules as an Eldritch Knight.
 
 ***Cantrips.*** You know two cantrips of your choice from the Wizard spell list (see that class's section for its list). *Ray of Frost* and *Shocking Grasp* are recommended. Whenever you gain a Fighter level, you can replace one of these cantrips with another cantrip of your choice from the Wizard spell list.
@@ -485,6 +508,29 @@ You can have up to two bonded weapons, but you can summon only one at a time wit
 *Augment Physical Might with Psionic Power*
 
 Psi Warriors awaken the power of their minds to augment their physical might. They harness this psionic power to infuse their weapon strikes, lash out with telekinetic energy, and create barriers of mental force.
+
+| Level | Proficiency Bonus | Features | Second Wind | Weapon Mastery | Die Size | Number |
+|---|---|---|---|---|---|---|
+| 1st | +2 | Fighting Style, Second Wind, Weapon Mastery | 2 | 3 | — | — |
+| 2nd | +2 | Action Surge, Tactical Mind | 2 | 3 | — | — |
+| 3rd | +2 | Fighter Subclass | 2 | 3 | D6 | 4 |
+| 4th | +2 | Ability Score Improvement | 3 | 4 | D6 | 4 |
+| 5th | +3 | Extra Attack, Tactical Shift | 3 | 4 | D8 | 6 |
+| 6th | +3 | Ability Score Improvement | 3 | 4 | D8 | 6 |
+| 7th | +3 | Subclass Feature | 3 | 4 | D8 | 6 |
+| 8th | +3 | Ability Score Improvement | 3 | 4 | D8 | 6 |
+| 9th | +4 | Indomitable, Tactical Master | 3 | 4 | D8 | 8 |
+| 10th | +4 | Subclass Feature | 4 | 5 | D8 | 8 |
+| 11th | +4 | Two Extra Attacks | 4 | 5 | D10 | 8 |
+| 12th | +4 | Ability Score Improvement | 4 | 5 | D10 | 8 |
+| 13th | +5 | Indomitable, Studied Attacks | 4 | 5 | D10 | 10 |
+| 14th | +5 | Ability Score Improvement | 4 | 5 | D10 | 10 |
+| 15th | +5 | Subclass Feature | 4 | 5 | D10 | 10 |
+| 16th | +5 | Ability Score Improvement | 4 | 6 | D10 | 10 |
+| 17th | +6 | Action Surge, Indomitable | 4 | 6 | D12 | 12 |
+| 18th | +6 | Subclass Feature | 4 | 6 | D12 | 12 |
+| 19th | +6 | Epic Boon | 4 | 6 | D12 | 12 |
+| 20th | +6 | Three Extra Attacks | 4 | 6 | D12 | 12 |
 
 ***Level 3: Psionic Power.*** You harbor a wellspring of psionic energy within yourself. It is represented by your Psionic Energy Dice, which fuel powers you have from this subclass. The Psi Warrior Energy Dice table shows the die size and number of these dice you have when you reach certain Fighter levels.
 
