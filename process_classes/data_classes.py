@@ -27,6 +27,11 @@ class SubClass:
         self.__split_class_abilities()
         self.__replace_unique_abilities_with_links()
 
+    def add_linking(self, pattern_list : list[str]):
+        self.sub_class_file.add_linking(pattern_list)
+        for ability in self.abilities:
+            ability.add_linking(pattern_list)
+
     def write_to_files(self, output_dir : Path = ""):
         if output_dir != "":
             write_text_file(self.sub_class_file, output_dir)
@@ -107,6 +112,11 @@ class BaseClass:
     def __post_init__(self):
         self.__split_into_sub_classes()
 
+    def add_linking(self, pattern_list : list[str]):
+        self.class_file.add_linking(pattern_list)
+        for sub_class in self.sub_classes:
+            sub_class.add_linking(pattern_list)
+
     def print_to_file(self):
         for sub_class in self.sub_classes:
             # Find the base class and give it a different destination
@@ -169,13 +179,9 @@ class ClassSet:
             base_class_set.append(base_class)
         self.classes : list[BaseClass] = base_class_set
 
-    # TODO: move part of this to BaseClass?
     def add_linking(self, pattern_list : list[str]):
         for base_class in self.classes:
-            for sub_class in base_class.sub_classes:
-                sub_class.sub_class_file.add_linking(pattern_list)
-                for ability in sub_class.abilities:
-                    ability.add_linking(pattern_list)
+            base_class.add_linking(pattern_list)
 
     def print_to_file(self):
         for base_class in self.classes:

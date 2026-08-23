@@ -10,6 +10,7 @@
 
 # Improvements
 
+# TODO: Find a nice way to avoid half words being linked when they shouldn't be linked
 # TODO: Improve documentation
 # TODO: Add nicer class table
 # TODO: Clean up __replace_unique_abilities_with_links
