@@ -36,7 +36,6 @@ ABILITY_NAMES_BLACKLIST = [
     "Spell Breaker",
     "Spellcasting",
     "Tools of the Trade",
-    "War Magic",
     "Unarmored Defense",
     "Weapon Mastery",
 ]
