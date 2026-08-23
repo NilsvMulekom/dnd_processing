@@ -3,7 +3,7 @@ import re
 import logging
 from pathlib import Path
 from dataclasses import dataclass
-from constants import DIAGNOSTIC_OUTPUT_DIR, FILE_NAMES_LIST, ABILITY_NAMES_BLACKLIST, HEADER_PREFIXES
+from constants import DIAGNOSTIC_OUTPUT_DIR, FILE_NAMES_LIST, ABILITY_NAMES_BLACKLIST, HEADER_PREFIXES, LINKING_BLACKLIST
 
 @dataclass(slots=True)
 class TextFile:
@@ -23,14 +23,17 @@ class TextFile:
 
     def add_linking(self, pattern_list : list[str]):
         """
+        AI generated
         Replaces any strings found in self.body that match a string in pattern_list with [[string]]
         If multiple strings in pattern_list match a string found in self.body, it takes the longest match.
         If self.name also occurs in pattern_list, it is not replaced.
         Only whole words will be replaced.
         Text in headings (a line starting with any amount of #) will not be replaced
+        Strings that should never be linked can be marked in LINKING_BLACKLIST
         """
+        blocked_patterns = [self.name, *LINKING_BLACKLIST]
         link_patterns = sorted(
-            (pattern for pattern in pattern_list if pattern != self.name),
+            (pattern for pattern in pattern_list if pattern not in blocked_patterns),
             key=len,
             reverse=True,
         )
@@ -38,16 +41,22 @@ class TextFile:
         if not link_patterns:
             return
 
-        pattern = re.compile(r"(?<!\w)(" + "|".join(re.escape(s) for s in link_patterns) + r")(?!\w)")
+        blacklist_patterns = sorted(LINKING_BLACKLIST, key=len, reverse=True)
+        all_patterns = blacklist_patterns + link_patterns
+        pattern = re.compile(r"(?<!\w)(" + "|".join(re.escape(s) for s in all_patterns) + r")(?!\w)")
+        blacklist_patterns = set(blacklist_patterns)
 
         new_body: list[str] = []
-        for line in self.body:
+        for body_line in self.body:
             linked_lines = []
-            for line in line.splitlines(keepends=True):
+            for line in body_line.splitlines(keepends=True):
                 if line.startswith(HEADER_PREFIXES):
                     linked_lines.append(line)
                 else:
-                    linked_lines.append(pattern.sub(lambda match: f"[[{match.group(0)}]]", line))
+                    linked_lines.append(pattern.sub(
+                        lambda match: match.group(0) if match.group(0) in blacklist_patterns else f"[[{match.group(0)}]]",
+                        line,
+                    ))
 
             new_body.append("".join(linked_lines))
 

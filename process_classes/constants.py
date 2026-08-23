@@ -19,6 +19,10 @@ LEVEL_5_HEADER = "##### "
 BOLD_HEADER    = "***"
 HEADER_PREFIXES = (LEVEL_1_HEADER, LEVEL_2_HEADER, LEVEL_3_HEADER, LEVEL_4_HEADER, LEVEL_5_HEADER,)
 
+LINKING_BLACKLIST = [
+    "Fly Speed"
+]
+
 # Ability names that are also in other classes
 ABILITY_NAMES_BLACKLIST = [
     "Bonus Proficiencies",
