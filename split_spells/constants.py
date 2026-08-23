@@ -8,6 +8,9 @@ SPELL_FILES_OUTPUT_DIR = Path(OUTPUT_DIR) / "Spells"
 SPELLS_INDEX_FILE      = Path(INPUT_DIR) / "Spells.md"
 SPELLS_INPUT_FILE      = Path(INPUT_DIR) / "all_spells.md"
 
+FILE_NAMES_LIST_OUTPUT_DIR = Path("links/.")
+FILE_NAMES_LIST            = FILE_NAMES_LIST_OUTPUT_DIR / Path("file_names.md")
+
 DUPLICATE_NAME_EXCEPTIONS = {
     "Light",
     "Slow",

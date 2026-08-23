@@ -1,9 +1,29 @@
 from pathlib import Path
 import re
 import shutil
+import logging
 
-from constants import OUTPUT_DIR, SPELLS_OUTPUT_ROOT, SPELL_FILES_OUTPUT_DIR, PATTERN_LIST
+from constants import OUTPUT_DIR, SPELLS_OUTPUT_ROOT, SPELL_FILES_OUTPUT_DIR, PATTERN_LIST, FILE_NAMES_LIST
 from custom_types import TextBody
+
+def log_file_name(file_name : str):
+    """
+    Add the name of this file to a list of filenames.
+    This list can be used for linking.
+    This function reports an error if a filename already exists to avoid duplicates.
+    """
+    # Create missing directories
+    FILE_NAMES_LIST.parent.mkdir(parents=True, exist_ok=True)
+    # Create file if it doesn't exist
+    FILE_NAMES_LIST.touch(exist_ok=True)
+
+    with FILE_NAMES_LIST.open("r", encoding="utf-8") as file:
+        for line in file:
+            if line.rstrip("\n") == file_name:
+                logging.error(f"TextFile.__log_file_name: filename {file_name} already present in list")
+
+    with open(FILE_NAMES_LIST, "a", encoding="utf-8") as file:
+        file.write(file_name + "\n")
 
 def write_file(file_title: str, file_body: list[str], output_path: Path):
     file_name: str = f"{file_title}.md"
@@ -12,6 +32,8 @@ def write_file(file_title: str, file_body: list[str], output_path: Path):
     with open(output_file, "w", encoding="utf-8") as file:
         for line in file_body:
             file.write(f"{line}\n")
+
+    log_file_name(file_name)
             
 def create_output_dirs():
     output_dir = Path(OUTPUT_DIR)
