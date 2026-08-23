@@ -29,6 +29,7 @@ class TextFile:
         If self.name also occurs in pattern_list, it is not replaced.
         Only whole words will be replaced.
         Text in headings (a line starting with any amount of #) will not be replaced
+        Text that has already been linked will not be linked again.
         Strings that should never be linked can be marked in LINKING_BLACKLIST
         """
         blocked_patterns = [self.name, *LINKING_BLACKLIST]
@@ -45,6 +46,7 @@ class TextFile:
         all_patterns = blacklist_patterns + link_patterns
         pattern = re.compile(r"(?<!\w)(" + "|".join(re.escape(s) for s in all_patterns) + r")(?!\w)")
         blacklist_patterns = set(blacklist_patterns)
+        existing_link_pattern = re.compile(r"(\[\[.*?\]\])")
 
         new_body: list[str] = []
         for body_line in self.body:
@@ -53,10 +55,17 @@ class TextFile:
                 if line.startswith(HEADER_PREFIXES):
                     linked_lines.append(line)
                 else:
-                    linked_lines.append(pattern.sub(
-                        lambda match: match.group(0) if match.group(0) in blacklist_patterns else f"[[{match.group(0)}]]",
-                        line,
-                    ))
+                    linked_line_parts = []
+                    for line_part in existing_link_pattern.split(line):
+                        if line_part.startswith("[[") and line_part.endswith("]]"):
+                            linked_line_parts.append(line_part)
+                        else:
+                            linked_line_parts.append(pattern.sub(
+                                lambda match: match.group(0) if match.group(0) in blacklist_patterns else f"[[{match.group(0)}]]",
+                                line_part,
+                            ))
+
+                    linked_lines.append("".join(linked_line_parts))
 
             new_body.append("".join(linked_lines))
 
