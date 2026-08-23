@@ -23,18 +23,31 @@ class TextFile:
 
     def add_linking(self, pattern_list : list[str]):
         """
-        Replaces any strings found in the file body that is also in pattern_list with [[string]].
-        If strings in pattern_list have overlap it should take the longest one.
-        If the name of this file also occurs in pattern_list, it should not be linked.
+        Replaces any strings found in self.body that match a string in pattern_list with [[string]]
+        If multiple strings in pattern_list match a string found in self.body, it takes the longest match.
+        If self.name also occurs in pattern_list, it is not replaced.
+        Only whole words will be replaced.
+        Text in headings (a line starting with any amount of #) will not be replaced
         """
-        new_body: list[str] = []
-        pattern_list = [pattern for pattern in pattern_list if pattern != self.name]
-        pattern = re.compile("|".join(re.escape(s) for s in pattern_list))
-        for line in self.body:
-            new_line = pattern.sub(lambda m: f"[[{m.group(0)}]]", line)
-            new_body.append(new_line)
+        link_patterns = sorted(
+            (pattern for pattern in pattern_list if pattern != self.name),
+            key=len,
+            reverse=True,
+        )
 
-        self.body = new_body
+        if not link_patterns:
+            return
+
+        pattern = re.compile(r"(?<!\w)(" + "|".join(re.escape(s) for s in link_patterns) + r")(?!\w)")
+        header_prefixes = ("# ", "## ", "### ", "#### ", "##### ")
+
+        def add_links_to_line(line: str) -> str:
+            if line.startswith(header_prefixes):
+                return line
+
+            return pattern.sub(lambda match: f"[[{match.group(0)}]]", line)
+
+        self.body = ["".join(add_links_to_line(line) for line in body_line.splitlines(keepends=True)) for body_line in self.body]
 
 def remove_dir(folder : Path):
     """
