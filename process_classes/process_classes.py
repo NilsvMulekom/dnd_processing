@@ -11,7 +11,7 @@ def process_class_list():
 
     # TODO: open_files?
     # TODO: TextFile to ClassTextFile function
-    for file_path in Path(TEST_INPUT_FILE).parent.glob("*.md"):
+    for file_path in sorted(Path(TEST_INPUT_FILE).parent.glob("*.md")):
         file : TextFile = open_file(file_path)
         class_file : ClassTextFile = ClassTextFile(
             name = file.name,
