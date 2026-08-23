@@ -22,6 +22,11 @@ class SubClass:
     # A dict that contains all abilities in a string. The bool indicates if the ability is unique
     __ability_names: dict[str, bool] = field(default_factory=dict)
 
+    def __post_init__(self):
+        self.__construct_class_abilities_list()
+        self.__split_class_abilities()
+        self.__replace_unique_abilities_with_links()
+
     def write_to_files(self, output_dir : Path = ""):
         if output_dir != "":
             write_text_file(self.sub_class_file, output_dir)
@@ -30,10 +35,9 @@ class SubClass:
         else:
             logging.error("SubClass.write_to_files: output_dir not set")
 
-    def __post_init__(self):
-        self.__construct_class_abilities_list()
-        self.__split_class_abilities()
-        self.__replace_unique_abilities_with_links()
+    def log_unique_ability_names(self):
+        for ability, is_unique in self.__ability_names.items():
+            logging.info(f"Ability: {ability}. unique: {is_unique}")
 
     def __add_unique_ability(self, ability_file : TextFile):
         if ability_file.name != "":
@@ -43,10 +47,6 @@ class SubClass:
                     self.abilities.append(ability_file)
             else:
                 logging.error(f"split_class_abilities: ability name {ability_file.name} not in ability_names")
-
-    def log_unique_ability_names(self):
-        for ability, is_unique in self.__ability_names.items():
-            logging.info(f"Ability: {ability}. unique: {is_unique}")
 
     def __construct_class_abilities_list(self):
         """
@@ -107,6 +107,16 @@ class BaseClass:
     def __post_init__(self):
         self.__split_into_sub_classes()
 
+    def print_to_file(self):
+        for sub_class in self.sub_classes:
+            # Find the base class and give it a different destination
+            if sub_class.name == self.name:
+                sub_class.sub_class_file.body += self.__create_index()
+                output_dir : Path = OUTPUT_DIR / Path(self.name)
+            else:
+                output_dir : Path = OUTPUT_DIR / Path(self.name) / SUBCLASSES_DIR
+            sub_class.write_to_files(output_dir)
+
     def __add_sub_class(self, sub_class_file: TextFile):
         """
         Add Textfile containing subclass body to sub_classes list
@@ -143,16 +153,6 @@ class BaseClass:
                 body.append(f"[[{sub_class.name}]]")
 
         return body
-
-    def print_to_file(self):
-        for sub_class in self.sub_classes:
-            # Find the base class and give it a different destination
-            if sub_class.name == self.name:
-                sub_class.sub_class_file.body += self.__create_index()
-                output_dir : Path = OUTPUT_DIR / Path(self.name)
-            else:
-                output_dir : Path = OUTPUT_DIR / Path(self.name) / SUBCLASSES_DIR
-            sub_class.write_to_files(output_dir)
 
 @dataclass(slots=True)
 class ClassSet:
