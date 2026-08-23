@@ -1,6 +1,29 @@
 
 ## Ranger
 
+| Level | Proficiency Bonus | Features | Favored Enemy | Prepared Spells | 1st | 2nd | 3rd | 4th | 5th |
+|---|---|---|---|---|---|---|---|---|---|
+| 1st | +2 | Spellcasting, Favored Enemy, Weapon Mastery | 2 | 2 | 2 | — | — | — | — |
+| 2nd | +2 | Deft Explorer, Fighting Style | 2 | 3 | 2 | — | — | — | — |
+| 3rd | +2 | Ranger Subclass | 2 | 4 | 3 | — | — | — | — |
+| 4th | +2 | Ability Score Improvement | 2 | 5 | 3 | — | — | — | — |
+| 5th | +3 | Extra Attack | 3 | 6 | 4 | 2 | — | — | — |
+| 6th | +3 | Roving | 3 | 6 | 4 | 2 | — | — | — |
+| 7th | +3 | Subclass Feature | 3 | 7 | 4 | 3 | — | — | — |
+| 8th | +3 | Ability Score Improvement | 3 | 7 | 4 | 3 | — | — | — |
+| 9th | +4 | Expertise | 4 | 9 | 4 | 3 | 2 | — | — |
+| 10th | +4 | Tireless | 4 | 9 | 4 | 3 | 2 | — | — |
+| 11th | +4 | Subclass Feature | 4 | 10 | 4 | 3 | 3 | — | — |
+| 12th | +4 | Ability Score Improvement | 4 | 10 | 4 | 3 | 3 | — | — |
+| 13th | +5 | Relentless Hunter | 5 | 11 | 4 | 3 | 3 | 1 | — |
+| 14th | +5 | Nature's Veil | 5 | 11 | 4 | 3 | 3 | 1 | — |
+| 15th | +5 | Subclass Feature | 5 | 12 | 4 | 3 | 3 | 2 | — |
+| 16th | +5 | Ability Score Improvement | 5 | 12 | 4 | 3 | 3 | 2 | — |
+| 17th | +6 | Precise Hunter | 6 | 14 | 4 | 3 | 3 | 3 | 1 |
+| 18th | +6 | Feral Senses | 6 | 14 | 4 | 3 | 3 | 3 | 1 |
+| 19th | +6 | Epic Boon | 6 | 15 | 4 | 3 | 3 | 3 | 2 |
+| 20th | +6 | Foe Slayer | 6 | 15 | 4 | 3 | 3 | 3 | 2 |
+
 #### Level 1: Spellcasting
 
 You have learned to channel the magical essence of nature to cast spells. See *chapter 7* for the rules on spellcasting. The information below details how you use those rules with Ranger spells, which appear in the Ranger spell list later in the class's description.

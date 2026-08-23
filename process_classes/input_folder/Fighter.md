@@ -1,6 +1,29 @@
 
 ## Fighter
 
+| Level | Proficiency Bonus | Features | Second Wind | Weapon Mastery |
+|---|---|---|---|---|
+| 1st | +2 | Fighting Style, Second Wind, Weapon Mastery | 2 | 3 |
+| 2nd | +2 | Action Surge, Tactical Mind | 2 | 3 |
+| 3rd | +2 | Fighter Subclass | 2 | 3 |
+| 4th | +2 | Ability Score Improvement | 3 | 4 |
+| 5th | +3 | Extra Attack, Tactical Shift | 3 | 4 |
+| 6th | +3 | Ability Score Improvement | 3 | 4 |
+| 7th | +3 | Subclass Feature | 3 | 4 |
+| 8th | +3 | Ability Score Improvement | 3 | 4 |
+| 9th | +4 | Indomitable, Tactical Master | 3 | 4 |
+| 10th | +4 | Subclass Feature | 4 | 5 |
+| 11th | +4 | Two Extra Attacks | 4 | 5 |
+| 12th | +4 | Ability Score Improvement | 4 | 5 |
+| 13th | +5 | Indomitable, Studied Attacks | 4 | 5 |
+| 14th | +5 | Ability Score Improvement | 4 | 5 |
+| 15th | +5 | Subclass Feature | 4 | 5 |
+| 16th | +5 | Ability Score Improvement | 4 | 6 |
+| 17th | +6 | Action Surge, Indomitable | 4 | 6 |
+| 18th | +6 | Subclass Feature | 4 | 6 |
+| 19th | +6 | Epic Boon | 4 | 6 |
+| 20th | +6 | Three Extra Attacks | 4 | 6 |
+
 #### Level 1: Fighting Style
 
 You have honed your martial prowess and gain a Fighting Style feat of your choice. Defense is recommended.

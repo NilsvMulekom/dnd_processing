@@ -1,6 +1,29 @@
 
 ## Bard
 
+| Level | Proficiency Bonus | Features | Bardic Die | Cantrips | Prepared Spells | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1st | +2 | Bardic Inspiration, Spellcasting | 1d6 | 2 | 4 | 2 | — | — | — | — | — | — | — | — |
+| 2nd | +2 | Expertise, Jack of All Trades | 1d6 | 2 | 5 | 3 | — | — | — | — | — | — | — | — |
+| 3rd | +2 | Bard Subclass | 1d6 | 2 | 6 | 4 | 2 | — | — | — | — | — | — | — |
+| 4th | +2 | Ability Score Improvement | 1d6 | 3 | 7 | 4 | 3 | — | — | — | — | — | — | — |
+| 5th | +3 | Font of Inspiration | 1d8 | 3 | 9 | 4 | 3 | 2 | — | — | — | — | — | — |
+| 6th | +3 | Subclass Feature | 1d8 | 3 | 10 | 4 | 3 | 3 | — | — | — | — | — | — |
+| 7th | +3 | Countercharm | 1d8 | 3 | 11 | 4 | 3 | 3 | 1 | — | — | — | — | — |
+| 8th | +3 | Ability Score Improvement | 1d8 | 3 | 12 | 4 | 3 | 3 | 2 | — | — | — | — | — |
+| 9th | +4 | Expertise | 1d8 | 3 | 14 | 4 | 3 | 3 | 3 | 1 | — | — | — | — |
+| 10th | +4 | Magical Secrets | 1d10 | 4 | 15 | 4 | 3 | 3 | 3 | 2 | — | — | — | — |
+| 11th | +4 | — | 1d10 | 4 | 16 | 4 | 3 | 3 | 3 | 2 | 1 | — | — | — |
+| 12th | +4 | Ability Score Improvement | 1d10 | 4 | 16 | 4 | 3 | 3 | 3 | 2 | 1 | — | — | — |
+| 13th | +5 | — | 1d10 | 4 | 17 | 4 | 3 | 3 | 3 | 2 | 1 | 1 | — | — |
+| 14th | +5 | Subclass Feature | 1d10 | 4 | 17 | 4 | 3 | 3 | 3 | 2 | 1 | 1 | — | — |
+| 15th | +5 | — | 1d12 | 4 | 18 | 4 | 3 | 3 | 3 | 2 | 1 | 1 | 1 | — |
+| 16th | +5 | Ability Score Improvement | 1d12 | 4 | 18 | 4 | 3 | 3 | 3 | 2 | 1 | 1 | 1 | — |
+| 17th | +6 | — | 1d12 | 4 | 19 | 4 | 3 | 3 | 3 | 2 | 1 | 1 | 1 | 1 |
+| 18th | +6 | Superior Inspiration | 1d12 | 4 | 20 | 4 | 3 | 3 | 3 | 3 | 1 | 1 | 1 | 1 |
+| 19th | +6 | Epic Boon | 1d12 | 4 | 21 | 4 | 3 | 3 | 3 | 3 | 2 | 1 | 1 | 1 |
+| 20th | +6 | Words of Creation | 1d12 | 4 | 22 | 4 | 3 | 3 | 3 | 3 | 2 | 2 | 1 | 1 |
+
 #### Level 1: Bardic Inspiration
 
 You can supernaturally inspire others through words, music, or dance. This inspiration is represented by your Bardic Inspiration die, which is a d6.

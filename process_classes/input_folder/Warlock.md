@@ -1,6 +1,29 @@
 
 ## Warlock
 
+| Level | Proficiency Bonus | Features | Invocations | Cantrips | Prepared Spells | Spell Slots | Slot Level |
+|---|---|---|---|---|---|---|---|
+| 1st | +2 | Eldritch Invocations, Pact Magic, Eldritch Invocation Options | 1 | 2 | 2 | 1 | 1 |
+| 2nd | +2 | Magical Cunning | 3 | 2 | 3 | 2 | 1 |
+| 3rd | +2 | Warlock Subclass | 3 | 2 | 4 | 2 | 2 |
+| 4th | +2 | Ability Score Improvement | 3 | 3 | 5 | 2 | 2 |
+| 5th | +3 | — | 5 | 3 | 6 | 2 | 3 |
+| 6th | +3 | Subclass Feature | 5 | 3 | 7 | 2 | 3 |
+| 7th | +3 | — | 6 | 3 | 8 | 2 | 4 |
+| 8th | +3 | Ability Score Improvement | 6 | 3 | 9 | 2 | 4 |
+| 9th | +4 | Contact Patron | 7 | 3 | 10 | 2 | 5 |
+| 10th | +4 | Subclass Feature | 7 | 4 | 10 | 2 | 5 |
+| 11th | +4 | Mystic Arcanum | 7 | 4 | 11 | 3 | 5 |
+| 12th | +4 | Ability Score Improvement | 8 | 4 | 11 | 3 | 5 |
+| 13th | +5 | Mystic Arcanum | 8 | 4 | 12 | 3 | 5 |
+| 14th | +5 | Subclass Feature | 8 | 4 | 12 | 3 | 5 |
+| 15th | +5 | Mystic Arcanum | 9 | 4 | 13 | 3 | 5 |
+| 16th | +5 | Ability Score Improvement | 9 | 4 | 13 | 3 | 5 |
+| 17th | +6 | Mystic Arcanum | 9 | 4 | 14 | 4 | 5 |
+| 18th | +6 | — | 10 | 4 | 14 | 4 | 5 |
+| 19th | +6 | Epic Boon | 10 | 4 | 15 | 4 | 5 |
+| 20th | +6 | Eldritch Master | 10 | 4 | 15 | 4 | 5 |
+
 #### Level 1: Eldritch Invocations
 
 You have unearthed Eldritch Invocations, pieces of forbidden knowledge that imbue you with an abiding magical ability or other lessons. You gain one invocation of your choice, such as Pact of the Tome. Invocations are described in the "Eldritch Invocation Options" section later in this class's description.

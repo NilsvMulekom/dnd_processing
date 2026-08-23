@@ -1,6 +1,29 @@
 
 ## Wizard
 
+| Level | Proficiency Bonus | Features | Cantrips | Prepared Spells | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th | 9th |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1st | +2 | Spellcasting, Ritual Adept, Arcane Recovery | 3 | 4 | 2 | — | — | — | — | — | — | — | — |
+| 2nd | +2 | Scholar | 3 | 5 | 3 | — | — | — | — | — | — | — | — |
+| 3rd | +2 | Wizard Subclass | 3 | 6 | 4 | 2 | — | — | — | — | — | — | — |
+| 4th | +2 | Ability Score Improvement | 4 | 7 | 4 | 3 | — | — | — | — | — | — | — |
+| 5th | +3 | Memorize Spell | 4 | 9 | 4 | 3 | 2 | — | — | — | — | — | — |
+| 6th | +3 | Subclass Feature | 4 | 10 | 4 | 3 | 3 | — | — | — | — | — | — |
+| 7th | +3 | — | 4 | 11 | 4 | 3 | 3 | 1 | — | — | — | — | — |
+| 8th | +3 | Ability Score Improvement | 4 | 12 | 4 | 3 | 3 | 2 | — | — | — | — | — |
+| 9th | +4 | — | 4 | 14 | 4 | 3 | 3 | 3 | 1 | — | — | — | — |
+| 10th | +4 | Subclass Feature | 5 | 15 | 4 | 3 | 3 | 3 | 2 | — | — | — | — |
+| 11th | +4 | — | 5 | 16 | 4 | 3 | 3 | 3 | 2 | 1 | — | — | — |
+| 12th | +4 | Ability Score Improvement | 5 | 16 | 4 | 3 | 3 | 3 | 2 | 1 | — | — | — |
+| 13th | +5 | — | 5 | 17 | 4 | 3 | 3 | 3 | 2 | 1 | 1 | — | — |
+| 14th | +5 | Subclass Feature | 5 | 18 | 4 | 3 | 3 | 3 | 2 | 1 | 1 | — | — |
+| 15th | +5 | — | 5 | 19 | 4 | 3 | 3 | 3 | 2 | 1 | 1 | 1 | — |
+| 16th | +5 | Ability Score Improvement | 5 | 21 | 4 | 3 | 3 | 3 | 2 | 1 | 1 | 1 | — |
+| 17th | +6 | — | 5 | 22 | 4 | 3 | 3 | 3 | 2 | 1 | 1 | 1 | 1 |
+| 18th | +6 | Spell Mastery | 5 | 23 | 4 | 3 | 3 | 3 | 3 | 1 | 1 | 1 | 1 |
+| 19th | +6 | Epic Boon | 5 | 24 | 4 | 3 | 3 | 3 | 3 | 2 | 1 | 1 | 1 |
+| 20th | +6 | Signature Spells | 5 | 25 | 4 | 3 | 3 | 3 | 3 | 2 | 2 | 1 | 1 |
+
 #### Level 1: Spellcasting
 
 As a student of arcane magic, you have learned to cast spells. See *chapter 7* for the rules on spellcasting. The information below details how you use those rules with Wizard spells, which appear in the Wizard spell list later in the class's description.

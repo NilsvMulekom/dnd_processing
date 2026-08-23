@@ -1,6 +1,29 @@
 
 ## Artificer
 
+| Level | Proficiency Bonus | Features | Plans Known | Magic Items | Cantrips | Prepared Spells | 1st | 2nd | 3rd | 4th | 5th |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1st | +2 | Spellcasting, Tinker's Magic | — | — | 2 | 2 | 2 | — | — | — | — |
+| 2nd | +2 | Replicate Magic Item | 4 | 2 | 2 | 3 | 2 | — | — | — | — |
+| 3rd | +2 | Artificer Subclass | 4 | 2 | 2 | 4 | 3 | — | — | — | — |
+| 4th | +2 | Ability Score Improvement | 4 | 2 | 2 | 5 | 3 | — | — | — | — |
+| 5th | +3 | Subclass feature | 4 | 2 | 2 | 6 | 4 | 2 | — | — | — |
+| 6th | +3 | Magic Item Tinker | 5 | 3 | 2 | 6 | 4 | 2 | — | — | — |
+| 7th | +3 | Flash of Genius | 5 | 3 | 2 | 7 | 4 | 3 | — | — | — |
+| 8th | +3 | Ability Score Improvement | 5 | 3 | 2 | 7 | 4 | 3 | — | — | — |
+| 9th | +4 | Subclass feature | 5 | 3 | 2 | 9 | 4 | 3 | 2 | — | — |
+| 10th | +4 | Magic Item Adept | 6 | 4 | 3 | 9 | 4 | 3 | 2 | — | — |
+| 11th | +4 | Spell-Storing Item | 6 | 4 | 3 | 10 | 4 | 3 | 3 | — | — |
+| 12th | +4 | Ability Score Improvement | 6 | 4 | 3 | 10 | 4 | 3 | 3 | — | — |
+| 13th | +5 | — | 6 | 4 | 3 | 11 | 4 | 3 | 3 | 1 | — |
+| 14th | +5 | Advanced Artifice | 7 | 5 | 4 | 11 | 4 | 3 | 3 | 1 | — |
+| 15th | +5 | Subclass feature | 7 | 5 | 4 | 12 | 4 | 3 | 3 | 2 | — |
+| 16th | +5 | Ability Score Improvement | 7 | 5 | 4 | 12 | 4 | 3 | 3 | 2 | — |
+| 17th | +6 | — | 7 | 5 | 4 | 14 | 4 | 3 | 3 | 3 | 1 |
+| 18th | +6 | Magic Item Master | 8 | 6 | 4 | 14 | 4 | 3 | 3 | 3 | 1 |
+| 19th | +6 | Epic Boon | 8 | 6 | 4 | 15 | 4 | 3 | 3 | 3 | 2 |
+| 20th | +6 | Soul of Artifice | 8 | 6 | 4 | 15 | 4 | 3 | 3 | 3 | 2 |
+
 #### Level 1: Spellcasting
 
 You have learned how to channel magical energy through objects. See the *Player's Handbook* for the rules on spellcasting. The information below details how you use those rules with Artificer spells, which appear in the Artificer spell list later in the class's description.

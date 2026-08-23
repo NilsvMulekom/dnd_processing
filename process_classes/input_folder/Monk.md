@@ -1,6 +1,29 @@
 
 ## Monk
 
+| Level | Proficiency Bonus | Features | Martial Arts | Focus Points | Unarmored Movement |
+|---|---|---|---|---|---|
+| 1st | +2 | Martial Arts, Unarmored Defense | 1d6 | — | — |
+| 2nd | +2 | Monk's Focus, Unarmored Movement, Uncanny Metabolism | 1d6 | 2 | +10 ft. |
+| 3rd | +2 | Deflect Attacks, Monk Subclass | 1d6 | 3 | +10 ft. |
+| 4th | +2 | Ability Score Improvement, Slow Fall | 1d6 | 4 | +10 ft. |
+| 5th | +3 | Extra Attack, Stunning Strike | 1d8 | 5 | +10 ft. |
+| 6th | +3 | Empowered Strikes, Subclass Feature | 1d8 | 6 | +15 ft. |
+| 7th | +3 | Evasion | 1d8 | 7 | +15 ft. |
+| 8th | +3 | Ability Score Improvement | 1d8 | 8 | +15 ft. |
+| 9th | +4 | Acrobatic Movement | 1d8 | 9 | +15 ft. |
+| 10th | +4 | Heightened Focus, Self-Restoration | 1d8 | 10 | +20 ft. |
+| 11th | +4 | Subclass Feature | 1d10 | 11 | +20 ft. |
+| 12th | +4 | Ability Score Improvement | 1d10 | 12 | +20 ft. |
+| 13th | +5 | Deflect Energy | 1d10 | 13 | +20 ft. |
+| 14th | +5 | Disciplined Survivor | 1d10 | 14 | +25 ft. |
+| 15th | +5 | Perfect Focus | 1d10 | 15 | +25 ft. |
+| 16th | +5 | Ability Score Improvement | 1d10 | 16 | +25 ft. |
+| 17th | +6 | Subclass Feature | 1d12 | 17 | +25 ft. |
+| 18th | +6 | Superior Defense | 1d12 | 18 | +30 ft. |
+| 19th | +6 | Epic Boon | 1d12 | 19 | +30 ft. |
+| 20th | +6 | Body and Mind | 1d12 | 20 | +30 ft. |
+
 #### Level 1: Martial Arts
 
 Your practice of martial arts gives you mastery of combat styles that use your Unarmed Strike and Monk weapons, which are the following:

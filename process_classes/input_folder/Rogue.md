@@ -1,6 +1,29 @@
 
 ## Rogue
 
+| Level | Proficiency Bonus | Features | Sneak Attack | Die Size | Number |
+|---|---|---|---|---|---|
+| 1st | +2 | Expertise, Sneak Attack, Thieves' Cant, Weapon Mastery | 1d6 | — | — |
+| 2nd | +2 | Cunning Action | 1d6 | — | — |
+| 3rd | +2 | Rogue Subclass, Steady Aim | 2d6 | D6 | 4 |
+| 4th | +2 | Ability Score Improvement | 2d6 | D6 | 4 |
+| 5th | +3 | Cunning Strike, Uncanny Dodge | 3d6 | D8 | 6 |
+| 6th | +3 | Expertise | 3d6 | D8 | 6 |
+| 7th | +3 | Evasion, Reliable Talent | 4d6 | D8 | 6 |
+| 8th | +3 | Ability Score Improvement | 4d6 | D8 | 6 |
+| 9th | +4 | Subclass Feature | 5d6 | D8 | 8 |
+| 10th | +4 | Ability Score Improvement | 5d6 | D8 | 8 |
+| 11th | +4 | Improved Cunning Strike | 6d6 | D10 | 8 |
+| 12th | +4 | Ability Score Improvement | 6d6 | D10 | 8 |
+| 13th | +5 | Subclass Feature | 7d6 | D10 | 10 |
+| 14th | +5 | Devious Strikes | 7d6 | D10 | 10 |
+| 15th | +5 | Slippery Mind | 8d6 | D10 | 10 |
+| 16th | +5 | Ability Score Improvement | 8d6 | D10 | 10 |
+| 17th | +6 | Subclass Feature | 9d6 | D12 | 12 |
+| 18th | +6 | Elusive | 9d6 | D12 | 12 |
+| 19th | +6 | Epic Boon | 10d6 | D12 | 12 |
+| 20th | +6 | Stroke of Luck | 10d6 | D12 | 12 |
+
 #### Level 1: Expertise
 
 You gain Expertise in two of your skill proficiencies of your choice. Sleight of Hand and Stealth are recommended if you have proficiency in them.
