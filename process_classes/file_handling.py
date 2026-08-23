@@ -3,7 +3,7 @@ import re
 import logging
 from pathlib import Path
 from dataclasses import dataclass
-from constants import DIAGNOSTIC_OUTPUT_DIR, FILE_NAMES_LIST, ABILITY_NAMES_BLACKLIST
+from constants import DIAGNOSTIC_OUTPUT_DIR, FILE_NAMES_LIST, ABILITY_NAMES_BLACKLIST, HEADER_PREFIXES
 
 @dataclass(slots=True)
 class TextFile:
@@ -39,15 +39,19 @@ class TextFile:
             return
 
         pattern = re.compile(r"(?<!\w)(" + "|".join(re.escape(s) for s in link_patterns) + r")(?!\w)")
-        header_prefixes = ("# ", "## ", "### ", "#### ", "##### ")
 
-        def add_links_to_line(line: str) -> str:
-            if line.startswith(header_prefixes):
-                return line
+        new_body: list[str] = []
+        for line in self.body:
+            linked_lines = []
+            for line in line.splitlines(keepends=True):
+                if line.startswith(HEADER_PREFIXES):
+                    linked_lines.append(line)
+                else:
+                    linked_lines.append(pattern.sub(lambda match: f"[[{match.group(0)}]]", line))
 
-            return pattern.sub(lambda match: f"[[{match.group(0)}]]", line)
+            new_body.append("".join(linked_lines))
 
-        self.body = ["".join(add_links_to_line(line) for line in body_line.splitlines(keepends=True)) for body_line in self.body]
+        self.body = new_body
 
 def remove_dir(folder : Path):
     """
