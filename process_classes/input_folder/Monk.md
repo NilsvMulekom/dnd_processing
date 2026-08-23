@@ -1,6 +1,23 @@
 
 ## Monk
 
+##### Core Traits
+
+| Trait | Value |
+|---|---|
+| Primary Ability | Dexterity and Wisdom |
+| Hit Point Die | D8 per Monk level |
+| Hit Points at Level 1 | 8 + Con. modifier |
+| Hit Points per additional Monk Level | D8 + your Con. modifier, or, 5 + your Con. modifier |
+| Saving Throw Proficiencies | Strength, Dexterity |
+| Skill Proficiencies | Choose 2: Acrobatics, Athletics, History, Insight, Religion, or Stealth. |
+| Weapon Proficiencies | Simple weapons and Martial weapons that have the Light property |
+| Tool Proficiencies | Choose one type of Artisan's Tools or Musical Instrument |
+| Starting Equipment | Choose A or B: (A) Spear, 5 Daggers, Artisan's Tools or Musical Instrument chosen for the tool proficiency above, Explorer's Pack, and 11 GP; or (B) 50 GP |
+
+##### Multiclassing
+To qualify for a new class, you must have a score of at least 13 in the primary a
+
 | Level | Proficiency Bonus | Features | Martial Arts | Focus Points | Unarmored Movement |
 |---|---|---|---|---|---|
 | 1st | +2 | Martial Arts, Unarmored Defense | 1d6 | — | — |

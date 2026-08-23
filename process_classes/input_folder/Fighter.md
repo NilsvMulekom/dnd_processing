@@ -1,6 +1,25 @@
 
 ## Fighter
 
+##### Core Traits
+
+| Trait | Value |
+|---|---|
+| Primary Ability | Strength or Dexterity |
+| Hit Point Die | D10 per Fighter level |
+| Hit Points at Level 1 | 10 + Con. modifier |
+| Hit Points per additional Fighter Level | D10 + your Con. modifier, or, 6 + your Con. modifier |
+| Saving Throw Proficiencies | Strength, Constitution |
+| Skill Proficiencies | Choose 2: Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Persuasion, Perception, or Survival. |
+| Weapon Proficiencies | Simple and Martial weapons |
+| Armor Training | Light, Medium, and Heavy armor and Shields |
+| Starting Equipment | Choose A, B, or C: (A) Chain Mail, Greatsword, Flail, 8 Javelins, Dungeoneer's Pack, and 4 GP; (B) Studded Leather Armor, Scimitar, Shortsword, Longbow, 20 Arrows, Quiver, Dungeoneer's Pack, and 11 GP; or (C) 155 GP |
+
+##### Multiclassing
+To qualify for a new class, you must have a score of at least 13 in the primary ability of the new class and your current classes.
+Weapon Proficiencies: Martial weapons
+Armor Training: Light and Medium armor and Shields
+
 | Level | Proficiency Bonus | Features | Second Wind | Weapon Mastery |
 |---|---|---|---|---|
 | 1st | +2 | Fighting Style, Second Wind, Weapon Mastery | 2 | 3 |

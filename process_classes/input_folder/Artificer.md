@@ -1,6 +1,27 @@
 
 ## Artificer
 
+##### Core Traits
+
+| Trait | Value |
+|---|---|
+| Primary Ability | Intelligence |
+| Hit Point Die | D8 per Artificer level |
+| Hit Points at Level 1 | 8 + Con. modifier |
+| Hit Points per additional Artificer Level | D8 + your Con. modifier, or, 5 + your Con. modifier |
+| Saving Throw Proficiencies | Constitution, Intelligence |
+| Skill Proficiencies | Choose 2: Arcana, History, Investigation, Medicine, Nature, Perception, or Sleight of Hand. |
+| Weapon Proficiencies | Simple weapons |
+| Tool Proficiencies | Thieves' Tools, Tinker's Tools, and one type of Artisan's Tools of your choice |
+| Armor Training | Light and Medium armor and Shields |
+| Starting Equipment | Choose A or B: (A) Studded Leather Armor, Dagger, Thieves' Tools, Tinker's Tools, Dungeoneer's Pack, and 16 GP; or (B) 150 GP |
+
+##### Multiclassing
+To qualify for a new class, you must have a score of at least 13 in the primary ability of the new class and your current classes.
+Skill Proficiencies: Choose 1: Arcana, History, Investigation, Medicine, Nature, Perception, or Sleight of Hand.
+Tool Proficiencies: Tinker's Tools
+Armor Training: Light and Medium armor and Shields
+
 | Level | Proficiency Bonus | Features | Plans Known | Magic Items | Cantrips | Prepared Spells | 1st | 2nd | 3rd | 4th | 5th |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 1st | +2 | Spellcasting, Tinker's Magic | — | — | 2 | 2 | 2 | — | — | — | — |

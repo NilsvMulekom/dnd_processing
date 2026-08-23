@@ -1,6 +1,26 @@
 
 ## Ranger
 
+##### Core Traits
+
+| Trait | Value |
+|---|---|
+| Primary Ability | Dexterity and Wisdom |
+| Hit Point Die | D10 per Ranger level |
+| Hit Points at Level 1 | 10 + Con. modifier |
+| Hit Points per additional Ranger Level | D10 + your Con. modifier, or, 6 + your Con. modifier |
+| Saving Throw Proficiencies | Strength, Dexterity |
+| Skill Proficiencies | Choose 3: Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, or Survival. |
+| Weapon Proficiencies | Simple and Martial weapons |
+| Armor Training | Light and Medium armor and Shields |
+| Starting Equipment | Choose A or B: (A) Studded Leather Armor, Scimitar, Shortsword, Longbow, 20 Arrows, Quiver, Druidic Focus (sprig of mistletoe), Explorer's Pack, and 7 GP; or (B) 150 GP |
+
+##### Multiclassing
+To qualify for a new class, you must have a score of at least 13 in the primary ability of the new class and your current classes.
+Skill Proficiencies: Choose 1: Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, or Survival.
+Weapon Proficiencies: Martial weapons
+Armor Training: Light and Medium armor and Shields
+
 | Level | Proficiency Bonus | Features | Favored Enemy | Prepared Spells | 1st | 2nd | 3rd | 4th | 5th |
 |---|---|---|---|---|---|---|---|---|---|
 | 1st | +2 | Spellcasting, Favored Enemy, Weapon Mastery | 2 | 2 | 2 | — | — | — | — |
