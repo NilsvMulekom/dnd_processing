@@ -20,7 +20,6 @@
 # Bugs
 
 # TODO: create_index is not alphabetical
-# TODO: Fix the bit in the rogue inputs
 
 # Finishing up
 
