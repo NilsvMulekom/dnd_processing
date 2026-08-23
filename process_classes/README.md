@@ -1,12 +1,11 @@
 # Core functionality
 
 # TODO: Move to centralized function to generate all documents, then add all linking then print all
+# TODO: Switch to using alias names to allow for duplicate file names
 
 # Features
 
 # TODO: Add core traits
-# TODO: Add overarching class that contains all
-# TODO: Find a cleaner solution for the blacklist or make it work better
 
 # Improvements
 
@@ -20,7 +19,6 @@
 
 # Bugs
 
-# TODO: Fix that a class will still link its own name
 # TODO: create_index is not alphabetical
 # TODO: Fix the bit in the rogue inputs
 
