@@ -21,9 +21,20 @@ BOLD_HEADER    = "***"
 
 # Ability names that are also in other classes
 ABILITY_NAMES_BLACKLIST = [
+    "Bonus Proficiencies",
+    "Bonus Proficiency",
+    "Channel Divinity",
+    "Epic Boon",
+    "Evasion",
     "Extra Attack",
+    "Fighting Style",
+    "Psionic Power",
+    "Spell Breaker",
     "Spellcasting",
-    "Epic Boon"
+    "Tools of the Trade",
+    "War Magic",
+    "Unarmored Defense",
+    "Weapon Mastery",
 ]
 
 PATTERN_LIST = [
