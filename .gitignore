@@ -3,4 +3,5 @@ process_classes/Classes/
 __pycache__/
 *_old/
 diag/
+links/
 git_issue_fix.sh

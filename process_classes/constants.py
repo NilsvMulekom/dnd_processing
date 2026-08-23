@@ -2,9 +2,13 @@ from pathlib import Path
 
 OUTPUT_DIR = Path("Classes")
 INPUT_DIR  = Path("input_folder")
+# INPUT_DIR = Path("diag_input_folder")
 SUBCLASSES_DIR = Path("SubClasses")
 CLASS_ABILITIES_DIR = Path("ClassAbilities")
 DIAGNOSTIC_OUTPUT_DIR = Path("diag/.")
+# TODO: rename
+FILE_NAMES_LIST_OUTPUT_DIR = Path("links/.")
+FILE_NAMES_LIST            = FILE_NAMES_LIST_OUTPUT_DIR / Path("file_names.md")
 
 TEST_INPUT_FILE = Path(INPUT_DIR) / "Barbarian.md"
 
@@ -14,6 +18,13 @@ LEVEL_3_HEADER = "### "
 LEVEL_4_HEADER = "#### "
 LEVEL_5_HEADER = "##### "
 BOLD_HEADER    = "***"
+
+# Ability names that are also in other classes
+ABILITY_NAMES_BLACKLIST = [
+    "Extra Attack",
+    "Spellcasting",
+    "Epic Boon"
+]
 
 PATTERN_LIST = [
     "Blinded",

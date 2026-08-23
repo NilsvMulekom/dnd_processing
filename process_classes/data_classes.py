@@ -4,15 +4,10 @@ import logging
 logging.basicConfig(level=logging.INFO)
 from dataclasses import dataclass, field
 
-from constants import OUTPUT_DIR, SUBCLASSES_DIR, CLASS_ABILITIES_DIR, LEVEL_1_HEADER, LEVEL_2_HEADER
+from constants import OUTPUT_DIR, SUBCLASSES_DIR, CLASS_ABILITIES_DIR, LEVEL_1_HEADER, LEVEL_2_HEADER, ABILITY_NAMES_BLACKLIST
 from custom_types import TextFile, ClassTextFile
 from file_handling import write_text_file
 
-# Ability names that are also in other classes
-ABILITY_NAMES_BLACKLIST = [
-    "Extra Attack",
-    "Spellcasting",
-]
 @dataclass(slots=True)
 class SubClass:
     name           : str
