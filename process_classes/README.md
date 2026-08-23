@@ -5,8 +5,6 @@
 
 # Features
 
-# TODO: Add core traits
-
 # Improvements
 
 # TODO: Improve linking
