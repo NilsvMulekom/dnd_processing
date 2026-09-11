@@ -209,3 +209,5 @@ When you reach character levels 3 and 5, you learn a higher-level spell, as show
 | Infernal | You have Resistance to Fire damage. You also know the *Fire Bolt* cantrip.       | *Hellish Rebuke*  | *Darkness*            |
 
 ***Otherworldly Presence.*** You know the *Thaumaturgy* cantrip. When you cast it with this trait, the spell uses the same spellcasting ability you use for your Fiendish Legacy Trait.
+
+---
