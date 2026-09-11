@@ -2,6 +2,7 @@ split_spells/Spells/
 process_classes/Classes/
 split_feats/Feats/
 split_races/Races/
+split_backgrounds/Backgrounds
 __pycache__/
 *_old/
 diag/
