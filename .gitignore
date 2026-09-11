@@ -1,5 +1,6 @@
 split_spells/Spells/
 process_classes/Classes/
+split_feats/Feats/
 __pycache__/
 *_old/
 diag/
