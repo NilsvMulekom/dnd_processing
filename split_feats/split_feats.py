@@ -5,6 +5,9 @@ from file_handling import TextFile, remove_dir, open_file, write_text_file
 
 from constants import OUTPUT_DIR, INPUT_DIR, DIAGNOSTIC_OUTPUT_DIR, FILE_NAMES_LIST_OUTPUT_DIR, PATTERN_LIST
 
+# TODO: properly make headings
+# TODO: no linking in headings
+
 def split_files(input_file : TextFile) -> list[TextFile]:
     feat_list: list[TextFile] = []
     open_feat : TextFile = TextFile(name = "", body = [])
@@ -32,7 +35,8 @@ def add_linking(input_file : TextFile) -> TextFile:
 
     new_body: list[str] = []
 
-    pattern = re.compile("|".join(re.escape(s) for s in PATTERN_LIST))
+    escaped_patterns = [re.escape(s) for s in sorted(PATTERN_LIST, key=len, reverse=True)]
+    pattern = re.compile(rf"(?<!\w)({'|'.join(escaped_patterns)})(?!\w)")
     for line in input_file.body:
         new_line = pattern.sub(lambda m: f"[[{m.group(0)}]]", line)
         new_body.append(new_line)
