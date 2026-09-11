@@ -10,8 +10,11 @@ def split_files(input_file : TextFile) -> list[TextFile]:
     open_feat : TextFile = TextFile(name = "", body = [])
 
     for line in input_file.body:
-        # End of the feat
-        if open_feat.name != "":
+        if len(open_feat.body) == 0 and line == "":
+            # Remove the first line if it is empty
+            pass
+        elif open_feat.name != "":
+            # End of the feat
             if line.startswith("---"):
                 # Close feat and add to list
                 feat_list.append(open_feat)
@@ -22,7 +25,6 @@ def split_files(input_file : TextFile) -> list[TextFile]:
           # Cut off the first 3 characters to get the feat name
             feat_name: str = line[3:]
             open_feat.name = feat_name
-            open_feat.body.append(line)
 
     return feat_list
 
